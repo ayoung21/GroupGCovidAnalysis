@@ -165,6 +165,57 @@ namespace Covid19Analysis
 
                 this.covidLocationData = this.covidCollection.GetLocationData(LocationOfInterest);
             }
+
+            if (this.covidLocationData.DuplicateCases.Count > 0)
+            {
+                await this.displayDuplicateCases();
+            }
+        }
+
+        private async Task displayDuplicateCases()
+        {
+            IList<CovidCase> tempList = new List<CovidCase>();
+
+            if (this.covidLocationData == null || this.covidLocationData.DuplicateCases.Count == 0)
+            {
+                this.displayDialogNoDuplicateKeysFound();
+            }
+
+            if (this.covidLocationData != null && this.covidLocationData.DuplicateCases.Count > 0)
+            {
+
+                var skipOrReplaceDialog = new DuplicateEntryContentDialog();
+
+                for (var i = 0; i < this.covidLocationData.DuplicateCases.Count; i++)
+                {
+                    skipOrReplaceDialog.Subtitle = $"There are {this.covidLocationData.DuplicateCases.Count - i} items with the same date";
+                    skipOrReplaceDialog.Message = this.covidLocationData.DuplicateCases[i].ToString();
+                    skipOrReplaceDialog.UpdateContent();
+
+                    if (!skipOrReplaceDialog.IsChecked)
+                    {
+                        var result = await skipOrReplaceDialog.ShowAsync();
+
+                        if (result == ContentDialogResult.Primary)
+                        {
+                            this.covidLocationData.FindAndReplace(this.covidLocationData.DuplicateCases[i]);
+                            tempList.Add(this.covidLocationData.DuplicateCases[i]);
+                        }
+                    }
+                    else if (skipOrReplaceDialog.IsChecked && skipOrReplaceDialog.LastKnownButtonPress == "Primary")
+                    {
+                        this.covidLocationData.FindAndReplace(this.covidLocationData.DuplicateCases[i]);
+                        tempList.Add(this.covidLocationData.DuplicateCases[i]);
+                    }
+                }
+
+                var itemsRemoved = this.removeDuplicateItems(tempList);
+                tempList.Clear();
+                if (itemsRemoved > 0)
+                {
+                    this.promptItemsHaveBeenReplaced(itemsRemoved);
+                }
+            }
         }
 
         private async Task displayInformation()
@@ -203,51 +254,6 @@ namespace Covid19Analysis
                 var message =
                     "Invalid File. Please make sure you have chosen the correct file or ensure the file is in the proper format.";
                 this.summaryTextBox.Text = message;
-            }
-        }
-
-        private async void duplicateCasesButton_Click(object sender, RoutedEventArgs e)
-        {
-            IList<CovidCase> tempList = new List<CovidCase>();
-
-            if (this.covidLocationData == null || this.covidLocationData.DuplicateCases.Count == 0)
-            {
-                this.displayDialogNoDuplicateKeysFound();
-            }
-
-            if (this.covidLocationData != null && this.covidLocationData.DuplicateCases.Count > 0)
-            {
-
-                var skipOrReplaceDialog = new DuplicateEntryContentDialog();
-
-                for (var i = 0; i < this.covidLocationData.DuplicateCases.Count; i++)
-                {
-                    skipOrReplaceDialog.Subtitle = $"There are {this.covidLocationData.DuplicateCases.Count - i} items with the same date";
-                    skipOrReplaceDialog.Message = this.covidLocationData.DuplicateCases[i].ToString();
-                    skipOrReplaceDialog.UpdateContent();
-
-                    if (!skipOrReplaceDialog.IsChecked)
-                    { 
-                        var result = await skipOrReplaceDialog.ShowAsync();
-
-                        if (result == ContentDialogResult.Primary)
-                        {
-                            this.covidLocationData.FindAndReplace(this.covidLocationData.DuplicateCases[i]);
-                            tempList.Add(this.covidLocationData.DuplicateCases[i]);
-                        }
-                    } else if (skipOrReplaceDialog.IsChecked && skipOrReplaceDialog.LastKnownButtonPress == "Primary")
-                    {
-                        this.covidLocationData.FindAndReplace(this.covidLocationData.DuplicateCases[i]);
-                        tempList.Add(this.covidLocationData.DuplicateCases[i]);
-                    }
-                }
-
-                var itemsRemoved = this.removeDuplicateItems(tempList);
-                tempList.Clear();
-                if (itemsRemoved > 0)
-                {
-                    this.promptItemsHaveBeenReplaced(itemsRemoved);
-                }
             }
         }
 
