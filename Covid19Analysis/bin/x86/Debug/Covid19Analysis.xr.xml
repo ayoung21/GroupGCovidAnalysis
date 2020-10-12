@@ -28,7 +28,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="IsReadOnly" />
       <RootEvent Name="BeforeTextChanging" />
-      <RootEvent Name="LostFocus" />
+      <RootEvent Name="KeyDown" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Automation.AutomationProperties">
       <RootMethod Name="GetName" />

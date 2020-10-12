@@ -7,6 +7,7 @@ using Windows.Storage;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Covid19Analysis.IO;
 using Covid19Analysis.Model;
 using Covid19Analysis.View;
@@ -322,27 +323,29 @@ namespace Covid19Analysis
             return mergeOrReplaceResult;
         }
 
-        private void LowerThresholdTextBox_OnLostFocus_LostFocus(object sender, RoutedEventArgs e)
+        private void LowerThreshold_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            this.lowerThreshold = int.Parse(this.lowerThresholdTextBox.Text);
-            this.upperThreshold = int.Parse(this.upperThresholdTextBox.Text);
-            if (this.lowerThreshold < this.upperThreshold)
+            if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                this.displayInformation();
-            }
-            else
-            {
-                this.displayDialogInvalidThreshold();
+                this.updateDisplayAsync();
             }
         }
 
-        private void UpperThresholdTextBox_OnLostFocus_LostFocus(object sender, RoutedEventArgs e)
+        private void UpperThreshold_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                this.updateDisplayAsync();
+            }
+        }
+        
+        private async Task updateDisplayAsync()
         {
             this.lowerThreshold = int.Parse(this.lowerThresholdTextBox.Text);
             this.upperThreshold = int.Parse(this.upperThresholdTextBox.Text);
             if (this.lowerThreshold < this.upperThreshold)
             {
-                this.displayInformation();
+                await this.displayInformation();
             }
             else
             {
