@@ -358,5 +358,35 @@ namespace Covid19Analysis
                 this.displayDialogInvalidThreshold();
             }
         }
+
+        private async void clearData_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialogResult dialogResult = await this.promptClearDataDialog();
+            if (dialogResult == ContentDialogResult.Primary)
+            {
+                this.clearData();
+            }
+        }
+
+        private async Task<ContentDialogResult> promptClearDataDialog()
+        {
+            var clearDataDialog = new ContentDialog()
+            {
+                Title = "Are You Sure?",
+                Content = "Do you want to delete all current data?",
+                PrimaryButtonText = "Yes!",
+                SecondaryButtonText = "No!!"
+            };
+            var clearDataResult = await clearDataDialog.ShowAsync();
+
+            return clearDataResult;
+        }
+
+        private void clearData()
+        {
+            this.covidCollection.ClearData();
+            this.CurrentFile = null;
+            this.displayInformation();
+        }
     }
 }
