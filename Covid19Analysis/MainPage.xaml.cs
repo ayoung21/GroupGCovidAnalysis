@@ -321,5 +321,33 @@ namespace Covid19Analysis
             var mergeOrReplaceResult = await mergeOrReplaceDialog.ShowAsync();
             return mergeOrReplaceResult;
         }
+
+        private void LowerThresholdTextBox_OnLostFocus_LostFocus(object sender, RoutedEventArgs e)
+        {
+            this.lowerThreshold = int.Parse(this.lowerThresholdTextBox.Text);
+            this.upperThreshold = int.Parse(this.upperThresholdTextBox.Text);
+            if (this.lowerThreshold < this.upperThreshold)
+            {
+                this.displayInformation();
+            }
+            else
+            {
+                this.displayDialogInvalidThreshold();
+            }
+        }
+
+        private void UpperThresholdTextBox_OnLostFocus_LostFocus(object sender, RoutedEventArgs e)
+        {
+            this.lowerThreshold = int.Parse(this.lowerThresholdTextBox.Text);
+            this.upperThreshold = int.Parse(this.upperThresholdTextBox.Text);
+            if (this.lowerThreshold < this.upperThreshold)
+            {
+                this.displayInformation();
+            }
+            else
+            {
+                this.displayDialogInvalidThreshold();
+            }
+        }
     }
 }

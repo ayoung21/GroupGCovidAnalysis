@@ -69,7 +69,7 @@ namespace Covid19Analysis.Model
             else
             {
                 this.locationsCovidCases.Add(covidCase);
-                // this.locationsCovidCases = this.SortData();
+                this.locationsCovidCases = this.SortData();
             }
         }
 
