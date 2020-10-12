@@ -70,9 +70,9 @@ namespace Covid19Analysis.View
 
             output += $"{this.location.State}{Environment.NewLine}";
             output += $"{this.getEarliestKnownPositiveTestStatement()} {Environment.NewLine}";
-            output += $"{this.getHighestNumberOfPositiveTestsStatement(this.location.GetAllCases())} {Environment.NewLine}";
+            output += $"{this.getHighestNumberOfPositiveTestsStatement(this.location.CovidCases)} {Environment.NewLine}";
             output += $"{this.getHighestNumberOfNegativeTestsStatement()} {Environment.NewLine}";
-            output += $"{this.getHighestNumberOfTestsOfAGivenDayStatement(this.location.GetAllCases())} {Environment.NewLine}";
+            output += $"{this.getHighestNumberOfTestsOfAGivenDayStatement(this.location.CovidCases)} {Environment.NewLine}";
             output += $"{this.getHighestNumberOfDeathsStatement()} {Environment.NewLine}";
             output += $"{this.getHighestNumberOfHospitalizationsStatement()} {Environment.NewLine}";
             output += $"{this.getHighestPercentageOfPositiveTestsStatement()} {Environment.NewLine}";
@@ -201,13 +201,13 @@ namespace Covid19Analysis.View
 
         private string getAverageOfPositiveTestsSinceFirstPositiveCaseStatement()
         {
-            var averageOfPositiveTests = this.location.GetAverageNumberOfPositiveTests(this.location.GetAllCases());
+            var averageOfPositiveTests = this.location.GetAverageNumberOfPositiveTests(this.location.CovidCases);
             return $"Average number of positive tests: {averageOfPositiveTests:N2}";
         }
 
         private string getOverallPositivityRatesStatement()
         {
-            var overallPositivityRate = this.location.GetOverallPositivityRate(this.location.GetAllCases());
+            var overallPositivityRate = this.location.GetOverallPositivityRate(this.location.CovidCases);
             return $"Overall positivity rate of all tests: {overallPositivityRate:N2}%";
         }
 
@@ -226,7 +226,7 @@ namespace Covid19Analysis.View
             var startingPoint = 0;
             var segments = 500;
             var output = $"HISTOGRAM of Postive Tests{Environment.NewLine}";
-            var highestNumberOfCases = this.LocationData.GetHighestNumberOfPositiveTests(this.location.GetAllCases());
+            var highestNumberOfCases = this.LocationData.GetHighestNumberOfPositiveTests(this.location.CovidCases);
             int highestPositveTests = highestNumberOfCases.PositiveIncrease;
 
 

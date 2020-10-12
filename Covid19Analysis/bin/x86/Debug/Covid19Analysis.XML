@@ -177,6 +177,12 @@
             <summary>Gets the duplicate cases.</summary>
             <value>The duplicate cases.</value>
         </member>
+        <member name="P:Covid19Analysis.Model.CovidLocationData.CovidCases">
+            <summary>
+                Gets all cases for this state / territory.
+            </summary>
+            <returns>A collection of covid cases for this state / territory</returns>
+        </member>
         <member name="M:Covid19Analysis.Model.CovidLocationData.#ctor(System.String)">
             <summary>
                 Initializes a new instance of the <see cref="T:Covid19Analysis.Model.CovidLocationData"/> class.
@@ -190,12 +196,6 @@
             </summary>
             <param name="covidCase">The covid case to be added</param>
             <exception cref="T:System.ArgumentNullException">covidCase cannot be null</exception>
-        </member>
-        <member name="M:Covid19Analysis.Model.CovidLocationData.GetAllCases">
-            <summary>
-                Gets all cases for this state / territory.
-            </summary>
-            <returns>A collection of covid cases for this state / territory</returns>
         </member>
         <member name="M:Covid19Analysis.Model.CovidLocationData.GetEarliestPositiveCase">
             <summary>

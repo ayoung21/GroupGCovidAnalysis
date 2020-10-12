@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 
 namespace Covid19Analysis.Model
 {
@@ -31,6 +33,12 @@ namespace Covid19Analysis.Model
         /// <summary>Gets the duplicate cases.</summary>
         /// <value>The duplicate cases.</value>
         public IList<CovidCase> DuplicateCases => this.duplicateCases;
+
+        /// <summary>
+        ///     Gets all cases for this state / territory.
+        /// </summary>
+        /// <returns>A collection of covid cases for this state / territory</returns>
+        public IList<CovidCase> CovidCases => this.locationsCovidCases;
 
         #endregion
 
@@ -71,15 +79,6 @@ namespace Covid19Analysis.Model
                 this.locationsCovidCases.Add(covidCase);
                 this.locationsCovidCases = this.SortData();
             }
-        }
-
-        /// <summary>
-        ///     Gets all cases for this state / territory.
-        /// </summary>
-        /// <returns>A collection of covid cases for this state / territory</returns>
-        public IList<CovidCase> GetAllCases()
-        {
-            return this.locationsCovidCases;
         }
 
         /// <summary>
