@@ -23,5 +23,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="424,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Upper Threshold"/>
         <TextBox x:Name="upperThresholdTextBox" HorizontalAlignment="Left" Margin="544,359,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="UpperThreshold_KeyDown"/>
         <Button Content="Clear Data" Margin="12,354,0,0" VerticalAlignment="Top" Click="clearData_Click"/>
+        <Button Content="Save Data" Margin="12,420,0,0" VerticalAlignment="Top" Width="600" Click="saveData_Click"/>
     </Grid>
 </Page>

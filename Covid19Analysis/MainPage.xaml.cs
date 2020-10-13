@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.Storage.Provider;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -37,7 +39,7 @@ namespace Covid19Analysis
         /// <summary>
         ///     The application height
         /// </summary>
-        public const int ApplicationHeight = 400;
+        public const int ApplicationHeight = 600;
 
         /// <summary>
         ///     The application width
@@ -387,6 +389,46 @@ namespace Covid19Analysis
             this.covidCollection.ClearData();
             this.CurrentFile = null;
             this.displayInformation();
+        }
+
+
+        private async void saveData_Click(object sender, RoutedEventArgs e)
+        {
+            FileSavePicker savePicker = new FileSavePicker();
+            savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            // Dropdown of file types the user can save the file as
+            savePicker.FileTypeChoices.Add("Comma Separated Value", new List<string>() { ".csv" });
+            // Default file name if the user does not type one in or select a file to replace
+            savePicker.SuggestedFileName = "New Document";
+
+            StorageFile file = await savePicker.PickSaveFileAsync();
+            if (file != null)
+            {
+                // Prevent updates to the remote version of the file until we finish making changes and call CompleteUpdatesAsync.
+                CachedFileManager.DeferUpdates(file);
+
+                // write to file
+                // write the current State file (as testing purposes)
+                var data = csvReader.GetDataAsCSV(this.covidLocationData.CovidCases);
+
+                await FileIO.WriteTextAsync(file, data);
+
+                // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
+                // Completing updates may require Windows to ask for user input.
+                FileUpdateStatus status = await CachedFileManager.CompleteUpdatesAsync(file);
+                if (status == FileUpdateStatus.Complete)
+                {
+                    // OutputTextBlock.Text = "File " + file.Name + " was saved.";
+                }
+                else
+                {
+                    // OutputTextBlock.Text = "File " + file.Name + " couldn't be saved.";
+                }
+            }
+            else
+            {
+                // OutputTextBlock.Text = "Operation cancelled.";
+            }
         }
     }
 }

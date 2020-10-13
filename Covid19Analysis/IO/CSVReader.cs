@@ -115,6 +115,18 @@ namespace Covid19Analysis.IO
             return errors;
         }
 
+
+        public string GetDataAsCSV(IList<CovidCase> dataToSave)
+        {
+            string data = "";
+            foreach (var currentData in dataToSave)
+            {
+                data += $"{currentData.Date},{currentData.Location},{currentData.PositiveIncrease},{currentData.NegativeIncrease},{currentData.DeathIncrease},{currentData.HospitalizedIncrease}{Environment.NewLine}";
+            }
+
+            return data;
+        }
+
         private CovidCase processCovidData(int row, string[] data)
         {
             if (!isValid(data))
