@@ -42,7 +42,7 @@ namespace Covid19Analysis.Model
 
         #endregion
 
-        #region Constructors        
+        #region Constructors
         /// <summary>
         ///     Initializes a new instance of the <see cref="CovidLocationData"/> class.
         /// </summary>

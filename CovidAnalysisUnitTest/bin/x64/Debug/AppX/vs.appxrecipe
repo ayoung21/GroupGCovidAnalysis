@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>CS1117W04</Machine>
+    <Machine>CS1115W03</Machine>
     <WindowsUser>csuser</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
@@ -30,25 +30,25 @@
     <AppXManifest Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-10-14T17:56:11.777</Modified>
+      <Modified>2020-10-14T22:57:39.979</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x64\Debug\CovidAnalysisUnitTest.exe">
       <PackagePath>entrypoint\CovidAnalysisUnitTest.exe</PackagePath>
-      <Modified>2020-10-14T17:56:11.073</Modified>
+      <Modified>2020-10-14T22:57:39.163</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x64\Debug\Covid19Analysis.exe">
       <PackagePath>Covid19Analysis.exe</PackagePath>
-      <Modified>2020-10-14T17:31:31.689</Modified>
+      <Modified>2020-10-14T22:22:22.799</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x64\Debug\CovidAnalysisUnitTest.pdb">
       <PackagePath>CovidAnalysisUnitTest.pdb</PackagePath>
-      <Modified>2020-10-14T17:56:11.073</Modified>
+      <Modified>2020-10-14T22:57:39.167</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x64\Debug\Covid19Analysis.pdb">
       <PackagePath>Covid19Analysis.pdb</PackagePath>
-      <Modified>2020-10-14T17:31:31.689</Modified>
+      <Modified>2020-10-14T22:22:22.799</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\TestPlatform.Universal\16.0\References\CommonConfiguration\neutral\testhost.dll">
       <PackagePath>testhost.dll</PackagePath>
@@ -120,65 +120,65 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2020-08-18T19:45:49.259</Modified>
+      <Modified>2020-10-14T20:44:04.538</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-08-18T19:45:49.290</Modified>
+      <Modified>2020-10-14T20:44:04.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-08-18T19:45:49.290</Modified>
+      <Modified>2020-10-14T20:44:04.540</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-08-18T19:45:49.290</Modified>
+      <Modified>2020-10-14T20:44:04.541</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-08-18T19:45:49.290</Modified>
+      <Modified>2020-10-14T20:44:04.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-08-18T19:45:49.306</Modified>
+      <Modified>2020-10-14T20:44:04.543</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-08-18T19:45:49.321</Modified>
+      <Modified>2020-10-14T20:44:04.543</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x64\Debug\CovidAnalysisUnitTest.xr.xml">
       <PackagePath>CovidAnalysisUnitTest.xr.xml</PackagePath>
-      <Modified>2020-10-14T17:42:02.724</Modified>
+      <Modified>2020-10-14T20:44:04.797</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x64\Debug\Covid19Analysis.xr.xml">
       <PackagePath>Covid19Analysis.xr.xml</PackagePath>
-      <Modified>2020-10-14T17:31:31.547</Modified>
+      <Modified>2020-10-14T20:44:04.393</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x64\Debug\UnitTestApp.xbf">
       <PackagePath>UnitTestApp.xbf</PackagePath>
-      <Modified>2020-10-14T17:55:00.939</Modified>
+      <Modified>2020-10-14T22:56:45.179</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-10-14T17:31:31.554</Modified>
+      <Modified>2020-10-14T22:18:45.075</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-10-14T17:31:31.555</Modified>
+      <Modified>2020-10-14T22:18:45.077</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x64\Debug\View\DuplicateEntryContentDialog.xbf">
       <PackagePath>View\DuplicateEntryContentDialog.xbf</PackagePath>
-      <Modified>2020-10-14T17:31:31.556</Modified>
+      <Modified>2020-10-14T22:18:45.078</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2020-10-14T17:06:17.875</Modified>
+      <Modified>2020-10-14T20:44:04.008</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -186,11 +186,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-10-14T17:42:33.501</Modified>
+      <Modified>2020-10-14T22:57:39.590</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x64\Debug\Core\CovidAnalysisUnitTest.exe">
       <PackagePath>CovidAnalysisUnitTest.exe</PackagePath>
-      <Modified>2020-10-14T17:56:11.771</Modified>
+      <Modified>2020-10-14T22:57:39.972</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

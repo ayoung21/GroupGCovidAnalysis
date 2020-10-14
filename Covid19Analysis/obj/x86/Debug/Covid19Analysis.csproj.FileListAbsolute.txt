@@ -301,6 +301,8 @@ C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\View\Duplic
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\Covid19Analysis.xr.xml
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\Covid19Analysis.exe
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\Covid19Analysis.pdb
+C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\resources.pri
+C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\AppxManifest.xml
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\System.Runtime.dll
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\obj\x86\Debug\App.g.i.cs
@@ -322,8 +324,6 @@ C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\obj\x86\Debug\Covid19Anal
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\obj\x86\Debug\Covid19Analysis.exe
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\obj\x86\Debug\Covid19Analysis.pdb
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\obj\x86\Debug\ResourceHandlingTask.state
-C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\resources.pri
-C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\AppxManifest.xml
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\obj\x86\Debug\Covid19Analysis.csproj.GenerateResource.Cache
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\obj\x86\Debug\priconfig.xml
 C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\obj\x86\Debug\priconfig.xml.intermediate
