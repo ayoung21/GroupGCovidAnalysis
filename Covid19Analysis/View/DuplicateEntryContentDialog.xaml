@@ -12,8 +12,12 @@
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
     <Grid Height="150" Width="500">
-        <TextBlock x:Name="subtitleTextBox" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Currently No Duplicate Items" Margin="0,25,0,100" Width="499" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="contentTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Insert Item Here" Margin="0,66,0,-6" Width="501"/>
-        <CheckBox x:Name="repeatActionForAll" Content="Complete the Following Action for the Remaining Items" Margin="0,118,129,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="repeatActions_Click" Height="32" Width="371" IsChecked="{x:Bind IsChecked}"/>
+        <TextBlock x:Name="subtitleTextBox" HorizontalAlignment="Left" TextWrapping="Wrap"
+                   Text="Currently No Duplicate Items" Margin="0,25,0,100" Width="499" Grid.ColumnSpan="2" />
+        <TextBlock x:Name="contentTextBox" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Insert Item Here"
+                   Margin="0,66,0,-6" Width="501" />
+        <CheckBox x:Name="repeatActionForAll" Content="Complete the Following Action for the Remaining Items"
+                  Margin="0,118,129,0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="repeatActions_Click"
+                  Height="32" Width="371" IsChecked="{x:Bind IsChecked}" />
     </Grid>
 </ContentDialog>

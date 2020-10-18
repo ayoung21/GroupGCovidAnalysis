@@ -9,15 +9,8 @@ namespace Covid19Analysis.Model
     /// </summary>
     public class CovidLocationData
     {
-        #region Member Variables
+        #region Properties
 
-        // private readonly IList<CovidCase> locationsCovidCases;
-        private IList<CovidCase> locationsCovidCases;
-        private readonly List<CovidCase> duplicateCases;
-
-        #endregion
-
-        #region Properties        
         /// <summary>
         ///     Gets or sets the LocationData.
         /// </summary>
@@ -25,7 +18,6 @@ namespace Covid19Analysis.Model
         ///     The state to be set.
         /// </value>
         public string State { get; set; }
-
 
         /// <summary>Gets the duplicate cases.</summary>
         /// <value>The duplicate cases.</value>
@@ -35,26 +27,28 @@ namespace Covid19Analysis.Model
         ///     Gets all cases for this state / territory.
         /// </summary>
         /// <returns>A collection of covid cases for this state / territory</returns>
-        public IList<CovidCase> CovidCases => this.locationsCovidCases;
+        public IList<CovidCase> CovidCases { get; private set; }
 
         #endregion
 
         #region Constructors
+
         /// <summary>
-        ///     Initializes a new instance of the <see cref="CovidLocationData"/> class.
+        ///     Initializes a new instance of the <see cref="CovidLocationData" /> class.
         /// </summary>
         /// <param name="state">The state / territory of the data</param>
         /// <exception cref="ArgumentNullException">state cannot be null</exception>
         public CovidLocationData(string state)
         {
             this.State = state ?? throw new ArgumentNullException(nameof(state));
-            this.locationsCovidCases = new List<CovidCase>();
+            this.CovidCases = new List<CovidCase>();
             this.duplicateCases = new List<CovidCase>();
         }
 
         #endregion
 
         #region Methods
+
         /// <summary>
         ///     Adds a single covid case to the collection
         /// </summary>
@@ -67,14 +61,14 @@ namespace Covid19Analysis.Model
                 throw new ArgumentNullException(nameof(covidCase));
             }
 
-            if (this.locationsCovidCases.Any(covid => covid.Date.Equals(covidCase.Date)))
+            if (this.CovidCases.Any(covid => covid.Date.Equals(covidCase.Date)))
             {
                 this.duplicateCases.Add(covidCase);
             }
             else
             {
-                this.locationsCovidCases.Add(covidCase);
-                this.locationsCovidCases = this.SortData();
+                this.CovidCases.Add(covidCase);
+                this.CovidCases = this.SortData();
             }
         }
 
@@ -84,12 +78,13 @@ namespace Covid19Analysis.Model
         /// <returns>A single covid case of the earliest positive case</returns>
         public CovidCase GetEarliestPositiveCase()
         {
-            if (this.locationsCovidCases.Count == 0)
+            if (this.CovidCases.Count == 0)
             {
                 return null;
             }
 
-            return this.locationsCovidCases.OrderBy(covidCase => covidCase.Date).First(covidCase => covidCase.PositiveIncrease > 0);
+            return this.CovidCases.OrderBy(covidCase => covidCase.Date)
+                       .First(covidCase => covidCase.PositiveIncrease > 0);
         }
 
         /// <summary>
@@ -98,12 +93,12 @@ namespace Covid19Analysis.Model
         /// <returns>A CovidCase with the highest number of negative tests</returns>
         public CovidCase GetHighestNumberOfNegativeIncreases()
         {
-            if (this.locationsCovidCases.Count == 0)
+            if (this.CovidCases.Count == 0)
             {
                 return null;
             }
 
-            return this.locationsCovidCases.OrderByDescending(covidCase => covidCase.NegativeIncrease).First();
+            return this.CovidCases.OrderByDescending(covidCase => covidCase.NegativeIncrease).First();
         }
 
         /// <summary>
@@ -112,7 +107,7 @@ namespace Covid19Analysis.Model
         /// <returns>the original data in order by date (earliest first)</returns>
         public IList<CovidCase> SortData()
         {
-            return this.locationsCovidCases.OrderBy(x => x.Date).ToList();
+            return this.CovidCases.OrderBy(x => x.Date).ToList();
         }
 
         /// <summary>
@@ -120,16 +115,16 @@ namespace Covid19Analysis.Model
         /// </summary>
         /// <param name="numberOfPositiveTests">The number of positive tests.</param>
         /// <returns>
-        ///   <br />
+        ///     <br />
         /// </returns>
         public int GetNumberOfDaysWherePositiveTestsAreAbove(int numberOfPositiveTests)
         {
             var earliestCovidCase = this.GetEarliestPositiveCase();
-            var indexOfEarliestCase = this.locationsCovidCases.IndexOf(earliestCovidCase);
+            var indexOfEarliestCase = this.CovidCases.IndexOf(earliestCovidCase);
             var positiveTests = 0;
-            for (var i = indexOfEarliestCase; i < this.locationsCovidCases.Count; i++)
+            for (var i = indexOfEarliestCase; i < this.CovidCases.Count; i++)
             {
-                if (this.locationsCovidCases[i].PositiveIncrease > numberOfPositiveTests)
+                if (this.CovidCases[i].PositiveIncrease > numberOfPositiveTests)
                 {
                     positiveTests++;
                 }
@@ -138,22 +133,21 @@ namespace Covid19Analysis.Model
             return positiveTests;
         }
 
-
-        /// <summary
-        ///     >Gets the number of days where positive tests are below a specified amount.
+        /// <summary>
+        ///     Gets the number of days where positive tests are below a specified amount.
         /// </summary>
         /// <param name="numberOfPositiveTests">The number of positive tests.</param>
         /// <returns>
-        ///   <br />
+        ///     <br />
         /// </returns>
         public int GetNumberOfDaysWherePositiveTestsAreBelow(int numberOfPositiveTests)
         {
             var earliestCovidCase = this.GetEarliestPositiveCase();
-            var indexOfEarliestCase = this.locationsCovidCases.IndexOf(earliestCovidCase);
+            var indexOfEarliestCase = this.CovidCases.IndexOf(earliestCovidCase);
             var positiveTests = 0;
-            for (var i = indexOfEarliestCase; i < this.locationsCovidCases.Count; i++)
+            for (var i = indexOfEarliestCase; i < this.CovidCases.Count; i++)
             {
-                if (this.locationsCovidCases[i].PositiveIncrease < numberOfPositiveTests)
+                if (this.CovidCases[i].PositiveIncrease < numberOfPositiveTests)
                 {
                     positiveTests++;
                 }
@@ -183,9 +177,9 @@ namespace Covid19Analysis.Model
                 totalNegativeTests += covidCase.NegativeIncrease;
             }
 
-            double totalCount = totalPositiveTests + totalNegativeTests;
+            var totalCount = totalPositiveTests + totalNegativeTests;
 
-            return (totalCount != 0) ? (totalPositiveTests / (totalNegativeTests + totalPositiveTests)) * 100 : 0;
+            return totalCount != 0 ? totalPositiveTests / (totalNegativeTests + totalPositiveTests) * 100 : 0;
         }
 
         /// <summary>
@@ -197,12 +191,12 @@ namespace Covid19Analysis.Model
         {
             double positiveTestCount = 0;
 
-            foreach (var covidEvent in this.locationsCovidCases)
+            foreach (var covidEvent in this.CovidCases)
             {
                 positiveTestCount += covidEvent.PositiveIncrease;
             }
 
-            return positiveTestCount / this.locationsCovidCases.Count;
+            return positiveTestCount / this.CovidCases.Count;
         }
 
         /// <summary>
@@ -214,7 +208,7 @@ namespace Covid19Analysis.Model
         {
             double positiveTestCount = 0;
             double negativeTestCount = 0;
-            foreach (var covidEvent in this.locationsCovidCases)
+            foreach (var covidEvent in this.CovidCases)
             {
                 positiveTestCount += covidEvent.PositiveIncrease;
                 negativeTestCount += covidEvent.NegativeIncrease;
@@ -255,12 +249,12 @@ namespace Covid19Analysis.Model
         /// <returns>CovidCase with the highest death on a single day.</returns>
         public CovidCase GetHighestDeathsEvent()
         {
-            if (this.locationsCovidCases.Count == 0)
+            if (this.CovidCases.Count == 0)
             {
                 return null;
             }
 
-            return this.locationsCovidCases.OrderByDescending(covidCase => covidCase.DeathIncrease).First();
+            return this.CovidCases.OrderByDescending(covidCase => covidCase.DeathIncrease).First();
         }
 
         /// <summary>
@@ -269,12 +263,12 @@ namespace Covid19Analysis.Model
         /// <returns>CovidCase with the highest hospitalizations</returns>
         public CovidCase GetHighestHospitalization()
         {
-            if (this.locationsCovidCases.Count == 0)
+            if (this.CovidCases.Count == 0)
             {
                 return null;
             }
 
-            return this.locationsCovidCases.OrderByDescending(covidCase => covidCase.HospitalizedIncrease).First();
+            return this.CovidCases.OrderByDescending(covidCase => covidCase.HospitalizedIncrease).First();
         }
 
         /// <summary>
@@ -283,19 +277,23 @@ namespace Covid19Analysis.Model
         /// <returns>CovidCase with the highest percentage of positive tests.</returns>
         public CovidCase GetHighestPercentageOfPositiveTests()
         {
-            if (this.locationsCovidCases.Count == 0)
+            if (this.CovidCases.Count == 0)
             {
                 return null;
             }
 
-            var covidEvent = this.locationsCovidCases[0];
+            var covidEvent = this.CovidCases[0];
 
-            foreach (var covidCase in this.locationsCovidCases)
+            foreach (var covidCase in this.CovidCases)
             {
-                double highestPercentage = (covidEvent.PositiveIncrease > 0) ? Convert.ToDouble(covidEvent.PositiveIncrease) /
-                                                                               Convert.ToDouble(covidEvent.PositiveIncrease + covidEvent.NegativeIncrease) : 0;
-                double currentPercentage = (covidCase.PositiveIncrease > 0) ? Convert.ToDouble(covidCase.PositiveIncrease) /
-                                           Convert.ToDouble(covidCase.PositiveIncrease + covidEvent.NegativeIncrease) : 0;
+                var highestPercentage = covidEvent.PositiveIncrease > 0
+                    ? Convert.ToDouble(covidEvent.PositiveIncrease) /
+                      Convert.ToDouble(covidEvent.PositiveIncrease + covidEvent.NegativeIncrease)
+                    : 0;
+                var currentPercentage = covidCase.PositiveIncrease > 0
+                    ? Convert.ToDouble(covidCase.PositiveIncrease) /
+                      Convert.ToDouble(covidCase.PositiveIncrease + covidEvent.NegativeIncrease)
+                    : 0;
 
                 if (currentPercentage > highestPercentage)
                 {
@@ -317,8 +315,9 @@ namespace Covid19Analysis.Model
             {
                 throw new Exception("Invalid Month");
             }
+
             var covidEvents = new List<CovidCase>();
-            foreach (var covidCase in this.locationsCovidCases)
+            foreach (var covidCase in this.CovidCases)
             {
                 if (covidCase.Date.Month == month)
                 {
@@ -365,7 +364,7 @@ namespace Covid19Analysis.Model
                 return null;
             }
 
-            return this.locationsCovidCases.OrderByDescending(covidCase => covidCase.PositiveIncrease).First();
+            return this.CovidCases.OrderByDescending(covidCase => covidCase.PositiveIncrease).First();
         }
 
         /// <summary>
@@ -380,7 +379,7 @@ namespace Covid19Analysis.Model
                 return null;
             }
 
-            return this.locationsCovidCases.OrderBy(covidCase => covidCase.PositiveIncrease).First();
+            return this.CovidCases.OrderBy(covidCase => covidCase.PositiveIncrease).First();
         }
 
         /// <summary>
@@ -388,12 +387,12 @@ namespace Covid19Analysis.Model
         /// </summary>
         public void FindAndReplace(CovidCase covidCase)
         {
-            var item = this.locationsCovidCases.First(i => i.Date.Equals(covidCase.Date));
-            var index = this.locationsCovidCases.IndexOf(item);
+            var item = this.CovidCases.First(i => i.Date.Equals(covidCase.Date));
+            var index = this.CovidCases.IndexOf(item);
             if (index != -1)
             {
-                this.locationsCovidCases.RemoveAt(index);
-                this.locationsCovidCases.Add(covidCase);
+                this.CovidCases.RemoveAt(index);
+                this.CovidCases.Add(covidCase);
             }
         }
 
@@ -402,25 +401,25 @@ namespace Covid19Analysis.Model
         /// </summary>
         public void ClearData()
         {
-            this.locationsCovidCases.Clear();
+            this.CovidCases.Clear();
         }
-
 
         /// <summary>The number of positive cases between the given parameters.</summary>
         /// <param name="minTestCount">The minimum test count.</param>
         /// <param name="maxTestCount">The maximum test count.</param>
         /// <returns>
-        ///   The number of positive cases between the given parameters.
+        ///     The number of positive cases between the given parameters.
         /// </returns>
         public int NumberOfPositiveCasesBetween(int minTestCount, int maxTestCount)
         {
-            return this.locationsCovidCases
+            return this.CovidCases
                        .Where(covidCase => covidCase.PositiveIncrease >= minTestCount)
-                       .Where(covidCase => covidCase.PositiveIncrease <= maxTestCount).Count(covidCase => covidCase.Date >= this.GetEarliestPositiveCase().Date);
+                       .Where(covidCase => covidCase.PositiveIncrease <= maxTestCount).Count(covidCase =>
+                           covidCase.Date >= this.GetEarliestPositiveCase().Date);
         }
 
         /// <summary>
-        /// Removes a duplicate entry
+        ///     Removes a duplicate entry
         /// </summary>
         public void RemoveDuplicateEntry(CovidCase covidCase)
         {
@@ -428,8 +427,17 @@ namespace Covid19Analysis.Model
             var index = this.duplicateCases.IndexOf(item);
 
             if (index != -1)
+            {
                 this.duplicateCases.RemoveAt(index);
+            }
         }
+
+        #endregion
+
+        #region Member Variables
+
+        // private readonly IList<CovidCase> locationsCovidCases;
+        private readonly List<CovidCase> duplicateCases;
 
         #endregion
     }

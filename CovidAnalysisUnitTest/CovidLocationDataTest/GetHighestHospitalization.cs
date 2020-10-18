@@ -1,6 +1,6 @@
-﻿using System;
-using Covid19Analysis.Model;
+﻿using Covid19Analysis.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace CovidAnalysisUnitTest
 {

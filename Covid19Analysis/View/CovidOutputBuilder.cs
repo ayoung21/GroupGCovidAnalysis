@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Covid19Analysis.Model;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
-using Covid19Analysis.Model;
 
 namespace Covid19Analysis.View
 {

@@ -15,7 +15,6 @@ namespace Covid19Analysis.Model
         /// <value>The name of the LocationData.</value>
         public string Location { get; set; }
 
-
         /// <summary>
         ///     Gets or sets the date of the covid case.
         /// </summary>
@@ -28,13 +27,11 @@ namespace Covid19Analysis.Model
         /// <value>The positive increase you want to set.</value>
         public int PositiveIncrease { get; set; }
 
-
         /// <summary>
         ///     Gets the total test count of all positive and negative tests.
         /// </summary>
         /// <value>The total test count of all positive and negative tests.</value>
         public int TotalTestCount => this.PositiveIncrease + this.NegativeIncrease;
-
 
         /// <summary>
         ///     Gets or sets the negative increase.
@@ -48,7 +45,6 @@ namespace Covid19Analysis.Model
         /// <value>The death increase to be set.</value>
         public int DeathIncrease { get; set; }
 
-
         /// <summary>
         ///     Gets or sets the hospitalized increase.
         /// </summary>
@@ -58,6 +54,7 @@ namespace Covid19Analysis.Model
         #endregion
 
         #region Constructors
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="CovidCase" /> class.
         /// </summary>
@@ -87,6 +84,7 @@ namespace Covid19Analysis.Model
                 $"[death increase] {this.DeathIncrease} [hospitalized increase] {this.HospitalizedIncrease}{Environment.NewLine}";
             return output;
         }
+
         #endregion
     }
 }

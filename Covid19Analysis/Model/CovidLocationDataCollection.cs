@@ -9,15 +9,29 @@ namespace Covid19Analysis.Model
     /// </summary>
     public class CovidLocationDataCollection
     {
-        public readonly Dictionary<string, CovidLocationData> covidLocationDataCollection;
+        #region Data members
+
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="CovidLocationDataCollection"/> class.
+        /// A collection of covid data
+        /// </summary>
+        public readonly Dictionary<string, CovidLocationData> covidLocationDataCollection;
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="CovidLocationDataCollection" /> class.
         /// </summary>
         public CovidLocationDataCollection()
         {
             this.covidLocationDataCollection = new Dictionary<string, CovidLocationData>();
         }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///     Gets the LocationData if it exists.
@@ -27,7 +41,7 @@ namespace Covid19Analysis.Model
         public CovidLocationData GetLocationData(string locationAbbreviation)
         {
             CovidLocationData locationData = null;
-            if (covidLocationDataCollection.ContainsKey(locationAbbreviation))
+            if (this.covidLocationDataCollection.ContainsKey(locationAbbreviation))
             {
                 locationData = this.covidLocationDataCollection[locationAbbreviation];
             }
@@ -47,15 +61,15 @@ namespace Covid19Analysis.Model
                 throw new ArgumentNullException(nameof(covidCase));
             }
 
-            if (covidLocationDataCollection.ContainsKey(covidCase.Location))
+            if (this.covidLocationDataCollection.ContainsKey(covidCase.Location))
             {
-                covidLocationDataCollection[covidCase.Location].AddCovidCase(covidCase);
+                this.covidLocationDataCollection[covidCase.Location].AddCovidCase(covidCase);
             }
             else
             {
-                CovidLocationData newState = new CovidLocationData(covidCase.Location);
-                covidLocationDataCollection.Add(newState.State, newState);
-                covidLocationDataCollection[covidCase.Location].AddCovidCase(covidCase);
+                var newState = new CovidLocationData(covidCase.Location);
+                this.covidLocationDataCollection.Add(newState.State, newState);
+                this.covidLocationDataCollection[covidCase.Location].AddCovidCase(covidCase);
             }
         }
 
@@ -86,7 +100,10 @@ namespace Covid19Analysis.Model
             {
                 item.ClearData();
             }
+
             this.covidLocationDataCollection.Clear();
         }
+
+        #endregion
     }
 }

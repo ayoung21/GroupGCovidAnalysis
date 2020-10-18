@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Covid19Analysis.Model;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using Covid19Analysis.Model;
 
 namespace Covid19Analysis.CovidCSV
 {

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Covid19Analysis.CovidCSV;
+using Covid19Analysis.Model;
+using Covid19Analysis.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,9 +12,6 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using Covid19Analysis.CovidCSV;
-using Covid19Analysis.Model;
-using Covid19Analysis.View;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -67,7 +67,7 @@ namespace Covid19Analysis
         {
             this.InitializeComponent();
 
-            ApplicationView.PreferredLaunchViewSize = new Size {Width = ApplicationWidth, Height = ApplicationHeight};
+            ApplicationView.PreferredLaunchViewSize = new Size { Width = ApplicationWidth, Height = ApplicationHeight };
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(ApplicationWidth, ApplicationHeight));
 
@@ -251,7 +251,8 @@ namespace Covid19Analysis
 
                 if (this.covidLocationData != null)
                 {
-                    CovidOutputBuilder report = new CovidOutputBuilder(this.covidLocationData) {
+                    CovidOutputBuilder report = new CovidOutputBuilder(this.covidLocationData)
+                    {
                         LowerThreshold = this.lowerThreshold,
                         UpperThreshold = this.upperThreshold,
                         BinSize = this.binSize
@@ -289,7 +290,7 @@ namespace Covid19Analysis
             var count = 0;
             foreach (var currentCase in tempList)
             {
-                
+
                 var item = this.covidLocationData.DuplicateCases.First(i => i.Date.Equals(currentCase.Date));
                 var index = this.covidLocationData.DuplicateCases.IndexOf(item);
 
@@ -358,7 +359,7 @@ namespace Covid19Analysis
                 await this.updateDisplayAsync();
             }
         }
-        
+
         private async Task updateDisplayAsync()
         {
             this.lowerThreshold = int.Parse(this.lowerThresholdTextBox.Text);
@@ -428,7 +429,7 @@ namespace Covid19Analysis
                     HospitalizedIncrease = int.Parse(this.textBoxHospitalizations.Text)
                 };
 
-                
+
                 await this.covidCollection.AddCovidCase(covidCase);
 
                 if (this.covidLocationData == null)

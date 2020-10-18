@@ -5,16 +5,17 @@ using Windows.UI.Xaml.Controls;
 
 namespace Covid19Analysis.View
 {
-
     /// <summary>
-    ///   Class for creating a duplicate entry content dialog
+    ///     Class for creating a duplicate entry content dialog
     /// </summary>
     public sealed partial class DuplicateEntryContentDialog
     {
+        #region Properties
 
         /// <summary>Gets or sets a value indicating whether this instance is checked.</summary>
         /// <value>
-        /// <c>true</c> if this instance is checked; otherwise, <c>false</c>.</value>
+        ///     <c>true</c> if this instance is checked; otherwise, <c>false</c>.
+        /// </value>
         public bool IsChecked { get; set; }
 
         /// <summary>Gets or sets the subtitle.</summary>
@@ -29,20 +30,30 @@ namespace Covid19Analysis.View
         /// <value>The last known button press.</value>
         public string LastKnownButtonPress { get; set; }
 
+        #endregion
 
-        /// <summary>Initializes a new instance of the <a onclick="return false;" href="DuplicateEntryContentDialog" originaltag="see">DuplicateEntryContentDialog</a> class.</summary>
+        #region Constructors
+
+        /// <summary>
+        ///     Initializes a new instance of the
+        ///     <a onclick="return false;" href="DuplicateEntryContentDialog" originaltag="see">DuplicateEntryContentDialog</a>
+        ///     class.
+        /// </summary>
         public DuplicateEntryContentDialog()
         {
             this.InitializeComponent();
             // this.IsChecked = false;
         }
 
+        #endregion
+
+        #region Methods
 
         /// <summary>Updates the content.</summary>
         public void UpdateContent()
         {
-            this.subtitleTextBox.Text = Subtitle ?? "";
-            this.contentTextBox.Text = Message ?? "";
+            this.subtitleTextBox.Text = this.Subtitle ?? "";
+            this.contentTextBox.Text = this.Message ?? "";
         }
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
@@ -50,7 +61,6 @@ namespace Covid19Analysis.View
             this.LastKnownButtonPress = "Primary";
             if (this.repeatActionForAll.IsChecked == true)
             {
-
             }
         }
 
@@ -59,6 +69,11 @@ namespace Covid19Analysis.View
             this.LastKnownButtonPress = "Secondary";
         }
 
-        private void repeatActions_Click(object sender, RoutedEventArgs e) => this.IsChecked = (this.repeatActionForAll.IsChecked == true);
+        private void repeatActions_Click(object sender, RoutedEventArgs e)
+        {
+            this.IsChecked = this.repeatActionForAll.IsChecked == true;
+        }
+
+        #endregion
     }
 }
