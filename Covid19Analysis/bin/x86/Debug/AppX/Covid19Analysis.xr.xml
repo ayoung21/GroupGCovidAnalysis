@@ -27,6 +27,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="IsReadOnly" />
+      <RootProperty Name="MaxLength" />
       <RootProperty Name="Header" />
       <RootProperty Name="Padding" />
       <RootEvent Name="BeforeTextChanging" />
