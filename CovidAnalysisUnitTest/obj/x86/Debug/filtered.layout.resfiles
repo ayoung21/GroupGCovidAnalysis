@@ -1,4 +1,7 @@
 WinMetadata\Windows.winmd
+Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
 Assets\LockScreenLogo.scale-200.png
 Assets\SplashScreen.scale-200.png
 Assets\Square150x150Logo.scale-200.png

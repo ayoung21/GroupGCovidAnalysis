@@ -21,18 +21,14 @@ namespace CovidAnalysisUnitTest
         {
             CovidLocationData covidLocationData = new CovidLocationData("GA");
 
-            covidLocationData.AddCovidCase(new CovidCase
+            covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2015, 1, 15))
             {
-                Location = "GA",
-                Date = new DateTime(2015, 1, 15),
                 PositiveIncrease = 50,
                 NegativeIncrease = 50
             });
 
-            covidLocationData.AddCovidCase(new CovidCase
+            covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2016, 2, 15))
             {
-                Location = "GA",
-                Date = new DateTime(2016, 2, 15),
                 PositiveIncrease = 125,
                 NegativeIncrease = 75
             });
