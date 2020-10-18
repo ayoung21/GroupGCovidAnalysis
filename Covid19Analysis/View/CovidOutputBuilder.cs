@@ -136,7 +136,8 @@ namespace Covid19Analysis.View
         public string GetYearlySummary()
         {
             var output = "";
-            for (var month = 1; month <= 12; month++)
+            var startingMonth = this.LocationData.GetEarliestPositiveCase().Date.Month;
+            for (var month = startingMonth; month <= 12; month++)
             {
                 output += this.GetMonthlySummary(month) + Environment.NewLine;
             }
