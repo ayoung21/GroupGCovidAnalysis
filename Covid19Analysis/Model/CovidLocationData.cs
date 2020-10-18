@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
 
 namespace Covid19Analysis.Model
 {
@@ -281,7 +278,7 @@ namespace Covid19Analysis.Model
         }
 
         /// <summary>
-        ///     Gets the highest percentage of postive tests event.
+        ///     Gets the highest percentage of positive tests event.
         /// </summary>
         /// <returns>CovidCase with the highest percentage of positive tests.</returns>
         public CovidCase GetHighestPercentageOfPositiveTests()
@@ -360,7 +357,7 @@ namespace Covid19Analysis.Model
         ///     Gets the highest number of positive tests.
         /// </summary>
         /// <param name="covidCases">The covid cases.</param>
-        /// <returns>CovidCase with the highest number of positve tests.</returns>
+        /// <returns>CovidCase with the highest number of positive tests.</returns>
         public CovidCase GetHighestNumberOfPositiveTests(IList<CovidCase> covidCases)
         {
             if (covidCases.Count == 0)

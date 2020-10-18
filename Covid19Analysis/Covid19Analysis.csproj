@@ -120,11 +120,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CovidCSV\CsvConstants.cs" />
+    <Compile Include="CovidCSV\CsvWriter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\CovidCase.cs" />
-    <Compile Include="IO\CSVReader.cs" />
+    <Compile Include="CovidCSV\CsvReader.cs" />
     <Compile Include="Model\UnitedStatesLocations.cs" />
     <Compile Include="View\DuplicateEntryContentDialog.xaml.cs">
       <DependentUpon>DuplicateEntryContentDialog.xaml</DependentUpon>

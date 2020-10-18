@@ -9,7 +9,7 @@ namespace Covid19Analysis.Model
     /// </summary>
     public class CovidLocationDataCollection
     {
-        private readonly Dictionary<string, CovidLocationData> covidLocationDataCollection;
+        public readonly Dictionary<string, CovidLocationData> covidLocationDataCollection;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="CovidLocationDataCollection"/> class.

@@ -78,8 +78,8 @@ namespace Covid19Analysis.View
             output += $"{this.getHighestPercentageOfPositiveTestsStatement()} {Environment.NewLine}";
             output += $"{this.getAverageOfPositiveTestsSinceFirstPositiveCaseStatement()} {Environment.NewLine}";
             output += $"{this.getOverallPositivityRatesStatement()} {Environment.NewLine}";
-            output += $"{this.getNumberOfDaysWherePosiviteTestsAreAboveStatement(this.LowerThreshold)} {Environment.NewLine}";
-            output += $"{this.getNumberOfDaysWherePositiveTetsAreBelowStatement(this.UpperThreshold)} {Environment.NewLine}";
+            output += $"{this.getNumberOfDaysWherePositiveTestsAreAboveStatement(this.LowerThreshold)} {Environment.NewLine}";
+            output += $"{this.getNumberOfDaysWherePositiveTestsAreBelowStatement(this.UpperThreshold)} {Environment.NewLine}";
 
             output += $"{Environment.NewLine}{this.buildHistogramOfPositiveCases()} {Environment.NewLine}";
 
@@ -149,9 +149,9 @@ namespace Covid19Analysis.View
 
         private string getHighestNumberOfPositiveTestsStatement(IList<CovidCase> covidCases)
         {
-            var highestPostiveTests = this.location.GetHighestNumberOfPositiveTests(covidCases);
-            var date = highestPostiveTests.Date;
-            var numberOfPositiveTests = highestPostiveTests.PositiveIncrease;
+            var highestPositiveTests = this.location.GetHighestNumberOfPositiveTests(covidCases);
+            var date = highestPositiveTests.Date;
+            var numberOfPositiveTests = highestPositiveTests.PositiveIncrease;
             return
                 $"Highest number of positive tests occurred on [{date:MMMM dd yyyy}] with {numberOfPositiveTests:N0} positive tests.";
         }
@@ -211,12 +211,12 @@ namespace Covid19Analysis.View
             return $"Overall positivity rate of all tests: {overallPositivityRate:N2}%";
         }
 
-        private string getNumberOfDaysWherePosiviteTestsAreAboveStatement(int numberOfPostiveTests)
+        private string getNumberOfDaysWherePositiveTestsAreAboveStatement(int numberOfPositiveTests)
         {
-            return $"Number of days with Positive Tests > {numberOfPostiveTests:N0}: {this.location.GetNumberOfDaysWherePositiveTestsAreAbove(numberOfPostiveTests)}";
+            return $"Number of days with Positive Tests > {numberOfPositiveTests:N0}: {this.location.GetNumberOfDaysWherePositiveTestsAreAbove(numberOfPositiveTests)}";
         }
 
-        private string getNumberOfDaysWherePositiveTetsAreBelowStatement(int numberOfPositiveTests)
+        private string getNumberOfDaysWherePositiveTestsAreBelowStatement(int numberOfPositiveTests)
         {
             return $"Number of days with positive tests < {numberOfPositiveTests:N0}: {this.location.GetNumberOfDaysWherePositiveTestsAreBelow(numberOfPositiveTests)}";
         }
@@ -225,12 +225,12 @@ namespace Covid19Analysis.View
         {
             var startingPoint = 0;
             var segments = 500;
-            var output = $"HISTOGRAM of Postive Tests{Environment.NewLine}";
+            var output = $"HISTOGRAM of Positive Tests{Environment.NewLine}";
             var highestNumberOfCases = this.LocationData.GetHighestNumberOfPositiveTests(this.location.CovidCases);
-            int highestPositveTests = highestNumberOfCases.PositiveIncrease;
+            int highestPositiveTests = highestNumberOfCases.PositiveIncrease;
 
 
-            for (int i = startingPoint; i < highestPositveTests; i += segments)
+            for (int i = startingPoint; i < highestPositiveTests; i += segments)
             {
                 int numberOfCases = this.location.NumberOfPositiveCasesBetween(i, i + segments);
                 output += $"{i} - {i + segments}: {numberOfCases} {Environment.NewLine}";

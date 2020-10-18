@@ -58,9 +58,6 @@ namespace Covid19Analysis.Model
         #endregion
 
         #region Constructors
-
-        public CovidCase() {}
-
         /// <summary>
         ///     Initializes a new instance of the <see cref="CovidCase" /> class.
         /// </summary>
