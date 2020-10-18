@@ -12,8 +12,8 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton x:ConnectionId='7' Icon="Important" Label="Display Errors"                            />
-            <AppBarButton x:ConnectionId='8' Icon="OpenFile" Label="Load File"                       />
+            <AppBarButton x:ConnectionId='15' Icon="Important" Label="Display Errors"                            />
+            <AppBarButton x:ConnectionId='16' Icon="OpenFile" Label="Load File"                       />
         </CommandBar>
         <TextBox x:ConnectionId='2' x:Name="summaryTextBox" HorizontalAlignment="Left" Margin="12,67,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Text="Summary" Height="276" Width="600" IsReadOnly="True" AutomationProperties.Name="summaryTextBlock"/>
         <TextBlock HorizontalAlignment="Left" Margin="12,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="COVID-19 Analysis"/>
@@ -23,7 +23,15 @@
         <TextBlock HorizontalAlignment="Left" Margin="424,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Upper Threshold"/>
         <TextBox x:ConnectionId='4' x:Name="upperThresholdTextBox" HorizontalAlignment="Left" Margin="544,359,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"                                                                                 />
         <Button x:ConnectionId='5' Content="Clear Data" Margin="12,354,0,0" VerticalAlignment="Top"                        />
-        <Button x:ConnectionId='6' Content="Save Data" Margin="12,420,0,0" VerticalAlignment="Top" Width="600"                       />
+        <Button x:ConnectionId='6' Content="Save Data" Margin="12,674,0,0" VerticalAlignment="Top" Width="600"                       />
+        <ComboBox x:ConnectionId='7' x:Name="comboboxState" Margin="12,447,0,0" Width="120" PlaceholderText="State" Header="Choose a State" IsDropDownOpen="True" IsEditable="True" MaxDropDownHeight="99" Height="60"/>
+        <TextBox x:ConnectionId='8' x:Name="textBoxPositiveTests" HorizontalAlignment="Left" Margin="166,447,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"                                                 Header="Positive Tests" Padding="10,7,6,7"/>
+        <TextBox x:ConnectionId='9' x:Name="textBoxNegativeTests" HorizontalAlignment="Left" Margin="325,447,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"                                                 Header="Positive Tests" Padding="10,7,6,7"/>
+        <TextBox x:ConnectionId='10' x:Name="textBoxDeaths" HorizontalAlignment="Left" Margin="487,447,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"                                                 Header="Deaths" Padding="10,7,6,7"/>
+        <TextBox x:ConnectionId='11' x:Name="textBoxHospitalizations" HorizontalAlignment="Left" Margin="10,527,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"                                                 Header="Hospitalizations" Padding="10,7,6,7"/>
+        <CalendarDatePicker x:ConnectionId='12' x:Name="datePickerCovidCase" Margin="166,527,0,0" VerticalAlignment="Top" Header="Date of Case" Padding="0,0,0,3" Height="60"/>
+        <Button x:ConnectionId='13' x:Name="buttonAddNewEntry" Content="Add New Entry" Margin="325,551,0,0" VerticalAlignment="Top" Width="283" Height="36"                                />
+        <TextBlock x:ConnectionId='14' x:Name="textBlockCovidEntryErrorMessage" HorizontalAlignment="Left" Margin="12,614,0,0" Text="covidEntryErrorMessage" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Visibility="Collapsed" Width="595" TextAlignment="Center" SelectionHighlightColor="#FFF50000"/>
     </Grid>
 </Page>
 

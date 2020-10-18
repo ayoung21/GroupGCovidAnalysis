@@ -47,6 +47,7 @@
       <RootProperty Name="Visibility" />
       <RootProperty Name="Width" />
       <RootProperty Name="TextAlignment" />
+      <RootProperty Name="SelectionHighlightColor" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Content" />

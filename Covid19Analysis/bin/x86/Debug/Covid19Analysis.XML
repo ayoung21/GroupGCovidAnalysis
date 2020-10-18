@@ -160,6 +160,188 @@
             </summary>
             <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
         </member>
+        <member name="T:Covid19Analysis.Model.UnitedStatesLocations">
+            <summary>
+                Enums of all United States and Commonwealth / Territories Abbreviations
+            </summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.AL">
+            <summary>Location abbreviation for Alabama</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.AK">
+            <summary>Location abbreviation for Alaska</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.AZ">
+            <summary>Location abbreviation for Arizona</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.AR">
+            <summary>Location abbreviation for Arkansas</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.CA">
+            <summary>Location abbreviation for California</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.CO">
+            <summary>Location abbreviation for Colorado</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.CT">
+            <summary>Location abbreviation for Connecticut</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.DE">
+            <summary>Location abbreviation for Delaware</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.FL">
+            <summary>Location abbreviation for Florida</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.GA">
+            <summary>Location abbreviation for Georgia</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.HI">
+            <summary>Location abbreviation for Hawaii</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.ID">
+            <summary>Location abbreviation for Idaho</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.IL">
+            <summary>Location abbreviation for Illinois</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.IN">
+            <summary>Location abbreviation for Indiana</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.IA">
+            <summary>Location abbreviation for Iowa</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.KS">
+            <summary>Location abbreviation for Kansas</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.KY">
+            <summary>Location abbreviation for Kentucky</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.LA">
+            <summary>Location abbreviation for Louisiana</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.ME">
+            <summary>Location abbreviation for Maine</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.MD">
+            <summary>Location abbreviation for Maryland</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.MA">
+            <summary>Location abbreviation for Massachusetts</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.MI">
+            <summary>Location abbreviation for Michigan</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.MN">
+            <summary>Location abbreviation for Minnesota</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.MS">
+            <summary>Location abbreviation for Mississippi</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.MO">
+            <summary>Location abbreviation for Missouri</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.MT">
+            <summary>Location abbreviation for Montana</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.NE">
+            <summary>Location abbreviation for Nebraska</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.NV">
+            <summary>Location abbreviation for Nevada</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.NH">
+            <summary>Location abbreviation for New Hampshire</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.NJ">
+            <summary>Location abbreviation for New Jersey</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.NM">
+            <summary>Location abbreviation for New Mexico</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.NY">
+            <summary>Location abbreviation for New York</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.NC">
+            <summary>Location abbreviation for North Carolina</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.ND">
+            <summary>Location abbreviation for North Dakota</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.OH">
+            <summary>Location abbreviation for Ohio</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.OK">
+            <summary>Location abbreviation for Oklahoma</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.OR">
+            <summary>Location abbreviation for Oregon</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.PA">
+            <summary>Location abbreviation for Pennsylvania</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.RI">
+            <summary>Location abbreviation for Rhode Island</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.SC">
+            <summary>Location abbreviation for South Carolina</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.SD">
+            <summary>Location abbreviation for South Dakota</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.TN">
+            <summary>Location abbreviation for Tennessee</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.TX">
+            <summary>Location abbreviation for Texas</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.UT">
+            <summary>Location abbreviation for Utah</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.VT">
+            <summary>Location abbreviation for Vermont</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.VA">
+            <summary>Location abbreviation for Virginia</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.WA">
+            <summary>Location abbreviation for Washington</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.WV">
+            <summary>Location abbreviation for West Virginia</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.WI">
+            <summary>Location abbreviation for Wisconsin</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.WY">
+            <summary>Location abbreviation for Wyoming</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.AS">
+            <summary>Location abbreviation for American Samoa</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.DC">
+            <summary>Location abbreviation for District of Columbia</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.FM">
+            <summary>Location abbreviation for Federated States of Micronesia</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.GU">
+            <summary>Location abbreviation for Guam</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.MH">
+            <summary>Location abbreviation for Marshall Islands</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.MP">
+            <summary>Location abbreviation for Northern Mariana Islands</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.PW">
+            <summary>Location abbreviation for Palau</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.PR">
+            <summary>Location abbreviation for Puerto Rico</summary>
+        </member>
+        <member name="F:Covid19Analysis.Model.UnitedStatesLocations.VI">
+            <summary>Location abbreviation for Virgin Islands</summary>
+        </member>
         <member name="T:Covid19Analysis.Model.CovidLocationData">
             <summary>
                 Stores the data for a given LocationData / territory.

@@ -31,7 +31,7 @@
         <TextBox x:ConnectionId='11' x:Name="textBoxHospitalizations" HorizontalAlignment="Left" Margin="10,527,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"                                                 Header="Hospitalizations" Padding="10,7,6,7"/>
         <CalendarDatePicker x:ConnectionId='12' x:Name="datePickerCovidCase" Margin="166,527,0,0" VerticalAlignment="Top" Header="Date of Case" Padding="0,0,0,3" Height="60"/>
         <Button x:ConnectionId='13' x:Name="buttonAddNewEntry" Content="Add New Entry" Margin="325,551,0,0" VerticalAlignment="Top" Width="283" Height="36"                                />
-        <TextBlock x:ConnectionId='14' x:Name="textBlockCovidEntryErrorMessage" HorizontalAlignment="Left" Margin="12,614,0,0" Text="covidEntryErrorMessage" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Visibility="Visible" Width="595" TextAlignment="Center"/>
+        <TextBlock x:ConnectionId='14' x:Name="textBlockCovidEntryErrorMessage" HorizontalAlignment="Left" Margin="12,614,0,0" Text="covidEntryErrorMessage" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Visibility="Collapsed" Width="595" TextAlignment="Center" SelectionHighlightColor="#FFF50000"/>
     </Grid>
 </Page>
 

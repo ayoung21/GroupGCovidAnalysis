@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Covid19Analysis.Model
 {
@@ -39,7 +40,7 @@ namespace Covid19Analysis.Model
         /// </summary>
         /// <param name="covidCase">The covid case you want to add.</param>
         /// <exception cref="ArgumentNullException">covidCase cannot be null</exception>
-        public void AddCovidCase(CovidCase covidCase)
+        public async Task AddCovidCase(CovidCase covidCase)
         {
             if (covidCase == null)
             {

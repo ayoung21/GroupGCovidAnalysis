@@ -393,7 +393,7 @@ namespace Covid19Analysis
         {
             this.covidCollection.ClearData();
             this.CurrentFile = null;
-            this.displayInformation();
+            this.summaryTextBox.Text = "Data Cleared...";
         }
 
 
@@ -455,8 +455,7 @@ namespace Covid19Analysis
                 };
 
                 
-                this.covidCollection.AddCovidCase(covidCase);
-                this.summaryTextBox.Text = this.covidCollection.GetLocationData(location).CovidCases.Count.ToString();
+                await this.covidCollection.AddCovidCase(covidCase);
 
                 if (this.covidLocationData == null)
                 {
@@ -464,7 +463,7 @@ namespace Covid19Analysis
                 }
 
                 this.clearNewDataEntryFields();
-                this.updateDisplayAsync();
+                await this.updateDisplayAsync();
             }
             else
             {
@@ -482,7 +481,7 @@ namespace Covid19Analysis
             var negativeTestEntry = this.textBoxNegativeTests.Text;
             var deathsEntry = this.textBoxDeaths.Text;
             var hospitalizationsEntry = this.textBoxHospitalizations.Text;
-            string selectedCovidCaseDate = this.datePickerCovidCase.Date.ToString();
+            var selectedCovidCaseDate = this.datePickerCovidCase.Date.ToString();
 
             if (String.IsNullOrEmpty(selectedStateEntry))
             {
