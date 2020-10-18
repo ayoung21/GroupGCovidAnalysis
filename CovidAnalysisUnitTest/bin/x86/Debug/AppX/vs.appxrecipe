@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-10-18T18:46:29.995</Modified>
+      <Modified>2020-10-18T19:52:28.483</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x86\Debug\CovidAnalysisUnitTest.exe">
       <PackagePath>entrypoint\CovidAnalysisUnitTest.exe</PackagePath>
-      <Modified>2020-10-18T18:46:28.260</Modified>
+      <Modified>2020-10-18T19:52:27.776</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\Covid19Analysis.exe">
       <PackagePath>Covid19Analysis.exe</PackagePath>
@@ -44,7 +44,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x86\Debug\CovidAnalysisUnitTest.pdb">
       <PackagePath>CovidAnalysisUnitTest.pdb</PackagePath>
-      <Modified>2020-10-18T18:46:28.277</Modified>
+      <Modified>2020-10-18T19:52:27.776</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\Covid19Analysis.pdb">
       <PackagePath>Covid19Analysis.pdb</PackagePath>
@@ -162,7 +162,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x86\Debug\UnitTestApp.xbf">
       <PackagePath>UnitTestApp.xbf</PackagePath>
-      <Modified>2020-10-18T18:46:28.145</Modified>
+      <Modified>2020-10-18T19:52:27.665</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -186,11 +186,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-10-18T18:46:28.864</Modified>
+      <Modified>2020-10-18T19:52:28.125</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\bin\x86\Debug\Core\CovidAnalysisUnitTest.exe">
       <PackagePath>CovidAnalysisUnitTest.exe</PackagePath>
-      <Modified>2020-10-18T18:46:29.982</Modified>
+      <Modified>2020-10-18T19:52:28.470</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
