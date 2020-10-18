@@ -26,11 +26,13 @@ namespace Covid19Analysis
         private const string LocationOfInterest = "GA";
         private const int LowerThresholdDefault = 0;
         private const int UpperThresholdDefault = 2500;
+        private const int BinSizeDefault = 500;
         #endregion
 
         #region Data members
-        private int lowerThreshold = 666;
-        private int upperThreshold = 2500;
+        private int lowerThreshold;
+        private int upperThreshold;
+        private int binSize;
         private readonly CsvReader csvReader;
         private readonly CSVWriter csvWriter;
         private readonly CovidLocationDataCollection covidCollection;
@@ -72,8 +74,14 @@ namespace Covid19Analysis
             this.csvReader = new CsvReader();
             this.csvWriter = new CSVWriter();
             this.covidCollection = new CovidLocationDataCollection();
+
+            this.lowerThreshold = LowerThresholdDefault;
+            this.upperThreshold = UpperThresholdDefault;
+            this.binSize = BinSizeDefault;
+
             this.lowerThresholdTextBox.Text = LowerThresholdDefault.ToString();
             this.upperThresholdTextBox.Text = UpperThresholdDefault.ToString();
+            this.binSizeTextBox.Text = BinSizeDefault.ToString();
 
             this.comboboxState.ItemsSource = Enum.GetValues(typeof(UnitedStatesLocations)).Cast<UnitedStatesLocations>();
         }
@@ -245,7 +253,8 @@ namespace Covid19Analysis
                 {
                     CovidOutputBuilder report = new CovidOutputBuilder(this.covidLocationData) {
                         LowerThreshold = this.lowerThreshold,
-                        UpperThreshold = this.upperThreshold
+                        UpperThreshold = this.upperThreshold,
+                        BinSize = this.binSize
                     };
                     this.summaryTextBox.Text = report.GetLocationSummary() + report.GetYearlySummary();
                 }
@@ -354,6 +363,7 @@ namespace Covid19Analysis
         {
             this.lowerThreshold = int.Parse(this.lowerThresholdTextBox.Text);
             this.upperThreshold = int.Parse(this.upperThresholdTextBox.Text);
+            this.binSize = int.Parse(this.binSizeTextBox.Text);
             if (this.lowerThreshold < this.upperThreshold)
             {
                 await this.displayInformation();

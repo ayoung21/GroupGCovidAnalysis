@@ -18,12 +18,12 @@
         <TextBox x:Name="summaryTextBox" HorizontalAlignment="Left" Margin="12,67,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Text="Summary" Height="276" Width="600" IsReadOnly="True" AutomationProperties.Name="summaryTextBlock"/>
         <TextBlock HorizontalAlignment="Left" Margin="12,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="COVID-19 Analysis"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="205,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Lower Threshold"/>
-        <TextBox x:Name="lowerThresholdTextBox" HorizontalAlignment="Left" Margin="325,359,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="LowerThreshold_KeyDown"/>
-        <TextBlock HorizontalAlignment="Left" Margin="424,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Upper Threshold"/>
-        <TextBox x:Name="upperThresholdTextBox" HorizontalAlignment="Left" Margin="544,359,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="UpperThreshold_KeyDown"/>
-        <Button Content="Clear Data" Margin="12,354,0,0" VerticalAlignment="Top" Click="clearData_Click"/>
-        <Button Content="Save Data" Margin="12,674,0,0" VerticalAlignment="Top" Width="600" Click="saveData_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="17,361,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Lower Threshold"/>
+        <TextBox x:Name="lowerThresholdTextBox" HorizontalAlignment="Left" Margin="137,355,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="LowerThreshold_KeyDown"/>
+        <TextBlock HorizontalAlignment="Left" Margin="236,361,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Upper Threshold"/>
+        <TextBox x:Name="upperThresholdTextBox" HorizontalAlignment="Left" Margin="356,355,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="UpperThreshold_KeyDown"/>
+        <Button Content="Clear Data" Margin="12,674,0,0" VerticalAlignment="Top" Click="clearData_Click" Width="120"/>
+        <Button Content="Save Data" Margin="325,674,0,0" VerticalAlignment="Top" Width="287" Click="saveData_Click"/>
         <ComboBox x:Name="comboboxState" Margin="12,447,0,0" Width="120" PlaceholderText="State" Header="Choose a State" IsDropDownOpen="True" IsEditable="True" MaxDropDownHeight="99" Height="60"/>
         <TextBox x:Name="textBoxPositiveTests" HorizontalAlignment="Left" Margin="166,447,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" BeforeTextChanging="TextBox_BeforeTextChanging" Header="Positive Tests" Padding="10,7,6,7"/>
         <TextBox x:Name="textBoxNegativeTests" HorizontalAlignment="Left" Margin="325,447,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" BeforeTextChanging="TextBox_BeforeTextChanging" Header="Positive Tests" Padding="10,7,6,7"/>
@@ -32,5 +32,7 @@
         <CalendarDatePicker x:Name="datePickerCovidCase" Margin="166,527,0,0" VerticalAlignment="Top" Header="Date of Case" Padding="0,0,0,3" Height="60"/>
         <Button Content="Add New Entry" Margin="325,551,0,0" VerticalAlignment="Top" Width="283" Height="36" Click="buttonAddNewEntry_Click"/>
         <TextBlock x:Name="textBlockCovidEntryErrorMessage" HorizontalAlignment="Left" Margin="12,614,0,0" Text="covidEntryErrorMessage" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Visibility="Collapsed" Width="595" TextAlignment="Center" SelectionHighlightColor="#FFF50000"/>
+        <TextBlock HorizontalAlignment="Left" Margin="487,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Bin Size"/>
+        <TextBox x:Name="binSizeTextBox" HorizontalAlignment="Left" Margin="548,354,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="UpperThreshold_KeyDown"/>
     </Grid>
 </Page>

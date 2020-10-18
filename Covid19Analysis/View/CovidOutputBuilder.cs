@@ -44,6 +44,12 @@ namespace Covid19Analysis.View
         /// <value>The lower threshold.</value>
         public int LowerThreshold { get; set; }
 
+        /// <summary>
+        ///     Gets or sets the bin size for the histogram.
+        /// </summary>
+        /// <value>The lower threshold.</value>
+        public int BinSize { get; set; }
+
         #endregion
 
         #region Constructors        
@@ -224,16 +230,15 @@ namespace Covid19Analysis.View
         private string buildHistogramOfPositiveCases()
         {
             var startingPoint = 0;
-            var segments = 500;
             var output = $"HISTOGRAM of Positive Tests{Environment.NewLine}";
             var highestNumberOfCases = this.LocationData.GetHighestNumberOfPositiveTests(this.location.CovidCases);
             int highestPositiveTests = highestNumberOfCases.PositiveIncrease;
 
 
-            for (int i = startingPoint; i < highestPositiveTests; i += segments)
+            for (int i = startingPoint; i < highestPositiveTests; i += this.BinSize)
             {
-                int numberOfCases = this.location.NumberOfPositiveCasesBetween(i, i + segments);
-                output += $"{i} - {i + segments}: {numberOfCases} {Environment.NewLine}";
+                int numberOfCases = this.location.NumberOfPositiveCasesBetween(i, i + this.BinSize);
+                output += $"{i} - {i + this.BinSize}: {numberOfCases} {Environment.NewLine}";
             }
 
             return output;
