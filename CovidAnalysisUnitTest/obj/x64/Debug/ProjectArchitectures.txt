@@ -1,0 +1,2 @@
+C:\Users\csuser\Desktop\Covid-Analysis\Covid19Analysis\Covid19Analysis.csproj;x64
+C:\Users\csuser\Desktop\Covid-Analysis\CovidAnalysisUnitTest\CovidAnalysisUnitTest.csproj;x64

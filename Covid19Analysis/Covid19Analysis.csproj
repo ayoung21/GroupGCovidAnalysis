@@ -125,6 +125,7 @@
     </Compile>
     <Compile Include="Model\CovidCase.cs" />
     <Compile Include="IO\CSVReader.cs" />
+    <Compile Include="Model\UnitedStatesLocations.cs" />
     <Compile Include="View\DuplicateEntryContentDialog.xaml.cs">
       <DependentUpon>DuplicateEntryContentDialog.xaml</DependentUpon>
     </Compile>

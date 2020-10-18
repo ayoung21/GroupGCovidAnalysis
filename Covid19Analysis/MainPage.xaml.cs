@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Foundation;
@@ -39,7 +40,7 @@ namespace Covid19Analysis
         /// <summary>
         ///     The application height
         /// </summary>
-        public const int ApplicationHeight = 600;
+        public const int ApplicationHeight = 750;
 
         /// <summary>
         ///     The application width
@@ -73,6 +74,8 @@ namespace Covid19Analysis
             this.covidCollection = new CovidLocationDataCollection();
             this.lowerThresholdTextBox.Text = LowerThresholdDefault.ToString();
             this.upperThresholdTextBox.Text = UpperThresholdDefault.ToString();
+
+            this.comboboxState.ItemsSource = Enum.GetValues(typeof(UnitedStatesLocations)).Cast<UnitedStatesLocations>();
         }
 
         #endregion
@@ -146,10 +149,10 @@ namespace Covid19Analysis
 
         private async Task<StorageFile> chooseFile()
         {
-            var picker = new Windows.Storage.Pickers.FileOpenPicker
+            var picker = new FileOpenPicker
             {
-                ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail,
-                SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
+                ViewMode = PickerViewMode.Thumbnail,
+                SuggestedStartLocation = PickerLocationId.DocumentsLibrary
             };
             picker.FileTypeFilter.Add(".csv");
             picker.FileTypeFilter.Add(".txt");
@@ -222,7 +225,9 @@ namespace Covid19Analysis
 
         private async Task displayInformation()
         {
-            if (this.CurrentFile != null)
+            // this.covidLocationData = this.covidCollection.GetLocationData(LocationOfInterest);
+
+            if (this.CurrentFile != null || this.covidLocationData != null)
             {
                 this.buildAndSetSummaryReport();
             }
@@ -429,6 +434,97 @@ namespace Covid19Analysis
             {
                 // OutputTextBlock.Text = "Operation cancelled.";
             }
+        }
+
+        private async void buttonAddNewEntry_Click(object sender, RoutedEventArgs e)
+        {
+            this.textBlockCovidEntryErrorMessage.Visibility = Visibility.Collapsed;
+
+            var isEntryValid = this.validateNewEntryData();
+            if (isEntryValid)
+            {
+                var location = this.comboboxState.SelectedValue.ToString();
+                DateTime dateTime = DateTime.Parse(this.datePickerCovidCase.Date.ToString());
+
+                var covidCase = new CovidCase(location, dateTime)
+                {
+                    PositiveIncrease = int.Parse(this.textBoxPositiveTests.Text),
+                    NegativeIncrease = int.Parse(this.textBoxNegativeTests.Text),
+                    DeathIncrease = int.Parse(this.textBoxDeaths.Text),
+                    HospitalizedIncrease = int.Parse(this.textBoxHospitalizations.Text)
+                };
+
+                
+                this.covidCollection.AddCovidCase(covidCase);
+                this.summaryTextBox.Text = this.covidCollection.GetLocationData(location).CovidCases.Count.ToString();
+
+                if (this.covidLocationData == null)
+                {
+                    this.covidLocationData = this.covidCollection.GetLocationData(LocationOfInterest);
+                }
+
+                this.clearNewDataEntryFields();
+                this.updateDisplayAsync();
+            }
+            else
+            {
+                this.textBlockCovidEntryErrorMessage.Text = "Please Complete All Fields Correctly";
+                this.textBlockCovidEntryErrorMessage.Visibility = Visibility.Visible;
+            }
+
+
+        }
+
+        private bool validateNewEntryData()
+        {
+            var selectedStateEntry = (this.comboboxState.SelectedValue != null) ? this.comboboxState.SelectedValue.ToString() : "";
+            var positiveTestEntry = this.textBoxPositiveTests.Text;
+            var negativeTestEntry = this.textBoxNegativeTests.Text;
+            var deathsEntry = this.textBoxDeaths.Text;
+            var hospitalizationsEntry = this.textBoxHospitalizations.Text;
+            string selectedCovidCaseDate = this.datePickerCovidCase.Date.ToString();
+
+            if (String.IsNullOrEmpty(selectedStateEntry))
+            {
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(positiveTestEntry))
+            {
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(negativeTestEntry))
+            {
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(deathsEntry))
+            {
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(hospitalizationsEntry))
+            {
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(selectedCovidCaseDate))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void clearNewDataEntryFields()
+        {
+            this.comboboxState.SelectedItem = null;
+            this.textBoxPositiveTests.Text = "";
+            this.textBoxNegativeTests.Text = "";
+            this.textBoxDeaths.Text = "";
+            this.textBoxHospitalizations.Text = "";
+            this.datePickerCovidCase.Date = null;
         }
     }
 }
