@@ -69,12 +69,12 @@
         <member name="F:Covid19Analysis.CovidCSV.CsvConstants.HeaderInformation">
             <summary>The header information for when saving a CSV file</summary>
         </member>
-        <member name="T:Covid19Analysis.CovidCSV.CSVWriter">
+        <member name="T:Covid19Analysis.CovidCSV.CsvWriter">
             <summary>
                 Class to save Covid-19 data to a CSV file
             </summary>
         </member>
-        <member name="M:Covid19Analysis.CovidCSV.CSVWriter.SaveDataAsCSV(Covid19Analysis.Model.CovidLocationDataCollection)">
+        <member name="M:Covid19Analysis.CovidCSV.CsvWriter.SaveDataAsCsv(Covid19Analysis.Model.CovidLocationDataCollection)">
             <summary>
                 Saves the data as CSV.
             </summary>
@@ -561,17 +561,12 @@
                 The number of positive cases between the given parameters.
             </returns>
         </member>
-        <member name="M:Covid19Analysis.Model.CovidLocationData.RemoveDuplicateEntry(Covid19Analysis.Model.CovidCase)">
-            <summary>
-                Removes a duplicate entry
-            </summary>
-        </member>
         <member name="T:Covid19Analysis.Model.CovidLocationDataCollection">
             <summary>
                 Class to hold the collection of States
             </summary>
         </member>
-        <member name="F:Covid19Analysis.Model.CovidLocationDataCollection.covidLocationDataCollection">
+        <member name="F:Covid19Analysis.Model.CovidLocationDataCollection.CollectionOfCovidLocationData">
             <summary>
             A collection of covid data
             </summary>

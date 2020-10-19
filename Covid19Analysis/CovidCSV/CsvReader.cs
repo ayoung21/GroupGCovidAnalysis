@@ -20,10 +20,10 @@ namespace Covid19Analysis.CovidCSV
         private const int NegativeColumn = 3;
         private const int DeathColumn = 4;
         private const int HospitalizedColumn = 5;
+        private const char DefaultDelimiter = ',';
         #endregion
 
         #region Data members
-        private readonly char defaultDelimiter = ',';
         private StorageFile csvFile;
         #endregion
 
@@ -84,7 +84,7 @@ namespace Covid19Analysis.CovidCSV
                 {
                     if (count != 0 && count < data.Length - 1)
                     {
-                        var stateData = record.Split(this.defaultDelimiter);
+                        var stateData = record.Split(DefaultDelimiter);
                         var covidData = this.processCovidData(count, stateData);
                         if (covidData != null)
                         {
@@ -195,9 +195,8 @@ namespace Covid19Analysis.CovidCSV
 
         private bool containsValidDate(string data)
         {
-            string format = CsvConstants.DateFormat;
-            if (DateTime.TryParseExact(data, format, CultureInfo.InvariantCulture,
-                DateTimeStyles.None, out var dateTime))
+            if (DateTime.TryParseExact(data, CsvConstants.DateFormat, CultureInfo.InvariantCulture,
+                DateTimeStyles.None, out _))
             {
                 return true;
             }
@@ -207,7 +206,7 @@ namespace Covid19Analysis.CovidCSV
 
         private bool containsValidNumber(string data)
         {
-            if (int.TryParse(data, out var number))
+            if (int.TryParse(data, out _))
             {
                 return true;
             }

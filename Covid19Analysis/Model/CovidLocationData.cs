@@ -417,21 +417,6 @@ namespace Covid19Analysis.Model
                        .Where(covidCase => covidCase.PositiveIncrease <= maxTestCount).Count(covidCase =>
                            covidCase.Date >= this.GetEarliestPositiveCase().Date);
         }
-
-        /// <summary>
-        ///     Removes a duplicate entry
-        /// </summary>
-        public void RemoveDuplicateEntry(CovidCase covidCase)
-        {
-            var item = this.duplicateCases.First(i => i.Date.Equals(covidCase.Date));
-            var index = this.duplicateCases.IndexOf(item);
-
-            if (index != -1)
-            {
-                this.duplicateCases.RemoveAt(index);
-            }
-        }
-
         #endregion
 
         #region Member Variables

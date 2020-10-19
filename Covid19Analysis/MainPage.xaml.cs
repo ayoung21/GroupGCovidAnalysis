@@ -20,7 +20,7 @@ namespace Covid19Analysis
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage
     {
         #region Constants
         private const string LocationOfInterest = "GA";
@@ -34,7 +34,7 @@ namespace Covid19Analysis
         private int upperThreshold;
         private int binSize;
         private readonly CsvReader csvReader;
-        private readonly CSVWriter csvWriter;
+        private readonly CsvWriter csvWriter;
         private readonly CovidLocationDataCollection covidCollection;
         private CovidLocationData covidLocationData;
 
@@ -72,7 +72,7 @@ namespace Covid19Analysis
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(ApplicationWidth, ApplicationHeight));
 
             this.csvReader = new CsvReader();
-            this.csvWriter = new CSVWriter();
+            this.csvWriter = new CsvWriter();
             this.covidCollection = new CovidLocationDataCollection();
 
             this.lowerThreshold = LowerThresholdDefault;
@@ -89,13 +89,13 @@ namespace Covid19Analysis
         #endregion
         private async void displayErrors_Click(object sender, RoutedEventArgs e)
         {
-            string defaultOutput = "No Known Errors";
-            var errorDialog = new ContentDialog()
+            const string defaultOutput = "No Known Errors";
+            var errorDialog = new ContentDialog
             {
                 Title = "CSV Errors",
-                Content = new ScrollViewer()
+                Content = new ScrollViewer
                 {
-                    Content = new TextBlock()
+                    Content = new TextBlock
                     {
                         Text = (this.csvReader.Errors.Count > 0) ? this.csvReader.GetErrorsAsString() : defaultOutput
                     },
@@ -124,7 +124,12 @@ namespace Covid19Analysis
                 }
 
                 await this.extractData();
-                await this.displayInformation();
+
+                if (this.CurrentFile != null || this.covidLocationData != null)
+                {
+                    this.displayInformation();
+                }
+                
             }
             else
             {
@@ -179,7 +184,7 @@ namespace Covid19Analysis
                 this.covidLocationData = this.covidCollection.GetLocationData(LocationOfInterest);
             }
 
-            if (this.covidLocationData.DuplicateCases.Count > 0)
+            if (this.covidLocationData != null && this.covidLocationData.DuplicateCases.Count > 0)
             {
                 await this.displayDuplicateCases();
             }
@@ -231,7 +236,7 @@ namespace Covid19Analysis
             }
         }
 
-        private async Task displayInformation()
+        private void displayInformation()
         {
             if (this.CurrentFile != null || this.covidLocationData != null)
             {
@@ -281,7 +286,7 @@ namespace Covid19Analysis
                 PrimaryButtonText = "Yes!",
             };
             await dialogBox.ShowAsync();
-            await this.displayInformation();
+            this.displayInformation();
         }
 
         private int removeDuplicateItems(IList<CovidCase> tempList)
@@ -332,7 +337,7 @@ namespace Covid19Analysis
 
         private async Task<ContentDialogResult> displayDialogReplaceOrMergeCase()
         {
-            var mergeOrReplaceDialog = new ContentDialog()
+            var mergeOrReplaceDialog = new ContentDialog
             {
                 Title = "Replace or Merge Existing File?",
                 Content = "Do you want to replace or merge to the current file?",
@@ -344,30 +349,30 @@ namespace Covid19Analysis
             return mergeOrReplaceResult;
         }
 
-        private async void LowerThreshold_KeyDown(object sender, KeyRoutedEventArgs e)
+        private void LowerThreshold_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                await this.updateDisplayAsync();
+                this.updateDisplay();
             }
         }
 
-        private async void UpperThreshold_KeyDown(object sender, KeyRoutedEventArgs e)
+        private void UpperThreshold_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                await this.updateDisplayAsync();
+                this.updateDisplay();
             }
         }
 
-        private async Task updateDisplayAsync()
+        private void updateDisplay()
         {
             this.lowerThreshold = int.Parse(this.lowerThresholdTextBox.Text);
             this.upperThreshold = int.Parse(this.upperThresholdTextBox.Text);
             this.binSize = int.Parse(this.binSizeTextBox.Text);
-            if (this.lowerThreshold < this.upperThreshold)
+            if (this.lowerThreshold < this.upperThreshold && (this.CurrentFile != null || this.covidLocationData != null))
             {
-                await this.displayInformation();
+                this.displayInformation();
             }
             else
             {
@@ -406,19 +411,19 @@ namespace Covid19Analysis
         }
 
 
-        private async void saveData_Click(object sender, RoutedEventArgs e)
+        private void saveData_Click(object sender, RoutedEventArgs e)
         {
-            this.csvWriter.SaveDataAsCSV(this.covidCollection);
+            this.csvWriter.SaveDataAsCsv(this.covidCollection);
         }
 
-        private async void buttonAddNewEntry_Click(object sender, RoutedEventArgs e)
+        private void buttonAddNewEntry_Click(object sender, RoutedEventArgs e)
         {
             this.textBlockCovidEntryErrorMessage.Visibility = Visibility.Collapsed;
 
             var isEntryValid = this.validateNewEntryData();
             if (isEntryValid)
             {
-                var location = this.comboboxState.SelectedValue.ToString();
+                var location = this.comboboxState.SelectedValue?.ToString();
                 DateTime dateTime = DateTime.Parse(this.datePickerCovidCase.Date.ToString());
 
                 var covidCase = new CovidCase(location, dateTime)
@@ -430,7 +435,7 @@ namespace Covid19Analysis
                 };
 
 
-                await this.covidCollection.AddCovidCase(covidCase);
+                this.covidCollection.AddCovidCase(covidCase);
 
                 if (this.covidLocationData == null)
                 {
@@ -438,7 +443,7 @@ namespace Covid19Analysis
                 }
 
                 this.clearNewDataEntryFields();
-                await this.updateDisplayAsync();
+                this.updateDisplay();
             }
             else
             {

@@ -24,7 +24,7 @@
         <TextBox x:Name="upperThresholdTextBox" HorizontalAlignment="Left" Margin="356,355,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="UpperThreshold_KeyDown" MaxLength="9"/>
         <Button Content="Clear Data" Margin="12,674,0,0" VerticalAlignment="Top" Click="clearData_Click" Width="120"/>
         <Button Content="Save Data" Margin="325,674,0,0" VerticalAlignment="Top" Width="287" Click="saveData_Click"/>
-        <ComboBox x:Name="comboboxState" Margin="12,447,0,0" Width="120" PlaceholderText="State" Header="Choose a State" IsDropDownOpen="True" IsEditable="True" MaxDropDownHeight="99" Height="60"/>
+        <ComboBox x:Name="comboboxState" Margin="12,447,0,0" Width="120" PlaceholderText="State" Header="Choose a State" IsDropDownOpen="True" MaxDropDownHeight="99" Height="55"/>
         <TextBox x:Name="textBoxPositiveTests" HorizontalAlignment="Left" Margin="166,447,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" BeforeTextChanging="TextBox_BeforeTextChanging" Header="Positive Tests" Padding="10,7,6,7" MaxLength="9"/>
         <TextBox x:Name="textBoxNegativeTests" HorizontalAlignment="Left" Margin="325,447,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" BeforeTextChanging="TextBox_BeforeTextChanging" Header="Negative Tests" Padding="10,7,6,7" MaxLength="9"/>
         <TextBox x:Name="textBoxDeaths" HorizontalAlignment="Left" Margin="487,447,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" BeforeTextChanging="TextBox_BeforeTextChanging" Header="Deaths" Padding="10,7,6,7" MaxLength="9"/>

@@ -11,16 +11,16 @@ namespace Covid19Analysis.CovidCSV
     /// <summary>
     ///     Class to save Covid-19 data to a CSV file
     /// </summary>
-    public class CSVWriter
+    public class CsvWriter
     {
 
         /// <summary>
         ///     Saves the data as CSV.
         /// </summary>
         /// <param name="dataToSave">The data to save.</param>
-        public void SaveDataAsCSV(CovidLocationDataCollection dataToSave)
+        public void SaveDataAsCsv(CovidLocationDataCollection dataToSave)
         {
-            var locationCollection = dataToSave.covidLocationDataCollection;
+            var locationCollection = dataToSave.CollectionOfCovidLocationData;
             string data = $"{CsvConstants.HeaderInformation} {Environment.NewLine}";
 
             foreach (KeyValuePair<string, CovidLocationData> currentLocation in locationCollection)

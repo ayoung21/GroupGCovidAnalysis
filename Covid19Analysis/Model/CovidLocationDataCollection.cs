@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Covid19Analysis.Model
 {
@@ -15,7 +14,7 @@ namespace Covid19Analysis.Model
         /// <summary>
         /// A collection of covid data
         /// </summary>
-        public readonly Dictionary<string, CovidLocationData> covidLocationDataCollection;
+        public readonly Dictionary<string, CovidLocationData> CollectionOfCovidLocationData;
 
         #endregion
 
@@ -26,7 +25,7 @@ namespace Covid19Analysis.Model
         /// </summary>
         public CovidLocationDataCollection()
         {
-            this.covidLocationDataCollection = new Dictionary<string, CovidLocationData>();
+            this.CollectionOfCovidLocationData = new Dictionary<string, CovidLocationData>();
         }
 
         #endregion
@@ -41,9 +40,9 @@ namespace Covid19Analysis.Model
         public CovidLocationData GetLocationData(string locationAbbreviation)
         {
             CovidLocationData locationData = null;
-            if (this.covidLocationDataCollection.ContainsKey(locationAbbreviation))
+            if (this.CollectionOfCovidLocationData.ContainsKey(locationAbbreviation))
             {
-                locationData = this.covidLocationDataCollection[locationAbbreviation];
+                locationData = this.CollectionOfCovidLocationData[locationAbbreviation];
             }
 
             return locationData;
@@ -54,22 +53,22 @@ namespace Covid19Analysis.Model
         /// </summary>
         /// <param name="covidCase">The covid case you want to add.</param>
         /// <exception cref="ArgumentNullException">covidCase cannot be null</exception>
-        public async Task AddCovidCase(CovidCase covidCase)
+        public void AddCovidCase(CovidCase covidCase)
         {
             if (covidCase == null)
             {
                 throw new ArgumentNullException(nameof(covidCase));
             }
 
-            if (this.covidLocationDataCollection.ContainsKey(covidCase.Location))
+            if (this.CollectionOfCovidLocationData.ContainsKey(covidCase.Location))
             {
-                this.covidLocationDataCollection[covidCase.Location].AddCovidCase(covidCase);
+                this.CollectionOfCovidLocationData[covidCase.Location].AddCovidCase(covidCase);
             }
             else
             {
                 var newState = new CovidLocationData(covidCase.Location);
-                this.covidLocationDataCollection.Add(newState.State, newState);
-                this.covidLocationDataCollection[covidCase.Location].AddCovidCase(covidCase);
+                this.CollectionOfCovidLocationData.Add(newState.State, newState);
+                this.CollectionOfCovidLocationData[covidCase.Location].AddCovidCase(covidCase);
             }
         }
 
@@ -96,12 +95,12 @@ namespace Covid19Analysis.Model
         /// </summary>
         public void ClearData()
         {
-            foreach (var item in this.covidLocationDataCollection.Values)
+            foreach (var item in this.CollectionOfCovidLocationData.Values)
             {
                 item.ClearData();
             }
 
-            this.covidLocationDataCollection.Clear();
+            this.CollectionOfCovidLocationData.Clear();
         }
 
         #endregion

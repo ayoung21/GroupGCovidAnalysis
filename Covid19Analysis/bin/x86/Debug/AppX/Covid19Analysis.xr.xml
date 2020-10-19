@@ -64,7 +64,6 @@
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Header" />
       <RootProperty Name="IsDropDownOpen" />
-      <RootProperty Name="IsEditable" />
       <RootProperty Name="MaxDropDownHeight" />
       <RootProperty Name="Height" />
     </RootType>
