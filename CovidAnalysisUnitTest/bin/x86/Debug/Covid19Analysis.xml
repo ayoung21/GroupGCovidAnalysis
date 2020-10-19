@@ -6,34 +6,34 @@
     <members>
         <member name="T:Covid19Analysis.App">
             <summary>
-            Provides application-specific behavior to supplement the default Application class.
+                Provides application-specific behavior to supplement the default Application class.
             </summary>
         </member>
         <member name="M:Covid19Analysis.App.#ctor">
             <summary>
-            Initializes the singleton application object.  This is the first line of authored code
-            executed, and as such is the logical equivalent of main() or WinMain().
+                Initializes the singleton application object.  This is the first line of authored code
+                executed, and as such is the logical equivalent of main() or WinMain().
             </summary>
         </member>
         <member name="M:Covid19Analysis.App.OnLaunched(Windows.ApplicationModel.Activation.LaunchActivatedEventArgs)">
             <summary>
-            Invoked when the application is launched normally by the end user.  Other entry points
-            will be used such as when the application is launched to open a specific file.
+                Invoked when the application is launched normally by the end user.  Other entry points
+                will be used such as when the application is launched to open a specific file.
             </summary>
             <param name="e">Details about the launch request and process.</param>
         </member>
         <member name="M:Covid19Analysis.App.OnNavigationFailed(System.Object,Windows.UI.Xaml.Navigation.NavigationFailedEventArgs)">
             <summary>
-            Invoked when Navigation to a certain page fails
+                Invoked when Navigation to a certain page fails
             </summary>
             <param name="sender">The Frame which failed navigation</param>
             <param name="e">Details about the navigation failure</param>
         </member>
         <member name="M:Covid19Analysis.App.OnSuspending(System.Object,Windows.ApplicationModel.SuspendingEventArgs)">
             <summary>
-            Invoked when application execution is being suspended.  Application state is saved
-            without knowing whether the application will be terminated or resumed with the contents
-            of memory still intact.
+                Invoked when application execution is being suspended.  Application state is saved
+                without knowing whether the application will be terminated or resumed with the contents
+                of memory still intact.
             </summary>
             <param name="sender">The source of the suspend request.</param>
             <param name="e">Details about the suspend request.</param>
@@ -421,7 +421,7 @@
         </member>
         <member name="M:Covid19Analysis.Model.CovidLocationData.#ctor(System.String)">
             <summary>
-                Initializes a new instance of the <see cref="T:Covid19Analysis.Model.CovidLocationData"/> class.
+                Initializes a new instance of the <see cref="T:Covid19Analysis.Model.CovidLocationData" /> class.
             </summary>
             <param name="state">The state / territory of the data</param>
             <exception cref="T:System.ArgumentNullException">state cannot be null</exception>
@@ -457,16 +457,16 @@
             </summary>
             <param name="numberOfPositiveTests">The number of positive tests.</param>
             <returns>
-              <br />
+                <br />
             </returns>
         </member>
         <member name="M:Covid19Analysis.Model.CovidLocationData.GetNumberOfDaysWherePositiveTestsAreBelow(System.Int32)">
-            <summary
-                >Gets the number of days where positive tests are below a specified amount.
+            <summary>
+                Gets the number of days where positive tests are below a specified amount.
             </summary>
             <param name="numberOfPositiveTests">The number of positive tests.</param>
             <returns>
-              <br />
+                <br />
             </returns>
         </member>
         <member name="M:Covid19Analysis.Model.CovidLocationData.GetOverallPositivityRate(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
@@ -558,12 +558,12 @@
             <param name="minTestCount">The minimum test count.</param>
             <param name="maxTestCount">The maximum test count.</param>
             <returns>
-              The number of positive cases between the given parameters.
+                The number of positive cases between the given parameters.
             </returns>
         </member>
         <member name="M:Covid19Analysis.Model.CovidLocationData.RemoveDuplicateEntry(Covid19Analysis.Model.CovidCase)">
             <summary>
-            Removes a duplicate entry
+                Removes a duplicate entry
             </summary>
         </member>
         <member name="T:Covid19Analysis.Model.CovidLocationDataCollection">
@@ -571,9 +571,14 @@
                 Class to hold the collection of States
             </summary>
         </member>
+        <member name="F:Covid19Analysis.Model.CovidLocationDataCollection.covidLocationDataCollection">
+            <summary>
+            A collection of covid data
+            </summary>
+        </member>
         <member name="M:Covid19Analysis.Model.CovidLocationDataCollection.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Covid19Analysis.Model.CovidLocationDataCollection"/> class.
+                Initializes a new instance of the <see cref="T:Covid19Analysis.Model.CovidLocationDataCollection" /> class.
             </summary>
         </member>
         <member name="M:Covid19Analysis.Model.CovidLocationDataCollection.GetLocationData(System.String)">
@@ -604,13 +609,14 @@
         </member>
         <member name="T:Covid19Analysis.View.DuplicateEntryContentDialog">
             <summary>
-              Class for creating a duplicate entry content dialog
+                Class for creating a duplicate entry content dialog
             </summary>
         </member>
         <member name="P:Covid19Analysis.View.DuplicateEntryContentDialog.IsChecked">
             <summary>Gets or sets a value indicating whether this instance is checked.</summary>
             <value>
-            <c>true</c> if this instance is checked; otherwise, <c>false</c>.</value>
+                <c>true</c> if this instance is checked; otherwise, <c>false</c>.
+            </value>
         </member>
         <member name="P:Covid19Analysis.View.DuplicateEntryContentDialog.Subtitle">
             <summary>Gets or sets the subtitle.</summary>
@@ -625,7 +631,11 @@
             <value>The last known button press.</value>
         </member>
         <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.#ctor">
-            <summary>Initializes a new instance of the <a onclick="return false;" href="DuplicateEntryContentDialog" originaltag="see">DuplicateEntryContentDialog</a> class.</summary>
+            <summary>
+                Initializes a new instance of the
+                <a onclick="return false;" href="DuplicateEntryContentDialog" originaltag="see">DuplicateEntryContentDialog</a>
+                class.
+            </summary>
         </member>
         <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.UpdateContent">
             <summary>Updates the content.</summary>

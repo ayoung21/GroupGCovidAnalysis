@@ -191,12 +191,12 @@ namespace Covid19Analysis.Model
         {
             double positiveTestCount = 0;
 
-            foreach (var covidEvent in this.CovidCases)
+            foreach (var covidEvent in covidCases)
             {
                 positiveTestCount += covidEvent.PositiveIncrease;
             }
 
-            return positiveTestCount / this.CovidCases.Count;
+            return positiveTestCount / covidCases.Count;
         }
 
         /// <summary>
@@ -208,7 +208,7 @@ namespace Covid19Analysis.Model
         {
             double positiveTestCount = 0;
             double negativeTestCount = 0;
-            foreach (var covidEvent in this.CovidCases)
+            foreach (var covidEvent in covidCases)
             {
                 positiveTestCount += covidEvent.PositiveIncrease;
                 negativeTestCount += covidEvent.NegativeIncrease;
