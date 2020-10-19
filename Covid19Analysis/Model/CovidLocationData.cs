@@ -364,7 +364,7 @@ namespace Covid19Analysis.Model
                 return null;
             }
 
-            return this.CovidCases.OrderByDescending(covidCase => covidCase.PositiveIncrease).First();
+            return covidCases.OrderByDescending(covidCase => covidCase.PositiveIncrease).First();
         }
 
         /// <summary>
