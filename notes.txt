@@ -1,7 +1,6 @@
-CSV File
-- Uncertain what negative values mean within the data.
-- I changed all negative values to positive values.
+=======================================================================================================
+IMPORTANT: WireUpCoreRuntime and other errors; Need to switch from x86 to x64 OR vice versa to fix this
+=======================================================================================================
 
-Report
-- Uncertain on which route is cleaner; one with various method calls, or the one with everything within the method.
-- I went both routes.
+This has been happening to me on the lab machines on campus where I would get various build fails. 
+One of these fails mentions something about a **WireUpCoreRuntime**. The fix is to switch from x86 to x64 OR vice versa.
