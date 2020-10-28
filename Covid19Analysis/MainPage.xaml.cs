@@ -23,7 +23,7 @@ namespace Covid19Analysis
     public sealed partial class MainPage
     {
         #region Constants
-        private const string LocationOfInterest = "GA";
+        private string LocationOfInterest = "GA";
         private const int LowerThresholdDefault = 0;
         private const int UpperThresholdDefault = 2500;
         private const int BinSizeDefault = 500;
@@ -41,7 +41,7 @@ namespace Covid19Analysis
         /// <summary>
         ///     The application height
         /// </summary>
-        public const int ApplicationHeight = 750;
+        public const int ApplicationHeight = 800;
 
         /// <summary>
         ///     The application width
@@ -83,6 +83,7 @@ namespace Covid19Analysis
             this.upperThresholdTextBox.Text = UpperThresholdDefault.ToString();
             this.binSizeTextBox.Text = BinSizeDefault.ToString();
 
+            this.comboboxLocationSelection.IsEnabled = false;
             this.comboboxState.ItemsSource = Enum.GetValues(typeof(UnitedStatesLocations)).Cast<UnitedStatesLocations>();
         }
 
@@ -128,6 +129,7 @@ namespace Covid19Analysis
                 if (this.CurrentFile != null || this.covidLocationData != null)
                 {
                     this.displayInformation();
+                    this.updateLocationSelectionCombobox(true);
                 }
                 
             }
@@ -182,6 +184,8 @@ namespace Covid19Analysis
                 this.covidCollection.AddAllCovidCases(covidCases);
 
                 this.covidLocationData = this.covidCollection.GetLocationData(LocationOfInterest);
+
+                this.updateLocationSelectionCombobox(true);
             }
 
             if (this.covidLocationData != null && this.covidLocationData.DuplicateCases.Count > 0)
@@ -408,6 +412,7 @@ namespace Covid19Analysis
             this.covidCollection.ClearData();
             this.CurrentFile = null;
             this.summaryTextBox.Text = "Data Cleared...";
+            this.updateLocationSelectionCombobox(false);
         }
 
 
@@ -504,6 +509,33 @@ namespace Covid19Analysis
             this.textBoxDeaths.Text = "";
             this.textBoxHospitalizations.Text = "";
             this.datePickerCovidCase.Date = null;
+        }
+
+        private void updateLocationSelectionCombobox(bool isEnabled)
+        {
+            this.comboboxLocationSelection.IsEnabled = isEnabled;
+            if (this.CurrentFile != null || this.covidCollection.CollectionOfCovidLocationData.Count > 0)
+            {
+                this.comboboxLocationSelection.ItemsSource =
+                    this.covidCollection.CollectionOfCovidLocationData.Keys.ToList();
+            }
+        }
+
+        private void comboboxLocationSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((this.comboboxLocationSelection.SelectedItem != null || this.covidCollection.CollectionOfCovidLocationData.Count > 0) && this.comboboxLocationSelection.SelectedValue != null)
+            {
+                var selectedValue = this.comboboxLocationSelection.SelectedValue.ToString();
+                this.covidLocationData = this.covidCollection.GetLocationData(selectedValue);
+                this.updateDisplay();
+            }
+            else
+            {
+                this.comboboxLocationSelection.ItemsSource = null;
+                this.updateLocationSelectionCombobox(false);
+            }
+
+            
         }
     }
 }

@@ -27,6 +27,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="IsReadOnly" />
+      <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="MaxLength" />
       <RootProperty Name="Header" />
       <RootProperty Name="Padding" />
@@ -66,6 +67,7 @@
       <RootProperty Name="IsDropDownOpen" />
       <RootProperty Name="MaxDropDownHeight" />
       <RootProperty Name="Height" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CalendarDatePicker">
       <RootProperty Name="Margin" />
