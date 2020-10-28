@@ -1,1 +1,1 @@
-C:\Users\andre\OneDrive\Desktop\Final Check\Covid-Analysis\Covid19Analysis\Covid19Analysis.csproj;x86
+C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\Covid19Analysis.csproj;x86
