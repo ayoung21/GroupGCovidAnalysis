@@ -120,6 +120,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter\DateTimeConverter.cs" />
+    <Compile Include="Converter\StringToIntConverter.cs" />
     <Compile Include="CovidCSV\CsvConstants.cs" />
     <Compile Include="CovidCSV\CsvWriter.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -128,6 +130,7 @@
     <Compile Include="Model\CovidCase.cs" />
     <Compile Include="CovidCSV\CsvReader.cs" />
     <Compile Include="Model\UnitedStatesLocations.cs" />
+    <Compile Include="ViewModel\CovidAnalysisViewModel.cs" />
     <Compile Include="View\DuplicateEntryContentDialog.xaml.cs">
       <DependentUpon>DuplicateEntryContentDialog.xaml</DependentUpon>
     </Compile>

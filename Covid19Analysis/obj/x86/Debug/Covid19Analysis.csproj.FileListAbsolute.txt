@@ -410,7 +410,6 @@ C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\Core\C
 C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\Covid19Analysis.build.appxrecipe
 C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\System.Runtime.dll
 C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
-C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\obj\x86\Debug\Covid19Analysis.csprojAssemblyReference.cache
 C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\obj\x86\Debug\App.g.i.cs
 C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\obj\x86\Debug\App.g.cs
 C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\obj\x86\Debug\MainPage.g.i.cs
@@ -447,3 +446,4 @@ C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\obj\x86\Debug\qualif
 C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885454160000000.json
+C:\Users\csuser\Desktop\GroupGCovidAnalysis\Covid19Analysis\obj\x86\Debug\Covid19Analysis.csprojAssemblyReference.cache

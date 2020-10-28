@@ -1,12 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
+  <Roots.Interfaces>
+    <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
+  </Roots.Interfaces>
+  <Roots.PropertyPathNames>
+    <RootPropertyPathName Name="LocationOfInterest" />
+    <RootPropertyPathName Name="BinSize" />
+    <RootPropertyPathName Name="DateOfCaseToSave" />
+    <RootPropertyPathName Name="HospitalizationsToSave" />
+    <RootPropertyPathName Name="DeathsToSave" />
+    <RootPropertyPathName Name="NegativeTestsToSave" />
+    <RootPropertyPathName Name="PositiveTestsToSave" />
+    <RootPropertyPathName Name="StateToSave" />
+    <RootPropertyPathName Name="UpperThreshold" />
+    <RootPropertyPathName Name="LowerThreshold" />
+  </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application" />
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Background" />
+      <RootProperty Name="DataContext" />
+      <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
+    <RootType FullName="Covid19Analysis.ViewModel.CovidAnalysisViewModel" />
+    <RootType FullName="Covid19Analysis.Converter.StringToIntConverter" />
+    <RootType FullName="Covid19Analysis.Converter.DateTimeConverter" />
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Children" />
       <RootProperty Name="Height" />
@@ -60,6 +80,7 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="SelectedItem" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Width" />
       <RootProperty Name="PlaceholderText" />
@@ -70,12 +91,20 @@
       <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CalendarDatePicker">
+      <RootProperty Name="Date" />
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Header" />
       <RootProperty Name="Padding" />
       <RootProperty Name="Height" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="Mode" />
+      <RootProperty Name="UpdateSourceTrigger" />
+      <RootProperty Name="Path" />
+      <RootProperty Name="Converter" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Icon" />
       <RootProperty Name="Label" />
