@@ -119,16 +119,7 @@ namespace Covid19Analysis.Model
         /// </returns>
         public int GetNumberOfDaysWherePositiveTestsAreAbove(int numberOfPositiveTests)
         {
-            var earliestCovidCase = this.GetEarliestPositiveCase();
-            var indexOfEarliestCase = this.CovidCases.IndexOf(earliestCovidCase);
-            var positiveTests = 0;
-            for (var i = indexOfEarliestCase; i < this.CovidCases.Count; i++)
-            {
-                if (this.CovidCases[i].PositiveIncrease > numberOfPositiveTests)
-                {
-                    positiveTests++;
-                }
-            }
+            var positiveTests = this.CovidCases.Count(data => data.PositiveIncrease > numberOfPositiveTests);
 
             return positiveTests;
         }
