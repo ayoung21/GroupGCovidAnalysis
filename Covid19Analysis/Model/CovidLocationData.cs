@@ -202,14 +202,15 @@ namespace Covid19Analysis.Model
         /// <returns></returns>
         public double GetAverageNumberOfPositiveTests(IList<CovidCase> covidCases)
         {
-            double positiveTestCount = 0;
+            double positiveTestCount = 0.0;
 
-            foreach (var covidEvent in covidCases)
+            if (this.totalPositiveTests(covidCases) != 0)
             {
-                positiveTestCount += covidEvent.PositiveIncrease;
+                positiveTestCount = covidCases.Where(data => data.Date >= this.GetEarliestPositiveCase().Date)
+                                              .Average(data => data.PositiveIncrease);
             }
 
-            return positiveTestCount / covidCases.Count;
+            return positiveTestCount;
         }
 
         /// <summary>
