@@ -153,18 +153,46 @@ namespace Covid19Analysis.Model
                 return 0.00;
             }
 
-            double totalPositiveTests = 0;
-            double totalNegativeTests = 0;
-
-            foreach (var covidCase in covidCases)
-            {
-                totalPositiveTests += covidCase.PositiveIncrease;
-                totalNegativeTests += covidCase.NegativeIncrease;
-            }
+            double totalPositiveTests = this.totalPositiveTests(covidCases);
+            double totalNegativeTests = this.totalNegativeTests(covidCases);
 
             var totalCount = totalPositiveTests + totalNegativeTests;
 
             return totalCount != 0 ? totalPositiveTests / (totalNegativeTests + totalPositiveTests) * 100 : 0;
+        }
+
+        private int totalPositiveTests(IList<CovidCase> covidCases)
+        {
+            if (covidCases == null)
+            {
+                throw new ArgumentOutOfRangeException(nameof(covidCases));
+            }
+
+            if (covidCases.Count == 0)
+            {
+                throw new IndexOutOfRangeException(nameof(covidCases));
+            }
+
+            var totalPositiveTests = covidCases.Sum(data => data.PositiveIncrease);
+
+            return totalPositiveTests;
+        }
+
+        private int totalNegativeTests(IList<CovidCase> covidCases)
+        {
+            if (covidCases == null)
+            {
+                throw new ArgumentOutOfRangeException(nameof(covidCases));
+            }
+
+            if (covidCases.Count == 0)
+            {
+                throw new IndexOutOfRangeException(nameof(covidCases));
+            }
+
+            var totalNegativeTests = covidCases.Sum(data => data.NegativeIncrease);
+
+            return totalNegativeTests;
         }
 
         /// <summary>
