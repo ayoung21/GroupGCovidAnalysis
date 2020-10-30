@@ -220,15 +220,20 @@ namespace Covid19Analysis.Model
         /// <returns>The average number of all tests.</returns>
         public double GetAverageNumberOfAllTests(IList<CovidCase> covidCases)
         {
-            double positiveTestCount = 0;
-            double negativeTestCount = 0;
-            foreach (var covidEvent in covidCases)
+            var average = covidCases.Average(data => this.totalDailyTests(data));
+
+            return average;
+        }
+
+
+        private int totalDailyTests(CovidCase theData)
+        {
+            if (theData == null)
             {
-                positiveTestCount += covidEvent.PositiveIncrease;
-                negativeTestCount += covidEvent.NegativeIncrease;
+                throw new ArgumentOutOfRangeException(nameof(theData));
             }
 
-            return (positiveTestCount + negativeTestCount) / covidCases.Count;
+            return theData.PositiveIncrease + theData.NegativeIncrease;
         }
 
         /// <summary>
