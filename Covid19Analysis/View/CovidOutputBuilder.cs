@@ -120,7 +120,7 @@ namespace Covid19Analysis.View
 
             var caseWithHighestPositiveTests = this.location.GetHighestNumberOfPositiveTests(covidEvents);
             var caseWithLowestPositiveTests = this.location.GetLowestNumberOfPositiveTests(covidEvents);
-            var caseWithHighestTestCount = this.location.GetHighestNumberOfTestsOnAGivenDay(covidEvents);
+            var caseWithHighestTestCount = this.location.GetHighestTotalTestsData(covidEvents);
             var caseWithLowestTestCount = this.location.GetLowestNumberOfTotalTests(covidEvents);
             var averageOfPositiveTests = Math.Round(this.location.GetAverageNumberOfPositiveTests(covidEvents), 2);
             var averageOfTotalTests = Math.Round(this.location.GetAverageNumberOfAllTests(covidEvents), 2);
@@ -184,7 +184,7 @@ namespace Covid19Analysis.View
 
         private string getHighestNumberOfTestsOfAGivenDayStatement(IList<CovidCase> covidCases)
         {
-            var highestNumberOfTests = this.location.GetHighestNumberOfTestsOnAGivenDay(covidCases);
+            var highestNumberOfTests = this.location.GetHighestTotalTestsData(covidCases);
             var date = highestNumberOfTests.Date;
             var totalTests = highestNumberOfTests.PositiveIncrease + highestNumberOfTests.NegativeIncrease;
             return $"Highest number of total tests occurred on [{date:MMMM dd yyyy}] with {totalTests:N0} tests.";

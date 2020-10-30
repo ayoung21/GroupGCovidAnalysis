@@ -225,7 +225,6 @@ namespace Covid19Analysis.Model
             return average;
         }
 
-
         private int totalDailyTests(CovidCase theData)
         {
             if (theData == null)
@@ -241,23 +240,14 @@ namespace Covid19Analysis.Model
         /// </summary>
         /// <param name="covidCases">The covid cases.</param>
         /// <returns>CovidCase with the highest test on a given day</returns>
-        public CovidCase GetHighestNumberOfTestsOnAGivenDay(IList<CovidCase> covidCases)
+        public CovidCase GetHighestTotalTestsData(IList<CovidCase> covidCases)
         {
-            if (covidCases.Count == 0)
+            if (covidCases == null)
             {
-                return null;
+                throw new ArgumentOutOfRangeException(nameof(covidCases));
             }
-
-            var highestNumberOfTests = covidCases[0];
-            foreach (var covidCase in covidCases)
-            {
-                var currentHighest = highestNumberOfTests.PositiveIncrease + highestNumberOfTests.NegativeIncrease;
-                var newTestCount = covidCase.PositiveIncrease + covidCase.NegativeIncrease;
-                if (newTestCount > currentHighest)
-                {
-                    highestNumberOfTests = covidCase;
-                }
-            }
+            var orderedCollection = covidCases.OrderBy(this.totalDailyTests);
+            var highestNumberOfTests = orderedCollection.Last();
 
             return highestNumberOfTests;
         }
