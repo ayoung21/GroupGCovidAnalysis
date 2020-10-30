@@ -291,27 +291,38 @@ namespace Covid19Analysis.Model
                 return null;
             }
 
-            var covidEvent = this.CovidCases[0];
+            var orderCollection = this.CovidCases.OrderBy(this.PositiveTestPercent);
+            var highestPercentPositive = orderCollection.Last();
 
-            foreach (var covidCase in this.CovidCases)
+            return highestPercentPositive;
+        }
+
+        /// <summary>
+        ///     Calculates the percent of positive covid tests for a covid object.
+        /// </summary>
+        /// <param name="theData">The data.</param>
+        /// <returns>
+        ///     The percent of positive covid test for a covidData object
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">theData</exception>
+        public double PositiveTestPercent(CovidCase theData)
+        {
+            if (theData == null)
             {
-                var highestPercentage = covidEvent.PositiveIncrease > 0
-                    ? Convert.ToDouble(covidEvent.PositiveIncrease) /
-                      Convert.ToDouble(covidEvent.PositiveIncrease + covidEvent.NegativeIncrease)
-                    : 0;
-                var currentPercentage = covidCase.PositiveIncrease > 0
-                    ? Convert.ToDouble(covidCase.PositiveIncrease) /
-                      Convert.ToDouble(covidCase.PositiveIncrease + covidEvent.NegativeIncrease)
-                    : 0;
-
-                if (currentPercentage > highestPercentage)
-                {
-                    covidEvent = covidCase;
-                }
+                throw new ArgumentOutOfRangeException(nameof(theData));
             }
 
-            return covidEvent;
+            double totalTests = this.totalDailyTests(theData);
+            var percent = 0.0;
+            if (totalTests != 0)
+            {
+                percent = theData.PositiveIncrease / totalTests;
+            }
+
+            return percent * 100;
         }
+
+
 
         /// <summary>
         ///     Gets the events from a given month.

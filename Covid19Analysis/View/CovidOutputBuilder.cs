@@ -209,10 +209,9 @@ namespace Covid19Analysis.View
 
         private string getHighestPercentageOfPositiveTestsStatement()
         {
-            var highestPositivePercentage = this.location.GetHighestPercentageOfPositiveTests();
-            var percent = highestPositivePercentage.PositiveIncrease /
-                (highestPositivePercentage.NegativeIncrease + highestPositivePercentage.PositiveIncrease) * 100;
-            var date = highestPositivePercentage.Date;
+            var highestPositivePercentageData = this.location.GetHighestPercentageOfPositiveTests();
+            var percent = this.location.PositiveTestPercent(highestPositivePercentageData);
+            var date = highestPositivePercentageData.Date;
             return $"Highest percentage of positive tests occurred on [{date:MMMM dd yyyy}] at {percent:N2}%";
         }
 
