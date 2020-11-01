@@ -213,9 +213,34 @@ namespace Covid19Analysis.Model
             return positiveTestCount;
         }
 
+        /// <summary>
+        ///     Gets the average number of current hospitalizations.
+        /// </summary>
+        /// <param name="covidCases">The collection of covid cases.</param>
+        /// <returns></returns>
         public double GetAverageCurrentHospitalizations(IList<CovidCase> covidCases)
         {
             return covidCases.Average(data => data.HospitalizedCurrently);
+        }
+
+        /// <summary>
+        ///     Gets the minimum number of current hospitalizations.
+        /// </summary>
+        /// <param name="covidCases">The collection of covid cases.</param>
+        /// <returns></returns>
+        public int GetCurrentHospitalizationsMinimum(IList<CovidCase> covidCases)
+        {
+            return covidCases.Min(data => data.HospitalizedCurrently);
+        }
+
+        /// <summary>
+        ///     Gets the maximum number of current hospitalizations.
+        /// </summary>
+        /// <param name="covidCases">The collection of covid cases.</param>
+        /// <returns></returns>
+        public int GetCurrentHospitalizationsMaximum(IList<CovidCase> covidCases)
+        {
+            return covidCases.Max(data => data.HospitalizedCurrently);
         }
 
         /// <summary>

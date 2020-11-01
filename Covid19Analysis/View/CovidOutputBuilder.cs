@@ -84,7 +84,7 @@ namespace Covid19Analysis.View
                 $"{this.getHighestNumberOfTestsOfAGivenDayStatement(this.location.CovidCases)} {Environment.NewLine}";
             output += $"{this.getHighestNumberOfDeathsStatement()} {Environment.NewLine}";
             output += $"{this.getHighestNumberOfHospitalizationsStatement()} {Environment.NewLine}";
-            output += $"{this.getAverageOfCurrentHospitalizationsStatement()} {Environment.NewLine}";
+            output += $"{this.getAverageOfCurrentHospitalizationsStatement():N2} {Environment.NewLine}";
             output += $"{this.getHighestPercentageOfPositiveTestsStatement()} {Environment.NewLine}";
             output += $"{this.getAverageOfPositiveTestsSinceFirstPositiveCaseStatement()} {Environment.NewLine}";
             output += $"{this.getOverallPositivityRatesStatement()} {Environment.NewLine}";
@@ -98,12 +98,7 @@ namespace Covid19Analysis.View
             return output;
         }
 
-        private object getAverageOfCurrentHospitalizationsStatement()
-        {
-            var averageCurrentHospitalizations =
-                this.LocationData.GetAverageCurrentHospitalizations(this.LocationData.CovidCases);
-            return $"Average Current Hospitalizations: {averageCurrentHospitalizations}";
-        }
+
 
         /// <summary>
         ///     Gets the monthly summary of a given month.
@@ -132,6 +127,8 @@ namespace Covid19Analysis.View
             var caseWithLowestTestCount = this.location.GetLowestNumberOfTotalTests(covidEvents);
             var averageOfPositiveTests = Math.Round(this.location.GetAverageNumberOfPositiveTests(covidEvents), 2);
             var averageOfTotalTests = Math.Round(this.location.GetAverageNumberOfAllTests(covidEvents), 2);
+            var minOfCurrentHospitalizations = this.location.GetCurrentHospitalizationsMinimum(covidEvents);
+            var maxOfCurrentHospitalizations = this.location.GetCurrentHospitalizationsMaximum(covidEvents);
 
             output +=
                 $"Highest # of positive tests: {caseWithHighestPositiveTests.PositiveIncrease:N0} occurred on the {this.getDayWithSuffix(caseWithHighestPositiveTests.Date.Day)} {Environment.NewLine}";
@@ -143,6 +140,8 @@ namespace Covid19Analysis.View
                 $"Lowest # of total tests: {caseWithLowestTestCount.TotalTestCount:N0} occurred on the {this.getDayWithSuffix(caseWithLowestTestCount.Date.Day)} {Environment.NewLine}";
             output += $"Average # of positive tests: {averageOfPositiveTests:N2} {Environment.NewLine}";
             output += $"Average # of total tests: {averageOfTotalTests:N2} {Environment.NewLine}";
+            output += $"Min of Current Hospitalizations: {minOfCurrentHospitalizations} {Environment.NewLine}";
+            output += $"Max of Current Hospitalizations: {maxOfCurrentHospitalizations} {Environment.NewLine}";
 
             return output;
         }
@@ -161,6 +160,13 @@ namespace Covid19Analysis.View
             }
 
             return output;
+        }
+
+        private object getAverageOfCurrentHospitalizationsStatement()
+        {
+            var averageCurrentHospitalizations =
+                this.LocationData.GetAverageCurrentHospitalizations(this.LocationData.CovidCases);
+            return $"Average Current Hospitalizations: {averageCurrentHospitalizations}";
         }
 
         private string getEarliestKnownPositiveTestStatement()

@@ -489,6 +489,27 @@
             <param name="covidCases">The collection of covid cases.</param>
             <returns></returns>
         </member>
+        <member name="M:Covid19Analysis.Model.CovidLocationData.GetAverageCurrentHospitalizations(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
+            <summary>
+                Gets the average number of current hospitalizations.
+            </summary>
+            <param name="covidCases">The collection of covid cases.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Covid19Analysis.Model.CovidLocationData.GetCurrentHospitalizationsMinimum(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
+            <summary>
+                Gets the minimum number of current hospitalizations.
+            </summary>
+            <param name="covidCases">The collection of covid cases.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Covid19Analysis.Model.CovidLocationData.GetCurrentHospitalizationsMaximum(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
+            <summary>
+                Gets the minimum number of current hospitalizations.
+            </summary>
+            <param name="covidCases">The collection of covid cases.</param>
+            <returns></returns>
+        </member>
         <member name="M:Covid19Analysis.Model.CovidLocationData.GetAverageNumberOfAllTests(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
             <summary>
                 Gets the average number of all tests.

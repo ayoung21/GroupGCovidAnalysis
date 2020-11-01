@@ -6,3 +6,5 @@ date,state,positiveIncrease,negativeIncrease,hospitalizedCurrently,hospitalizedI
 1/23/2020,WA,0,0,4,0,0
 1/22/2020,MA,0,0,,0,0
 1/22/2020,WA,0,0,,0,0
+2/23/2020,GA,,999,2,0,0
+2/24/2020,GA,,999,9,0,0
