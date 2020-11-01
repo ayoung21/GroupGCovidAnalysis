@@ -84,6 +84,7 @@ namespace Covid19Analysis.View
                 $"{this.getHighestNumberOfTestsOfAGivenDayStatement(this.location.CovidCases)} {Environment.NewLine}";
             output += $"{this.getHighestNumberOfDeathsStatement()} {Environment.NewLine}";
             output += $"{this.getHighestNumberOfHospitalizationsStatement()} {Environment.NewLine}";
+            output += $"{this.getAverageOfCurrentHospitalizationsStatement()} {Environment.NewLine}";
             output += $"{this.getHighestPercentageOfPositiveTestsStatement()} {Environment.NewLine}";
             output += $"{this.getAverageOfPositiveTestsSinceFirstPositiveCaseStatement()} {Environment.NewLine}";
             output += $"{this.getOverallPositivityRatesStatement()} {Environment.NewLine}";
@@ -95,6 +96,13 @@ namespace Covid19Analysis.View
             output += $"{Environment.NewLine}{this.buildHistogramOfPositiveCases()} {Environment.NewLine}";
 
             return output;
+        }
+
+        private object getAverageOfCurrentHospitalizationsStatement()
+        {
+            var averageCurrentHospitalizations =
+                this.LocationData.GetAverageCurrentHospitalizations(this.LocationData.CovidCases);
+            return $"Average Current Hospitalizations: {averageCurrentHospitalizations}";
         }
 
         /// <summary>

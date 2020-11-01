@@ -213,6 +213,11 @@ namespace Covid19Analysis.Model
             return positiveTestCount;
         }
 
+        public double GetAverageCurrentHospitalizations(IList<CovidCase> covidCases)
+        {
+            return covidCases.Average(data => data.HospitalizedCurrently);
+        }
+
         /// <summary>
         ///     Gets the average number of all tests.
         /// </summary>
