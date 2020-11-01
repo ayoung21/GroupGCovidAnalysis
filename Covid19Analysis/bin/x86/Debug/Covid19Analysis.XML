@@ -200,6 +200,12 @@
             </summary>
             <value>The hospitalized increase to be set.</value>
         </member>
+        <member name="P:Covid19Analysis.Model.CovidCase.HospitalizedCurrently">
+            <summary>
+                Gets or sets the hospitalized currently.
+            </summary>
+            <value>The hospitalized currently to be set.</value>
+        </member>
         <member name="M:Covid19Analysis.Model.CovidCase.#ctor(System.String,System.DateTime)">
             <summary>
                 Initializes a new instance of the <see cref="T:Covid19Analysis.Model.CovidCase" /> class.

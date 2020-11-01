@@ -18,8 +18,10 @@ namespace Covid19Analysis.CovidCSV
         private const int LocationColumn = 1;
         private const int PositiveColumn = 2;
         private const int NegativeColumn = 3;
-        private const int DeathColumn = 4;
-        private const int HospitalizedColumn = 5;
+        private const int HospitalizedCurrentlyColumn = 4;
+        private const int HospitalizedIncreaseColumn = 5;
+        private const int DeathColumn = 6;
+        
         private const char DefaultDelimiter = ',';
         #endregion
 
@@ -148,13 +150,19 @@ namespace Covid19Analysis.CovidCSV
             {
                 var dateTime = DateTime.ParseExact(data[DateColumn], CsvConstants.DateFormat, CultureInfo.InvariantCulture);
                 var state = data[LocationColumn];
+                var positiveIncrease = getNumericValue(data[PositiveColumn]);
+                var negativeIncrease = getNumericValue(data[NegativeColumn]);
+                var deathIncrease = getNumericValue(data[DeathColumn]);
+                var hospitalizedIncrease = getNumericValue(data[HospitalizedIncreaseColumn]);
+                var hospitalizedCurrently = getNumericValue(data[HospitalizedCurrentlyColumn]);
 
                 var covidCase = new CovidCase(state, dateTime)
                 {
-                    PositiveIncrease = int.Parse(data[PositiveColumn]),
-                    NegativeIncrease = int.Parse(data[NegativeColumn]),
-                    DeathIncrease = int.Parse(data[DeathColumn]),
-                    HospitalizedIncrease = int.Parse(data[HospitalizedColumn])
+                    PositiveIncrease = positiveIncrease,
+                    NegativeIncrease = negativeIncrease,
+                    DeathIncrease = deathIncrease,
+                    HospitalizedIncrease = hospitalizedIncrease,
+                    HospitalizedCurrently = hospitalizedCurrently
                 };
 
                 return covidCase;
@@ -167,14 +175,15 @@ namespace Covid19Analysis.CovidCSV
 
         private bool isValid(string[] data)
         {
-            var validFields = containsValidFields(data);
+            // var validFields = containsValidFields(data);
             var validDate = containsValidDate(data[DateColumn]);
             var validPositive = containsValidNumber(data[PositiveColumn]);
             var validNegative = containsValidNumber(data[NegativeColumn]);
+            var validHospitalizedCurrently = containsValidNumber(data[HospitalizedCurrentlyColumn]);
+            var validHospitalizedIncrease = containsValidNumber(data[HospitalizedIncreaseColumn]);
             var validDeath = containsValidNumber(data[DeathColumn]);
-            var validHospitalized = containsValidNumber(data[HospitalizedColumn]);
 
-            var result = validFields && validDate && validPositive && validNegative && validDeath && validHospitalized;
+            var result = validDate && validPositive && validNegative && validDeath && validHospitalizedIncrease && validHospitalizedCurrently;
 
             return result;
         }
@@ -206,12 +215,17 @@ namespace Covid19Analysis.CovidCSV
 
         private bool containsValidNumber(string data)
         {
-            if (int.TryParse(data, out _))
+            if (String.IsNullOrEmpty(data) || int.TryParse(data, out _))
             {
                 return true;
             }
 
             return false;
+        }
+
+        private int getNumericValue(string data)
+        {
+            return (String.IsNullOrEmpty(data) || int.Parse(data) < 0) ? 0 : int.Parse(data);
         }
 
         #endregion

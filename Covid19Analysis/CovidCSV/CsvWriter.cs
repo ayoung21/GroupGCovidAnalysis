@@ -38,7 +38,9 @@ namespace Covid19Analysis.CovidCSV
 
             foreach (var currentData in covidLocation)
             {
-                data += $"{currentData.Date.ToString(CsvConstants.DateFormat)},{currentData.Location},{currentData.PositiveIncrease},{currentData.NegativeIncrease},{currentData.DeathIncrease},{currentData.HospitalizedIncrease}{Environment.NewLine}";
+                data += $"{currentData.Date.ToString(CsvConstants.DateFormat)},{currentData.Location},";
+                data += $"{currentData.PositiveIncrease},{currentData.NegativeIncrease},";
+                data += $"{currentData.HospitalizedCurrently},{currentData.HospitalizedIncrease},{currentData.DeathIncrease}{Environment.NewLine}";
             }
 
             return data;

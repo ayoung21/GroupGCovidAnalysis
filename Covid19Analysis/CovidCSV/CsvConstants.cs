@@ -7,8 +7,8 @@
     {
 
         /// <summary>The date format</summary>
-        public const string DateFormat = "yyyyMMdd";
+        public const string DateFormat = "M\\/dd\\/yyyy";
         /// <summary>The header information for when saving a CSV file</summary>
-        public const string HeaderInformation = "date,state,positiveIncrease,negativeIncrease,deathIncrease,hospitalizedIncrease";
+        public const string HeaderInformation = "date,state,positiveIncrease,negativeIncrease,hospitalizedCurrently,hospitalizedIncrease,deathIncrease";
     }
 }

@@ -12353,11 +12353,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\csuser\\Source\\Repos\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\csuser\\Desktop\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj",
       "projectName": "CovidAnalysisUnitTest",
-      "projectPath": "C:\\Users\\csuser\\Source\\Repos\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj",
+      "projectPath": "C:\\Users\\csuser\\Desktop\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj",
       "packagesPath": "C:\\Users\\csuser\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\csuser\\Source\\Repos\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\obj\\",
+      "outputPath": "C:\\Users\\csuser\\Desktop\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -12377,8 +12377,8 @@
       "frameworks": {
         "uap10.0.17763": {
           "projectReferences": {
-            "C:\\Users\\csuser\\Source\\Repos\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj": {
-              "projectPath": "C:\\Users\\csuser\\Source\\Repos\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj"
+            "C:\\Users\\csuser\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj": {
+              "projectPath": "C:\\Users\\csuser\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj"
             }
           }
         }

@@ -1,6 +1,0 @@
-=======================================================================================================
-IMPORTANT: WireUpCoreRuntime and other errors; Need to switch from x86 to x64 OR vice versa to fix this
-=======================================================================================================
-
-This has been happening to me on the lab machines on campus where I would get various build fails. 
-One of these fails mentions something about a **WireUpCoreRuntime**. The fix is to switch from x86 to x64 OR vice versa.

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X0fUwyPh6jDWO4HAjfI0uOmaWhUteDWxT9mkDggcreRvRf3ePdj4s8R/FM5lZzvkHa66dMLsCmqpR9VwvV/UPA==",
+  "dgSpecHash": "rYlNXcpkyxv5zmqDLKCW/teTeXEf4oR+0lXfBQOxz6oUez3WNhH5u07zhYYtVBT+2q3cNlYpPMGjhI1wZG3JWw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\csuser\\Source\\Repos\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj",
+  "projectFilePath": "C:\\Users\\csuser\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\csuser\\.nuget\\packages\\microsoft.net.native.compiler\\2.2.3\\microsoft.net.native.compiler.2.2.3.nupkg.sha512",
     "C:\\Users\\csuser\\.nuget\\packages\\microsoft.net.uwpcoreruntimesdk\\2.2.8\\microsoft.net.uwpcoreruntimesdk.2.2.8.nupkg.sha512",

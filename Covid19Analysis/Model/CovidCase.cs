@@ -51,6 +51,12 @@ namespace Covid19Analysis.Model
         /// <value>The hospitalized increase to be set.</value>
         public int HospitalizedIncrease { get; set; }
 
+        /// <summary>
+        ///     Gets or sets the hospitalized currently.
+        /// </summary>
+        /// <value>The hospitalized currently to be set.</value>
+        public int HospitalizedCurrently { get; set; }
+
         #endregion
 
         #region Constructors
