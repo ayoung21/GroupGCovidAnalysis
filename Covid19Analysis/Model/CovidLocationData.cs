@@ -390,14 +390,8 @@ namespace Covid19Analysis.Model
                 return null;
             }
 
-            var lowestNumberOfTests = covidCases[0];
-            foreach (var covidCase in covidCases)
-            {
-                if (covidCase.PositiveIncrease < lowestNumberOfTests.PositiveIncrease)
-                {
-                    lowestNumberOfTests = covidCase;
-                }
-            }
+            var orderedCollection = covidCases.OrderBy(this.totalDailyTests);
+            var lowestNumberOfTests = orderedCollection.First();
 
             return lowestNumberOfTests;
         }

@@ -200,6 +200,12 @@
             </summary>
             <value>The hospitalized increase to be set.</value>
         </member>
+        <member name="P:Covid19Analysis.Model.CovidCase.HospitalizedCurrently">
+            <summary>
+                Gets or sets the hospitalized currently.
+            </summary>
+            <value>The hospitalized currently to be set.</value>
+        </member>
         <member name="M:Covid19Analysis.Model.CovidCase.#ctor(System.String,System.DateTime)">
             <summary>
                 Initializes a new instance of the <see cref="T:Covid19Analysis.Model.CovidCase" /> class.
@@ -483,6 +489,27 @@
             <param name="covidCases">The collection of covid cases.</param>
             <returns></returns>
         </member>
+        <member name="M:Covid19Analysis.Model.CovidLocationData.GetAverageCurrentHospitalizations(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
+            <summary>
+                Gets the average number of current hospitalizations.
+            </summary>
+            <param name="covidCases">The collection of covid cases.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Covid19Analysis.Model.CovidLocationData.GetCurrentHospitalizationsMinimum(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
+            <summary>
+                Gets the minimum number of current hospitalizations.
+            </summary>
+            <param name="covidCases">The collection of covid cases.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Covid19Analysis.Model.CovidLocationData.GetCurrentHospitalizationsMaximum(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
+            <summary>
+                Gets the maximum number of current hospitalizations.
+            </summary>
+            <param name="covidCases">The collection of covid cases.</param>
+            <returns></returns>
+        </member>
         <member name="M:Covid19Analysis.Model.CovidLocationData.GetAverageNumberOfAllTests(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
             <summary>
                 Gets the average number of all tests.
@@ -490,7 +517,7 @@
             <param name="covidCases">The covid cases.</param>
             <returns>The average number of all tests.</returns>
         </member>
-        <member name="M:Covid19Analysis.Model.CovidLocationData.GetHighestNumberOfTestsOnAGivenDay(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
+        <member name="M:Covid19Analysis.Model.CovidLocationData.GetHighestTotalTestsData(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
             <summary>
                 Gets the highest number of tests on a given day.
             </summary>
@@ -514,6 +541,16 @@
                 Gets the highest percentage of positive tests event.
             </summary>
             <returns>CovidCase with the highest percentage of positive tests.</returns>
+        </member>
+        <member name="M:Covid19Analysis.Model.CovidLocationData.PositiveTestPercent(Covid19Analysis.Model.CovidCase)">
+            <summary>
+                Calculates the percent of positive covid tests for a covid object.
+            </summary>
+            <param name="theData">The data.</param>
+            <returns>
+                The percent of positive covid test for a covidData object
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">theData</exception>
         </member>
         <member name="M:Covid19Analysis.Model.CovidLocationData.GetEventsFromMonth(System.Int32)">
             <summary>

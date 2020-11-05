@@ -505,7 +505,7 @@
         </member>
         <member name="M:Covid19Analysis.Model.CovidLocationData.GetCurrentHospitalizationsMaximum(System.Collections.Generic.IList{Covid19Analysis.Model.CovidCase})">
             <summary>
-                Gets the minimum number of current hospitalizations.
+                Gets the maximum number of current hospitalizations.
             </summary>
             <param name="covidCases">The collection of covid cases.</param>
             <returns></returns>
