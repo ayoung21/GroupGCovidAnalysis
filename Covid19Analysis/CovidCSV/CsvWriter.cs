@@ -18,7 +18,7 @@ namespace Covid19Analysis.CovidCSV
         ///     Saves the data as CSV.
         /// </summary>
         /// <param name="dataToSave">The data to save.</param>
-        public void SaveDataAsCsv(CovidLocationDataCollection dataToSave)
+        public async void SaveDataAsCsv(StorageFile file, CovidLocationDataCollection dataToSave)
         {
             var locationCollection = dataToSave.CollectionOfCovidLocationData;
             string data = $"{CsvConstants.HeaderInformation} {Environment.NewLine}";
@@ -29,7 +29,7 @@ namespace Covid19Analysis.CovidCSV
                 data += this.extractDataFromLocation(locationData);
             }
 
-            this.saveData(data);
+            await FileIO.WriteTextAsync(file, data);
         }
 
         private string extractDataFromLocation(IList<CovidCase> covidLocation)
@@ -45,54 +45,5 @@ namespace Covid19Analysis.CovidCSV
 
             return data;
         }
-
-        private async void saveData(string dataToSave)
-        {
-            FileSavePicker savePicker = new FileSavePicker();
-            savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            savePicker.FileTypeChoices.Add("Comma Separated Value", new List<string>() { ".csv" });
-            savePicker.SuggestedFileName = "New Document";
-
-            StorageFile file = await savePicker.PickSaveFileAsync();
-            if (file != null)
-            {
-                CachedFileManager.DeferUpdates(file);
-
-                await FileIO.WriteTextAsync(file, dataToSave);
-
-                FileUpdateStatus status = await CachedFileManager.CompleteUpdatesAsync(file);
-                if (status == FileUpdateStatus.Complete)
-                {
-                    this.displaySaveSuccessfulDialog();
-                }
-                else
-                {
-                    this.displaySaveUnsuccessfulDialog();
-                }
-            }
-        }
-
-        private async void displaySaveSuccessfulDialog()
-        {
-            var saveDataDialog = new ContentDialog()
-            {
-                Title = "Save Successful",
-                Content = "File has been saved successfully",
-                PrimaryButtonText = "Ok",
-            };
-            await saveDataDialog.ShowAsync();
-        }
-
-        private async void displaySaveUnsuccessfulDialog()
-        {
-            var saveDataDialog = new ContentDialog()
-            {
-                Title = "Save Unsuccessful",
-                Content = "File has NOT been saved successfully",
-                PrimaryButtonText = "Ok",
-            };
-            await saveDataDialog.ShowAsync();
-        }
-
     }
 }

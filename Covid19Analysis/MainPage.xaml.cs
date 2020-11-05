@@ -5,13 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.Storage.Provider;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using XmlWriter = Covid19Analysis.CovidXml.XmlWriter;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -415,10 +418,62 @@ namespace Covid19Analysis
             this.updateLocationSelectionCombobox(false);
         }
 
-
-        private void saveData_Click(object sender, RoutedEventArgs e)
+        private async void saveData_Click(object sender, RoutedEventArgs e)
         {
-            this.csvWriter.SaveDataAsCsv(this.covidCollection);
+            const string CsvFileExtension = ".csv";
+            const string XmlFileExension = ".xml";
+
+            FileSavePicker savePicker = new FileSavePicker();
+            savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            savePicker.FileTypeChoices.Add("Comma Separated Value", new List<string>() { CsvFileExtension });
+            savePicker.FileTypeChoices.Add("Extensible Markup Language", new List<string>() { XmlFileExension });
+            savePicker.SuggestedFileName = "New Document";
+            StorageFile file = await savePicker.PickSaveFileAsync();
+
+            if (file != null)
+            {
+                if (file.FileType == XmlFileExension)
+                {
+                    XmlWriter writer = new XmlWriter();
+                    writer.WriteToXml(file, this.covidCollection);
+                }
+                else if (file.FileType == CsvFileExtension)
+                {
+                    this.csvWriter.SaveDataAsCsv(file, this.covidCollection);
+                }
+
+                FileUpdateStatus status = await CachedFileManager.CompleteUpdatesAsync(file);
+                if (status == FileUpdateStatus.Complete)
+                {
+                    this.displaySaveSuccessfulDialog();
+                }
+                else
+                {
+                    this.displaySaveUnsuccessfulDialog();
+                }
+            }
+        }
+
+        private async void displaySaveSuccessfulDialog()
+        {
+            var saveDataDialog = new ContentDialog()
+            {
+                Title = "Save Successful",
+                Content = "File has been saved successfully",
+                PrimaryButtonText = "Ok",
+            };
+            await saveDataDialog.ShowAsync();
+        }
+
+        private async void displaySaveUnsuccessfulDialog()
+        {
+            var saveDataDialog = new ContentDialog()
+            {
+                Title = "Save Unsuccessful",
+                Content = "File has NOT been saved successfully",
+                PrimaryButtonText = "Ok",
+            };
+            await saveDataDialog.ShowAsync();
         }
 
         private void buttonAddNewEntry_Click(object sender, RoutedEventArgs e)

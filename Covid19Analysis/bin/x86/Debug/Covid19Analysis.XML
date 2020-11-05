@@ -74,7 +74,7 @@
                 Class to save Covid-19 data to a CSV file
             </summary>
         </member>
-        <member name="M:Covid19Analysis.CovidCSV.CsvWriter.SaveDataAsCsv(Covid19Analysis.Model.CovidLocationDataCollection)">
+        <member name="M:Covid19Analysis.CovidCSV.CsvWriter.SaveDataAsCsv(Windows.Storage.StorageFile,Covid19Analysis.Model.CovidLocationDataCollection)">
             <summary>
                 Saves the data as CSV.
             </summary>
@@ -111,6 +111,16 @@
             <returns>
               A string of all errors.
             </returns>
+        </member>
+        <member name="T:Covid19Analysis.CovidXml.XmlWriter">
+            <summary>
+                Class to save Covid-19 data to a XML file
+            </summary>
+        </member>
+        <member name="M:Covid19Analysis.CovidXml.XmlWriter.WriteToXml(Windows.Storage.StorageFile,Covid19Analysis.Model.CovidLocationDataCollection)">
+            <summary>Saves the data as CSV.</summary>
+            <param name="file">The storage file to save to.</param>
+            <param name="covidCollection">The covid collection to save.</param>
         </member>
         <member name="T:Covid19Analysis.MainPage">
             <summary>
@@ -205,6 +215,11 @@
                 Gets or sets the hospitalized currently.
             </summary>
             <value>The hospitalized currently to be set.</value>
+        </member>
+        <member name="M:Covid19Analysis.Model.CovidCase.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Covid19Analysis.Model.CovidCase" /> class.
+            </summary>
         </member>
         <member name="M:Covid19Analysis.Model.CovidCase.#ctor(System.String,System.DateTime)">
             <summary>
