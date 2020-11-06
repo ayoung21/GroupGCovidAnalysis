@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Covid19Analysis.IO;
 
 namespace Covid19Analysis.View
 {
@@ -13,6 +14,9 @@ namespace Covid19Analysis.View
         #region Data members
 
         private CovidLocationData location;
+
+        private SummaryStatisticsFormatter totalStatisticsFormatter;
+        private MonthlyStatisticsFormatter monthlyStatisticsFormatter;
 
         #endregion
 
@@ -61,11 +65,19 @@ namespace Covid19Analysis.View
         public CovidOutputBuilder(CovidLocationData stateData)
         {
             this.location = stateData ?? throw new NullReferenceException(nameof(stateData));
+            this.totalStatisticsFormatter = new SummaryStatisticsFormatter(stateData);
+            this.monthlyStatisticsFormatter = new MonthlyStatisticsFormatter(stateData);
         }
 
         #endregion
 
         #region Methods
+
+        public string CovidOutput()
+        {
+            return this.totalStatisticsFormatter.GetLocationSummary(this.LowerThreshold, this.UpperThreshold, this.BinSize) +
+                   this.monthlyStatisticsFormatter.GetYearlySummary();
+        }
 
         /// <summary>
         ///     Gets the LocationData summary.
@@ -98,69 +110,67 @@ namespace Covid19Analysis.View
             return output;
         }
 
+        ///// <summary>
+        /////     Gets the monthly summary of a given month.
+        ///// </summary>
+        ///// <param name="month">The month to generate a report for.</param>
+        ///// <returns>The monthly summary of a given month.</returns>
+        //public string GetMonthlySummary(int month)
+        //{
+        //    if (month < 1 || month > 12)
+        //    {
+        //        return "Invalid Month" + Environment.NewLine;
+        //    }
 
+        //    var covidEvents = this.location.GetEventsFromMonth(month);
+        //    var output = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month) +
+        //                 $" [{covidEvents.Count} days of data]" + Environment.NewLine;
 
-        /// <summary>
-        ///     Gets the monthly summary of a given month.
-        /// </summary>
-        /// <param name="month">The month to generate a report for.</param>
-        /// <returns>The monthly summary of a given month.</returns>
-        public string GetMonthlySummary(int month)
-        {
-            if (month < 1 || month > 12)
-            {
-                return "Invalid Month" + Environment.NewLine;
-            }
+        //    if (covidEvents.Count == 0)
+        //    {
+        //        return output;
+        //    }
 
-            var covidEvents = this.location.GetEventsFromMonth(month);
-            var output = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month) +
-                         $" [{covidEvents.Count} days of data]" + Environment.NewLine;
+        //    var caseWithHighestPositiveTests = this.location.GetHighestNumberOfPositiveTests(covidEvents);
+        //    var caseWithLowestPositiveTests = this.location.GetLowestNumberOfPositiveTests(covidEvents);
+        //    var caseWithHighestTestCount = this.location.GetHighestTotalTestsData(covidEvents);
+        //    var caseWithLowestTestCount = this.location.GetLowestNumberOfTotalTests(covidEvents);
+        //    var averageOfPositiveTests = Math.Round(this.location.GetAverageNumberOfPositiveTests(covidEvents), 2);
+        //    var averageOfTotalTests = Math.Round(this.location.GetAverageNumberOfAllTests(covidEvents), 2);
+        //    var minOfCurrentHospitalizations = this.location.GetCurrentHospitalizationsMinimum(covidEvents);
+        //    var maxOfCurrentHospitalizations = this.location.GetCurrentHospitalizationsMaximum(covidEvents);
 
-            if (covidEvents.Count == 0)
-            {
-                return output;
-            }
+        //    output +=
+        //        $"Highest # of positive tests: {caseWithHighestPositiveTests.PositiveIncrease:N0} occurred on the {this.getDayWithSuffix(caseWithHighestPositiveTests.Date.Day)} {Environment.NewLine}";
+        //    output +=
+        //        $"Lowest # of positive tests: {caseWithLowestPositiveTests.PositiveIncrease:N0} occurred on the {this.getDayWithSuffix(caseWithLowestPositiveTests.Date.Day)} {Environment.NewLine}";
+        //    output +=
+        //        $"Highest # of total tests: {caseWithHighestTestCount.TotalTestCount:N0} occurred on the {this.getDayWithSuffix(caseWithHighestTestCount.Date.Day)} {Environment.NewLine}";
+        //    output +=
+        //        $"Lowest # of total tests: {caseWithLowestTestCount.TotalTestCount:N0} occurred on the {this.getDayWithSuffix(caseWithLowestTestCount.Date.Day)} {Environment.NewLine}";
+        //    output += $"Average # of positive tests: {averageOfPositiveTests:N2} {Environment.NewLine}";
+        //    output += $"Average # of total tests: {averageOfTotalTests:N2} {Environment.NewLine}";
+        //    output += $"Min of Current Hospitalizations: {minOfCurrentHospitalizations} {Environment.NewLine}";
+        //    output += $"Max of Current Hospitalizations: {maxOfCurrentHospitalizations} {Environment.NewLine}";
 
-            var caseWithHighestPositiveTests = this.location.GetHighestNumberOfPositiveTests(covidEvents);
-            var caseWithLowestPositiveTests = this.location.GetLowestNumberOfPositiveTests(covidEvents);
-            var caseWithHighestTestCount = this.location.GetHighestTotalTestsData(covidEvents);
-            var caseWithLowestTestCount = this.location.GetLowestNumberOfTotalTests(covidEvents);
-            var averageOfPositiveTests = Math.Round(this.location.GetAverageNumberOfPositiveTests(covidEvents), 2);
-            var averageOfTotalTests = Math.Round(this.location.GetAverageNumberOfAllTests(covidEvents), 2);
-            var minOfCurrentHospitalizations = this.location.GetCurrentHospitalizationsMinimum(covidEvents);
-            var maxOfCurrentHospitalizations = this.location.GetCurrentHospitalizationsMaximum(covidEvents);
+        //    return output;
+        //}
 
-            output +=
-                $"Highest # of positive tests: {caseWithHighestPositiveTests.PositiveIncrease:N0} occurred on the {this.getDayWithSuffix(caseWithHighestPositiveTests.Date.Day)} {Environment.NewLine}";
-            output +=
-                $"Lowest # of positive tests: {caseWithLowestPositiveTests.PositiveIncrease:N0} occurred on the {this.getDayWithSuffix(caseWithLowestPositiveTests.Date.Day)} {Environment.NewLine}";
-            output +=
-                $"Highest # of total tests: {caseWithHighestTestCount.TotalTestCount:N0} occurred on the {this.getDayWithSuffix(caseWithHighestTestCount.Date.Day)} {Environment.NewLine}";
-            output +=
-                $"Lowest # of total tests: {caseWithLowestTestCount.TotalTestCount:N0} occurred on the {this.getDayWithSuffix(caseWithLowestTestCount.Date.Day)} {Environment.NewLine}";
-            output += $"Average # of positive tests: {averageOfPositiveTests:N2} {Environment.NewLine}";
-            output += $"Average # of total tests: {averageOfTotalTests:N2} {Environment.NewLine}";
-            output += $"Min of Current Hospitalizations: {minOfCurrentHospitalizations} {Environment.NewLine}";
-            output += $"Max of Current Hospitalizations: {maxOfCurrentHospitalizations} {Environment.NewLine}";
+        ///// <summary>
+        /////     Gets the yearly summary of all months with Covid data.
+        ///// </summary>
+        ///// <returns>A yearly summary of the covid data for the current LocationData.</returns>
+        //public string GetYearlySummary()
+        //{
+        //    var output = "";
+        //    var startingMonth = this.LocationData.GetEarliestPositiveCase().Date.Month;
+        //    for (var month = startingMonth; month <= 12; month++)
+        //    {
+        //        output += this.GetMonthlySummary(month) + Environment.NewLine;
+        //    }
 
-            return output;
-        }
-
-        /// <summary>
-        ///     Gets the yearly summary of all months with Covid data.
-        /// </summary>
-        /// <returns>A yearly summary of the covid data for the current LocationData.</returns>
-        public string GetYearlySummary()
-        {
-            var output = "";
-            var startingMonth = this.LocationData.GetEarliestPositiveCase().Date.Month;
-            for (var month = startingMonth; month <= 12; month++)
-            {
-                output += this.GetMonthlySummary(month) + Environment.NewLine;
-            }
-
-            return output;
-        }
+        //    return output;
+        //}
 
         private object getAverageOfCurrentHospitalizationsStatement()
         {
@@ -269,29 +279,29 @@ namespace Covid19Analysis.View
             return output;
         }
 
-        private string getDayWithSuffix(int day)
-        {
-            if (day < 1 || day > 31)
-            {
-                return "";
-            }
+        //private string getDayWithSuffix(int day)
+        //{
+        //    if (day < 1 || day > 31)
+        //    {
+        //        return "";
+        //    }
 
-            switch (day)
-            {
-                case 1:
-                case 21:
-                case 31:
-                    return $"{day}st";
-                case 2:
-                case 22:
-                    return $"{day}nd";
-                case 3:
-                case 23:
-                    return $"{day}rd";
-                default:
-                    return $"{day}th";
-            }
-        }
+        //    switch (day)
+        //    {
+        //        case 1:
+        //        case 21:
+        //        case 31:
+        //            return $"{day}st";
+        //        case 2:
+        //        case 22:
+        //            return $"{day}nd";
+        //        case 3:
+        //        case 23:
+        //            return $"{day}rd";
+        //        default:
+        //            return $"{day}th";
+        //    }
+        //}
 
         #endregion
     }

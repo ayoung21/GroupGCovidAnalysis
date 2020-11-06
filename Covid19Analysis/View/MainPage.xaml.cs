@@ -1,4 +1,5 @@
 ﻿using Covid19Analysis.CovidCSV;
+using Covid19Analysis.IO;
 using Covid19Analysis.Model;
 using Covid19Analysis.View;
 using System;
@@ -266,7 +267,8 @@ namespace Covid19Analysis
                         UpperThreshold = this.upperThreshold,
                         BinSize = this.binSize
                     };
-                    this.summaryTextBox.Text = report.GetLocationSummary() + report.GetYearlySummary();
+                    //this.summaryTextBox.Text = report.GetLocationSummary() + report.GetYearlySummary();
+                    this.summaryTextBox.Text = report.CovidOutput();
                 }
                 else
                 {

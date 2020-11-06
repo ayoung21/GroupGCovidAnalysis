@@ -112,6 +112,30 @@
               A string of all errors.
             </returns>
         </member>
+        <member name="M:Covid19Analysis.IO.SummaryStatisticsFormatter.GetLocationSummary(System.Int32,System.Int32,System.Int32)">
+            <summary>
+                Gets the LocationData summary.
+            </summary>
+            <returns>A summary of the LocationData</returns>
+        </member>
+        <member name="M:Covid19Analysis.IO.MonthlyStatisticsFormatter.#ctor(Covid19Analysis.Model.CovidLocationData)">
+            <summary>Initializes a new instance of the <see cref="T:Covid19Analysis.IO.MonthlyStatisticsFormatter" /> class.</summary>
+            <param name="stateData">The state data.</param>
+            <exception cref="T:System.NullReferenceException">stateData</exception>
+        </member>
+        <member name="M:Covid19Analysis.IO.MonthlyStatisticsFormatter.GetMonthlySummary(System.Int32)">
+            <summary>
+                Gets the monthly summary of a given month.
+            </summary>
+            <param name="month">The month to generate a report for.</param>
+            <returns>The monthly summary of a given month.</returns>
+        </member>
+        <member name="M:Covid19Analysis.IO.MonthlyStatisticsFormatter.GetYearlySummary">
+            <summary>
+                Gets the yearly summary of all months with Covid data.
+            </summary>
+            <returns>A yearly summary of the covid data for the current LocationData.</returns>
+        </member>
         <member name="T:Covid19Analysis.MainPage">
             <summary>
             An empty page that can be used on its own or navigated to within a Frame.
@@ -731,19 +755,6 @@
                 Gets the LocationData summary.
             </summary>
             <returns>A summary of the LocationData</returns>
-        </member>
-        <member name="M:Covid19Analysis.View.CovidOutputBuilder.GetMonthlySummary(System.Int32)">
-            <summary>
-                Gets the monthly summary of a given month.
-            </summary>
-            <param name="month">The month to generate a report for.</param>
-            <returns>The monthly summary of a given month.</returns>
-        </member>
-        <member name="M:Covid19Analysis.View.CovidOutputBuilder.GetYearlySummary">
-            <summary>
-                Gets the yearly summary of all months with Covid data.
-            </summary>
-            <returns>A yearly summary of the covid data for the current LocationData.</returns>
         </member>
         <member name="T:Covid19Analysis.Program">
             <summary>

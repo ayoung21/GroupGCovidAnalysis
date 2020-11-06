@@ -124,7 +124,9 @@
     <Compile Include="Converter\StringToIntConverter.cs" />
     <Compile Include="CovidCSV\CsvConstants.cs" />
     <Compile Include="CovidCSV\CsvWriter.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="IO\SummaryStatisticsFormatter.cs" />
+    <Compile Include="IO\MonthlyStatisticsFormatter.cs" />
+    <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\CovidCase.cs" />
@@ -134,7 +136,7 @@
     <Compile Include="View\DuplicateEntryContentDialog.xaml.cs">
       <DependentUpon>DuplicateEntryContentDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CovidOutputBuilder.cs" />
+    <Compile Include="IO\CovidOutputBuilder.cs" />
     <Compile Include="Model\CovidLocationData.cs" />
     <Compile Include="Model\CovidLocationDataCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -159,7 +161,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
