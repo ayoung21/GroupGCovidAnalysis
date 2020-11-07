@@ -124,14 +124,11 @@
     <Compile Include="Converter\StringToIntConverter.cs" />
     <Compile Include="CovidCSV\CsvConstants.cs" />
     <Compile Include="CovidCSV\CsvWriter.cs" />
-<<<<<<< HEAD
+    <Compile Include="CovidXML\XmlReader.cs" />
+    <Compile Include="CovidXML\XmlWriter.cs" />
     <Compile Include="IO\SummaryStatisticsFormatter.cs" />
     <Compile Include="IO\MonthlyStatisticsFormatter.cs" />
     <Compile Include="View\MainPage.xaml.cs">
-=======
-    <Compile Include="CovidXML\XmlWriter.cs" />
-    <Compile Include="MainPage.xaml.cs">
->>>>>>> cb4f10550de49768611ec38708dbf60694077e46
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\CovidCase.cs" />

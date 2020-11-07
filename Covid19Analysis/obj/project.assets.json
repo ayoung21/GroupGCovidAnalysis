@@ -8157,11 +8157,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj",
+      "projectUniqueName": "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\Covid19Analysis\\Covid19Analysis.csproj",
       "projectName": "Covid19Analysis",
-      "projectPath": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj",
+      "projectPath": "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\Covid19Analysis\\Covid19Analysis.csproj",
       "packagesPath": "C:\\Users\\ayoung21\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\obj\\",
+      "outputPath": "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\Covid19Analysis\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [

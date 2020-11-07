@@ -15,6 +15,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using XmlReader = Covid19Analysis.CovidXML.XmlReader;
 using XmlWriter = Covid19Analysis.CovidXml.XmlWriter;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -175,20 +176,31 @@ namespace Covid19Analysis
             };
             picker.FileTypeFilter.Add(".csv");
             picker.FileTypeFilter.Add(".txt");
+            picker.FileTypeFilter.Add(".xml");
 
             return await picker.PickSingleFileAsync();
         }
 
         private async Task extractData()
         {
+            const string XmlExtension = ".xml";
             if (this.CurrentFile != null)
             {
-                csvReader.CsvFile = this.CurrentFile;
-                IList<CovidCase> covidCases = await csvReader.Parse();
-                this.covidCollection.AddAllCovidCases(covidCases);
+                if (this.CurrentFile.FileType == XmlExtension)
+                {
+                    XmlReader reader = new XmlReader();
+                    var covidCollection = await reader.GetCovidData(this.CurrentFile);
+                    this.covidCollection.AddAllCovidCases(covidCollection);
+                }
+                else
+                {
+                    csvReader.CsvFile = this.CurrentFile;
+                    IList<CovidCase> covidCases = await csvReader.Parse();
+                    this.covidCollection.AddAllCovidCases(covidCases);
+                }
+
 
                 this.covidLocationData = this.covidCollection.GetLocationData(LocationOfInterest);
-
                 this.updateLocationSelectionCombobox(true);
             }
 

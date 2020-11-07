@@ -1,1 +1,1 @@
-C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\Covid19Analysis.csproj;x86
+C:\Users\ayoung21\Desktop\CovidAnalysisGroupG\Covid19Analysis\Covid19Analysis.csproj;x86

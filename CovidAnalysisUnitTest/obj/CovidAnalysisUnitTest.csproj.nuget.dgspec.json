@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj": {}
+    "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj": {
+    "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\Covid19Analysis\\Covid19Analysis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj",
+        "projectUniqueName": "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\Covid19Analysis\\Covid19Analysis.csproj",
         "projectName": "Covid19Analysis",
-        "projectPath": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj",
+        "projectPath": "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\Covid19Analysis\\Covid19Analysis.csproj",
         "packagesPath": "C:\\Users\\ayoung21\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\obj\\",
+        "outputPath": "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\Covid19Analysis\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -73,14 +73,14 @@
         }
       }
     },
-    "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj": {
+    "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj",
+        "projectUniqueName": "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj",
         "projectName": "CovidAnalysisUnitTest",
-        "projectPath": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj",
+        "projectPath": "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj",
         "packagesPath": "C:\\Users\\ayoung21\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\obj\\",
+        "outputPath": "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\CovidAnalysisUnitTest\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -100,8 +100,8 @@
         "frameworks": {
           "uap10.0.17763": {
             "projectReferences": {
-              "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj": {
-                "projectPath": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj"
+              "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\Covid19Analysis\\Covid19Analysis.csproj": {
+                "projectPath": "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\Covid19Analysis\\Covid19Analysis.csproj"
               }
             }
           }

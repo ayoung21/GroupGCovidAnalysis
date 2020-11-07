@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ckYt9dzjuhhlak+IL57z7vZFVNbxDRGPc/AZaOGvpVtDNTCG8NcXwlrPwQPO1BDNlS5UQfVcx/aDmZNS6OgTqg==",
+  "dgSpecHash": "hM2ozCybbZe2CBoUhEkdTJLqsYn9jOJC+pvMtQUrsrF1ZZ8crBDcBiXbte9lv8/WhO+o4iHnayRU+QlwKcR5+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj",
+  "projectFilePath": "C:\\Users\\ayoung21\\Desktop\\CovidAnalysisGroupG\\CovidAnalysisUnitTest\\CovidAnalysisUnitTest.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.8-rel-28605-00\\microsoft.net.native.compiler.2.2.8-rel-28605-00.nupkg.sha512",
     "C:\\Users\\ayoung21\\.nuget\\packages\\microsoft.net.test.sdk\\16.0.1\\microsoft.net.test.sdk.16.0.1.nupkg.sha512",

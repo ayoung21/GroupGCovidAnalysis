@@ -112,7 +112,16 @@
               A string of all errors.
             </returns>
         </member>
-<<<<<<< HEAD
+        <member name="T:Covid19Analysis.CovidXml.XmlWriter">
+            <summary>
+                Class to save Covid-19 data to a XML file
+            </summary>
+        </member>
+        <member name="M:Covid19Analysis.CovidXml.XmlWriter.WriteToXml(Windows.Storage.StorageFile,Covid19Analysis.Model.CovidLocationDataCollection)">
+            <summary>Saves the data as CSV.</summary>
+            <param name="file">The storage file to save to.</param>
+            <param name="covidCollection">The covid collection to save.</param>
+        </member>
         <member name="M:Covid19Analysis.IO.SummaryStatisticsFormatter.GetLocationSummary(System.Int32,System.Int32,System.Int32)">
             <summary>
                 Gets the LocationData summary.
@@ -136,17 +145,6 @@
                 Gets the yearly summary of all months with Covid data.
             </summary>
             <returns>A yearly summary of the covid data for the current LocationData.</returns>
-=======
-        <member name="T:Covid19Analysis.CovidXml.XmlWriter">
-            <summary>
-                Class to save Covid-19 data to a XML file
-            </summary>
-        </member>
-        <member name="M:Covid19Analysis.CovidXml.XmlWriter.WriteToXml(Windows.Storage.StorageFile,Covid19Analysis.Model.CovidLocationDataCollection)">
-            <summary>Saves the data as CSV.</summary>
-            <param name="file">The storage file to save to.</param>
-            <param name="covidCollection">The covid collection to save.</param>
->>>>>>> cb4f10550de49768611ec38708dbf60694077e46
         </member>
         <member name="T:Covid19Analysis.MainPage">
             <summary>
