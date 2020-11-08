@@ -28,11 +28,8 @@
         </CommandBar>
         <TextBox x:Name="summaryTextBox" HorizontalAlignment="Left" Margin="12,129,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Text="Summary" Height="264" Width="600" IsReadOnly="True" AutomationProperties.Name="summaryTextBlock" RenderTransformOrigin="0.495,1.145"/>
         <TextBlock HorizontalAlignment="Left" Margin="12,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="COVID-19 Analysis"/>
-
-        <TextBlock HorizontalAlignment="Left" Margin="17,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Lower Threshold"/>
-        <TextBox x:Name="lowerThresholdTextBox" Text="{Binding Path=LowerThreshold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="137,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="LowerThreshold_KeyDown" MaxLength="9"/>
-        <TextBlock HorizontalAlignment="Left" Margin="236,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Upper Threshold"/>
-        <TextBox x:Name="upperThresholdTextBox" Text="{Binding Path=UpperThreshold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="356,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="UpperThreshold_KeyDown" MaxLength="9"/>
+        <TextBox x:Name="lowerThresholdTextBox" Text="{Binding Path=LowerThreshold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="10,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="LowerThreshold_KeyDown" MaxLength="9" Header="Lower Threshold"/>
+        <TextBox x:Name="upperThresholdTextBox" Text="{Binding Path=UpperThreshold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="163,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="UpperThreshold_KeyDown" MaxLength="9" Header="Upper Threshold"/>
         <Button Content="Clear Data" Margin="12,730,0,0" VerticalAlignment="Top" Click="clearData_Click" Width="120"/>
         <Button Content="Save Data" Margin="325,730,0,0" VerticalAlignment="Top" Width="287" Click="saveData_Click"/>
         <ComboBox x:Name="comboboxState" SelectedItem="{Binding StateToSave, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="12,503,0,0" Width="120" PlaceholderText="State" Header="Choose a State" IsDropDownOpen="True" MaxDropDownHeight="99" Height="55"/>
@@ -43,8 +40,8 @@
         <CalendarDatePicker x:Name="datePickerCovidCase" Date="{Binding Path=DateOfCaseToSave, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource dateTimeConverter}}" Margin="166,583,0,0" VerticalAlignment="Top" Header="Date of Case" Padding="0,0,0,3" Height="60"/>
         <Button Content="Add New Entry" Margin="325,607,0,0" VerticalAlignment="Top" Width="283" Height="36" Click="buttonAddNewEntry_Click"/>
         <TextBlock x:Name="textBlockCovidEntryErrorMessage" HorizontalAlignment="Left" Margin="12,614,0,0" Text="covidEntryErrorMessage" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Visibility="Collapsed" Width="595" TextAlignment="Center" SelectionHighlightColor="#FFF50000"/>
-        <TextBlock HorizontalAlignment="Left" Margin="487,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Bin Size"/>
-        <TextBox x:Name="binSizeTextBox" Text="{Binding Path=BinSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="548,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="UpperThreshold_KeyDown" MaxLength="7"/>
+        <TextBox x:Name="binSizeTextBox" Text="{Binding Path=BinSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="324,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="UpperThreshold_KeyDown" MaxLength="7" Header="Bin Size"/>
         <ComboBox Margin="13,82,0,0" Width="120" x:Name="comboboxLocationSelection" SelectedItem="{Binding LocationOfInterest, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="comboboxLocationSelection_SelectionChanged" />
+        <Button Content="Update" Margin="436,398,0,0" VerticalAlignment="Top" Width="176" Height="55" Click="onUpdateSummary_Click" AutomationProperties.Name="onUpdateSummary"/>
     </Grid>
 </Page>

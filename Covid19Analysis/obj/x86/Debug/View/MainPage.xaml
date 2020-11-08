@@ -23,16 +23,13 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton x:ConnectionId='17' Icon="Important" Label="Display Errors"                            />
-            <AppBarButton x:ConnectionId='18' Icon="OpenFile" Label="Load File"                       />
+            <AppBarButton x:ConnectionId='18' Icon="Important" Label="Display Errors"                            />
+            <AppBarButton x:ConnectionId='19' Icon="OpenFile" Label="Load File"                       />
         </CommandBar>
         <TextBox x:ConnectionId='2' x:Name="summaryTextBox" HorizontalAlignment="Left" Margin="12,129,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Text="Summary" Height="264" Width="600" IsReadOnly="True" AutomationProperties.Name="summaryTextBlock" RenderTransformOrigin="0.495,1.145"/>
         <TextBlock HorizontalAlignment="Left" Margin="12,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="COVID-19 Analysis"/>
-
-        <TextBlock HorizontalAlignment="Left" Margin="17,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Lower Threshold"/>
-        <TextBox x:ConnectionId='3' x:Name="lowerThresholdTextBox" Text="{Binding Path=LowerThreshold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="137,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top"                                                                                  MaxLength="9"/>
-        <TextBlock HorizontalAlignment="Left" Margin="236,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Upper Threshold"/>
-        <TextBox x:ConnectionId='4' x:Name="upperThresholdTextBox" Text="{Binding Path=UpperThreshold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="356,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top"                                                                                  MaxLength="9"/>
+        <TextBox x:ConnectionId='3' x:Name="lowerThresholdTextBox" Text="{Binding Path=LowerThreshold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="10,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top"                                                                                  MaxLength="9" Header="Lower Threshold"/>
+        <TextBox x:ConnectionId='4' x:Name="upperThresholdTextBox" Text="{Binding Path=UpperThreshold, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="163,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top"                                                                                  MaxLength="9" Header="Upper Threshold"/>
         <Button x:ConnectionId='5' Content="Clear Data" Margin="12,730,0,0" VerticalAlignment="Top"                         Width="120"/>
         <Button x:ConnectionId='6' Content="Save Data" Margin="325,730,0,0" VerticalAlignment="Top" Width="287"                       />
         <ComboBox x:ConnectionId='7' x:Name="comboboxState" SelectedItem="{Binding StateToSave, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="12,503,0,0" Width="120" PlaceholderText="State" Header="Choose a State" IsDropDownOpen="True" MaxDropDownHeight="99" Height="55"/>
@@ -43,9 +40,9 @@
         <CalendarDatePicker x:ConnectionId='12' x:Name="datePickerCovidCase" Date="{Binding Path=DateOfCaseToSave, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource dateTimeConverter}}" Margin="166,583,0,0" VerticalAlignment="Top" Header="Date of Case" Padding="0,0,0,3" Height="60"/>
         <Button x:ConnectionId='13' Content="Add New Entry" Margin="325,607,0,0" VerticalAlignment="Top" Width="283" Height="36"                                />
         <TextBlock x:ConnectionId='14' x:Name="textBlockCovidEntryErrorMessage" HorizontalAlignment="Left" Margin="12,614,0,0" Text="covidEntryErrorMessage" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Visibility="Collapsed" Width="595" TextAlignment="Center" SelectionHighlightColor="#FFF50000"/>
-        <TextBlock HorizontalAlignment="Left" Margin="487,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Bin Size"/>
-        <TextBox x:ConnectionId='15' x:Name="binSizeTextBox" Text="{Binding Path=BinSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="548,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top"                                                                                  MaxLength="7"/>
+        <TextBox x:ConnectionId='15' x:Name="binSizeTextBox" Text="{Binding Path=BinSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="324,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top"                                                                                  MaxLength="7" Header="Bin Size"/>
         <ComboBox x:ConnectionId='16' Margin="13,82,0,0" Width="120" x:Name="comboboxLocationSelection" SelectedItem="{Binding LocationOfInterest, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                                                               />
+        <Button x:ConnectionId='17' Content="Update" Margin="436,398,0,0" VerticalAlignment="Top" Width="176" Height="55"                               AutomationProperties.Name="onUpdateSummary"/>
     </Grid>
 </Page>
 

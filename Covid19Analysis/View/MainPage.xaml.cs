@@ -606,5 +606,10 @@ namespace Covid19Analysis
 
             
         }
+
+        private void onUpdateSummary_Click(object sender, RoutedEventArgs e)
+        {
+            this.updateDisplay();
+        }
     }
 }
