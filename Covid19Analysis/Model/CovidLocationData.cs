@@ -363,7 +363,7 @@ namespace Covid19Analysis.Model
         {
             if (month < 1 || month > 12)
             {
-                throw new Exception("Invalid Month");
+                throw new ArgumentNullException("Invalid Month");
             }
 
             var covidEvents = new List<CovidCase>();
