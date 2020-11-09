@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-11-08T20:19:00.989</Modified>
+      <Modified>2020-11-09T00:54:25.769</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\Covid19Analysis.exe">
       <PackagePath>entrypoint\Covid19Analysis.exe</PackagePath>
-      <Modified>2020-11-08T20:18:59.999</Modified>
+      <Modified>2020-11-09T00:54:25.045</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.8\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -48,57 +48,57 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2020-11-08T18:39:27.385</Modified>
+      <Modified>2020-11-08T23:46:16.065</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2020-11-08T18:39:27.360</Modified>
+      <Modified>2020-11-08T23:46:16.045</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-11-08T18:39:27.365</Modified>
+      <Modified>2020-11-08T23:46:16.045</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-11-08T18:39:27.365</Modified>
+      <Modified>2020-11-08T23:46:16.045</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-11-08T18:39:27.365</Modified>
+      <Modified>2020-11-08T23:46:16.045</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-11-08T18:39:27.365</Modified>
+      <Modified>2020-11-08T23:46:16.050</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-11-08T18:39:27.365</Modified>
+      <Modified>2020-11-08T23:46:16.050</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-11-08T18:39:27.365</Modified>
+      <Modified>2020-11-08T23:46:16.050</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\Covid19Analysis.xr.xml">
       <PackagePath>Covid19Analysis.xr.xml</PackagePath>
-      <Modified>2020-11-08T18:39:27.685</Modified>
+      <Modified>2020-11-08T23:46:16.360</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-11-08T20:18:59.594</Modified>
+      <Modified>2020-11-09T00:54:24.676</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
-      <Modified>2020-11-08T20:18:59.592</Modified>
+      <Modified>2020-11-09T00:54:24.675</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\View\DuplicateEntryContentDialog.xbf">
       <PackagePath>View\DuplicateEntryContentDialog.xbf</PackagePath>
-      <Modified>2020-11-08T20:18:59.596</Modified>
+      <Modified>2020-11-09T00:54:24.677</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -106,11 +106,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-11-08T18:43:18.711</Modified>
+      <Modified>2020-11-09T00:26:02.712</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\Core\Covid19Analysis.exe">
       <PackagePath>Covid19Analysis.exe</PackagePath>
-      <Modified>2020-11-08T20:19:00.976</Modified>
+      <Modified>2020-11-09T00:54:25.761</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

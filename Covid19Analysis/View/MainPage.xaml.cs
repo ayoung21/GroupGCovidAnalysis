@@ -129,14 +129,28 @@ namespace Covid19Analysis
                     await this.promptDisplayOrMerge();
                 }
 
-                await this.extractData();
-
-                if (this.CurrentFile != null || this.covidLocationData != null)
+                try
                 {
-                    this.displayInformation();
-                    this.updateLocationSelectionCombobox(true);
+                    await this.extractData();
+
+                    if (this.CurrentFile != null || this.covidLocationData != null)
+                    {
+                        this.displayInformation();
+                        this.updateLocationSelectionCombobox(true);
+                    }
+
                 }
-                
+                catch (Exception exc)
+                {
+                    this.CurrentFile = null;
+                    var invalidFileDialog = new ContentDialog()
+                    {
+                        Title = "Invalid File Format",
+                        Content = "The file you selected appears to be in the wrong format.",
+                        PrimaryButtonText = "Okay!",
+                    };
+                    await invalidFileDialog.ShowAsync();
+                }
             }
             else
             {
