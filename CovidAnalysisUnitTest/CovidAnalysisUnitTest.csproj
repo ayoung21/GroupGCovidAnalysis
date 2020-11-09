@@ -120,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CovidLocationDataTest\GetEventsFromMonth.cs" />
+    <Compile Include="CovidLocationDataTest\GetHighestNumberOfNegativeIncreases.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CovidCaseTest\Constructor.cs" />
     <Compile Include="CovidLocationDataTest\AddCovidCase.cs" />
