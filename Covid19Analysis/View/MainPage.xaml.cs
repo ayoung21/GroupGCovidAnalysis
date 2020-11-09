@@ -15,6 +15,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Covid19Analysis.ViewModel;
 using XmlReader = Covid19Analysis.CovidXML.XmlReader;
 using XmlWriter = Covid19Analysis.CovidXml.XmlWriter;
 
@@ -35,13 +36,9 @@ namespace Covid19Analysis
         #endregion
 
         #region Data members
-        private int lowerThreshold;
-        private int upperThreshold;
-        private int binSize;
         private readonly CsvReader csvReader;
         private readonly CsvWriter csvWriter;
-        private readonly CovidLocationDataCollection covidCollection;
-        private CovidLocationData covidLocationData;
+        private CovidAnalysisViewModel viewModel;
 
         /// <summary>
         ///     The application height
@@ -78,11 +75,7 @@ namespace Covid19Analysis
 
             this.csvReader = new CsvReader();
             this.csvWriter = new CsvWriter();
-            this.covidCollection = new CovidLocationDataCollection();
-
-            this.lowerThreshold = LowerThresholdDefault;
-            this.upperThreshold = UpperThresholdDefault;
-            this.binSize = BinSizeDefault;
+            this.viewModel = new CovidAnalysisViewModel();
 
             this.lowerThresholdTextBox.Text = LowerThresholdDefault.ToString();
             this.upperThresholdTextBox.Text = UpperThresholdDefault.ToString();
@@ -114,10 +107,10 @@ namespace Covid19Analysis
 
         private async void loadFile_Click(object sender, RoutedEventArgs e)
         {
-            this.lowerThreshold = int.Parse(this.lowerThresholdTextBox.Text);
-            this.upperThreshold = int.Parse(this.upperThresholdTextBox.Text);
+            this.viewModel.LowerThreshold = int.Parse(this.lowerThresholdTextBox.Text);
+            this.viewModel.UpperThreshold = int.Parse(this.upperThresholdTextBox.Text);
 
-            var validThreshold = (this.lowerThreshold < this.upperThreshold);
+            var validThreshold = (this.viewModel.LowerThreshold < this.viewModel.UpperThreshold);
             if (validThreshold)
             {
                 if (this.CurrentFile == null)
@@ -133,7 +126,7 @@ namespace Covid19Analysis
                 {
                     await this.extractData();
 
-                    if (this.CurrentFile != null || this.covidLocationData != null)
+                    if (this.CurrentFile != null || this.viewModel.CovidLocationData != null)
                     {
                         this.displayInformation();
                         this.updateLocationSelectionCombobox(true);
@@ -167,7 +160,7 @@ namespace Covid19Analysis
             }
             else if (dialogResult == ContentDialogResult.Secondary)
             {
-                this.covidCollection.ClearData();
+                this.viewModel.CovidCollection.ClearData();
                 await this.loadFile();
             }
         }
@@ -204,21 +197,21 @@ namespace Covid19Analysis
                 {
                     XmlReader reader = new XmlReader();
                     var covidCollection = await reader.GetCovidData(this.CurrentFile);
-                    this.covidCollection.AddAllCovidCases(covidCollection);
+                    this.viewModel.CovidCollection.AddAllCovidCases(covidCollection);
                 }
                 else
                 {
                     csvReader.CsvFile = this.CurrentFile;
                     IList<CovidCase> covidCases = await csvReader.Parse();
-                    this.covidCollection.AddAllCovidCases(covidCases);
+                    this.viewModel.CovidCollection.AddAllCovidCases(covidCases);
                 }
 
 
-                this.covidLocationData = this.covidCollection.GetLocationData(LocationOfInterest);
+                this.viewModel.CovidLocationData = this.viewModel.CovidCollection.GetLocationData(LocationOfInterest);
                 this.updateLocationSelectionCombobox(true);
             }
 
-            if (this.covidLocationData != null && this.covidLocationData.DuplicateCases.Count > 0)
+            if (this.viewModel.CovidLocationData != null && this.viewModel.CovidLocationData.DuplicateCases.Count > 0)
             {
                 await this.displayDuplicateCases();
             }
@@ -228,20 +221,20 @@ namespace Covid19Analysis
         {
             IList<CovidCase> tempList = new List<CovidCase>();
 
-            if (this.covidLocationData == null || this.covidLocationData.DuplicateCases.Count == 0)
+            if (this.viewModel.CovidLocationData == null || this.viewModel.CovidLocationData.DuplicateCases.Count == 0)
             {
                 this.displayDialogNoDuplicateKeysFound();
             }
 
-            if (this.covidLocationData != null && this.covidLocationData.DuplicateCases.Count > 0)
+            if (this.viewModel.CovidLocationData != null && this.viewModel.CovidLocationData.DuplicateCases.Count > 0)
             {
 
                 var skipOrReplaceDialog = new DuplicateEntryContentDialog();
 
-                for (var i = 0; i < this.covidLocationData.DuplicateCases.Count; i++)
+                for (var i = 0; i < this.viewModel.CovidLocationData.DuplicateCases.Count; i++)
                 {
-                    skipOrReplaceDialog.Subtitle = $"There are {this.covidLocationData.DuplicateCases.Count - i} items with the same date";
-                    skipOrReplaceDialog.Message = this.covidLocationData.DuplicateCases[i].ToString();
+                    skipOrReplaceDialog.Subtitle = $"There are {this.viewModel.CovidLocationData.DuplicateCases.Count - i} items with the same date";
+                    skipOrReplaceDialog.Message = this.viewModel.CovidLocationData.DuplicateCases[i].ToString();
                     skipOrReplaceDialog.UpdateContent();
 
                     if (!skipOrReplaceDialog.IsChecked)
@@ -250,14 +243,14 @@ namespace Covid19Analysis
 
                         if (result == ContentDialogResult.Primary)
                         {
-                            this.covidLocationData.FindAndReplace(this.covidLocationData.DuplicateCases[i]);
-                            tempList.Add(this.covidLocationData.DuplicateCases[i]);
+                            this.viewModel.CovidLocationData.FindAndReplace(this.viewModel.CovidLocationData.DuplicateCases[i]);
+                            tempList.Add(this.viewModel.CovidLocationData.DuplicateCases[i]);
                         }
                     }
                     else if (skipOrReplaceDialog.IsChecked && skipOrReplaceDialog.LastKnownButtonPress == "Primary")
                     {
-                        this.covidLocationData.FindAndReplace(this.covidLocationData.DuplicateCases[i]);
-                        tempList.Add(this.covidLocationData.DuplicateCases[i]);
+                        this.viewModel.CovidLocationData.FindAndReplace(this.viewModel.CovidLocationData.DuplicateCases[i]);
+                        tempList.Add(this.viewModel.CovidLocationData.DuplicateCases[i]);
                     }
                 }
 
@@ -272,7 +265,7 @@ namespace Covid19Analysis
 
         private void displayInformation()
         {
-            if (this.CurrentFile != null || this.covidLocationData != null)
+            if (this.CurrentFile != null || this.viewModel.CovidLocationData != null)
             {
                 this.buildAndSetSummaryReport();
             }
@@ -288,13 +281,13 @@ namespace Covid19Analysis
             {
                 this.summaryTextBox.Text = "Loading...";
 
-                if (this.covidLocationData != null)
+                if (this.viewModel.CovidLocationData != null)
                 {
-                    CovidOutputBuilder report = new CovidOutputBuilder(this.covidLocationData)
+                    CovidOutputBuilder report = new CovidOutputBuilder(this.viewModel.CovidLocationData)
                     {
-                        LowerThreshold = this.lowerThreshold,
-                        UpperThreshold = this.upperThreshold,
-                        BinSize = this.binSize
+                        LowerThreshold = this.viewModel.LowerThreshold,
+                        UpperThreshold = this.viewModel.UpperThreshold,
+                        BinSize = this.viewModel.BinSize
                     };
                     //this.summaryTextBox.Text = report.GetLocationSummary() + report.GetYearlySummary();
                     this.summaryTextBox.Text = report.CovidOutput();
@@ -331,11 +324,11 @@ namespace Covid19Analysis
             foreach (var currentCase in tempList)
             {
 
-                var item = this.covidLocationData.DuplicateCases.First(i => i.Date.Equals(currentCase.Date));
-                var index = this.covidLocationData.DuplicateCases.IndexOf(item);
+                var item = this.viewModel.CovidLocationData.DuplicateCases.First(i => i.Date.Equals(currentCase.Date));
+                var index = this.viewModel.CovidLocationData.DuplicateCases.IndexOf(item);
 
                 if (index == -1) continue;
-                this.covidLocationData.DuplicateCases.RemoveAt(index);
+                this.viewModel.CovidLocationData.DuplicateCases.RemoveAt(index);
 
                 count++;
             }
@@ -402,10 +395,10 @@ namespace Covid19Analysis
 
         private void updateDisplay()
         {
-            this.lowerThreshold = int.Parse(this.lowerThresholdTextBox.Text);
-            this.upperThreshold = int.Parse(this.upperThresholdTextBox.Text);
-            this.binSize = int.Parse(this.binSizeTextBox.Text);
-            if (this.lowerThreshold < this.upperThreshold && (this.CurrentFile != null || this.covidLocationData != null))
+            this.viewModel.LowerThreshold = int.Parse(this.lowerThresholdTextBox.Text);
+            this.viewModel.UpperThreshold = int.Parse(this.upperThresholdTextBox.Text);
+            this.viewModel.BinSize = int.Parse(this.binSizeTextBox.Text);
+            if (this.viewModel.LowerThreshold < this.viewModel.UpperThreshold && (this.CurrentFile != null || this.viewModel.CovidLocationData != null))
             {
                 this.displayInformation();
             }
@@ -440,7 +433,7 @@ namespace Covid19Analysis
 
         private void clearData()
         {
-            this.covidCollection.ClearData();
+            this.viewModel.CovidCollection.ClearData();
             this.CurrentFile = null;
             this.summaryTextBox.Text = "Data Cleared...";
             this.updateLocationSelectionCombobox(false);
@@ -463,11 +456,11 @@ namespace Covid19Analysis
                 if (file.FileType == XmlFileExension)
                 {
                     XmlWriter writer = new XmlWriter();
-                    writer.WriteToXml(file, this.covidCollection);
+                    writer.WriteToXml(file, this.viewModel.CovidCollection);
                 }
                 else if (file.FileType == CsvFileExtension)
                 {
-                    this.csvWriter.SaveDataAsCsv(file, this.covidCollection);
+                    this.csvWriter.SaveDataAsCsv(file, this.viewModel.CovidCollection);
                 }
 
                 FileUpdateStatus status = await CachedFileManager.CompleteUpdatesAsync(file);
@@ -523,11 +516,11 @@ namespace Covid19Analysis
                 };
 
 
-                this.covidCollection.AddCovidCase(covidCase);
+                this.viewModel.CovidCollection.AddCovidCase(covidCase);
 
-                if (this.covidLocationData == null)
+                if (this.viewModel.CovidLocationData == null)
                 {
-                    this.covidLocationData = this.covidCollection.GetLocationData(LocationOfInterest);
+                    this.viewModel.CovidLocationData = this.viewModel.CovidCollection.GetLocationData(LocationOfInterest);
                 }
 
                 this.clearNewDataEntryFields();
@@ -597,19 +590,19 @@ namespace Covid19Analysis
         private void updateLocationSelectionCombobox(bool isEnabled)
         {
             this.comboboxLocationSelection.IsEnabled = isEnabled;
-            if (this.CurrentFile != null || this.covidCollection.CollectionOfCovidLocationData.Count > 0)
+            if (this.CurrentFile != null || this.viewModel.CovidCollection.CollectionOfCovidLocationData.Count > 0)
             {
                 this.comboboxLocationSelection.ItemsSource =
-                    this.covidCollection.CollectionOfCovidLocationData.Keys.ToList();
+                    this.viewModel.CovidCollection.CollectionOfCovidLocationData.Keys.ToList();
             }
         }
 
         private void comboboxLocationSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((this.comboboxLocationSelection.SelectedItem != null || this.covidCollection.CollectionOfCovidLocationData.Count > 0) && this.comboboxLocationSelection.SelectedValue != null)
+            if ((this.comboboxLocationSelection.SelectedItem != null || this.viewModel.CovidCollection.CollectionOfCovidLocationData.Count > 0) && this.comboboxLocationSelection.SelectedValue != null)
             {
                 var selectedValue = this.comboboxLocationSelection.SelectedValue.ToString();
-                this.covidLocationData = this.covidCollection.GetLocationData(selectedValue);
+                this.viewModel.CovidLocationData = this.viewModel.CovidCollection.GetLocationData(selectedValue);
                 this.updateDisplay();
             }
             else

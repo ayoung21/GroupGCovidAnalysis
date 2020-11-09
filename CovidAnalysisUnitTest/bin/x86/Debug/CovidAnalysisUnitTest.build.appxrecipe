@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>CSVLAB-VM10</Machine>
-    <WindowsUser>ayoung21</WindowsUser>
+    <Machine>DESKTOP-QI8P932</Machine>
+    <WindowsUser>benev</WindowsUser>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,43 +10,43 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>41427dbb-cfa4-46a2-8ceb-8831a3dde3e9</PackageIdentityName>
     <PackageIdentityPublisher>CN=csuser</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\bin\x86\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\bin\x86\Debug\CovidAnalysisUnitTest.exe">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\bin\x86\Debug\CovidAnalysisUnitTest.exe">
       <PackagePath>entrypoint\CovidAnalysisUnitTest.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\Covid19Analysis.exe">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\bin\x86\Debug\Covid19Analysis.exe">
       <PackagePath>Covid19Analysis.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\bin\x86\Debug\CovidAnalysisUnitTest.pdb">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\bin\x86\Debug\CovidAnalysisUnitTest.pdb">
       <PackagePath>CovidAnalysisUnitTest.pdb</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\Covid19Analysis.pdb">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\bin\x86\Debug\Covid19Analysis.pdb">
       <PackagePath>Covid19Analysis.pdb</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\TestPlatform.Universal\16.0\References\CommonConfiguration\neutral\testhost.dll">
       <PackagePath>testhost.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\.nuget\packages\mstest.testframework\2.0.0\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll">
+    <AppxPackagedFile Include="C:\Users\benev\.nuget\packages\mstest.testframework\2.0.0\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll">
       <PackagePath>Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\.nuget\packages\mstest.testframework\2.0.0\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll">
+    <AppxPackagedFile Include="C:\Users\benev\.nuget\packages\mstest.testframework\2.0.0\lib\uap10.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll">
       <PackagePath>Microsoft.VisualStudio.TestPlatform.TestFramework.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\.nuget\packages\newtonsoft.json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
+    <AppxPackagedFile Include="C:\Users\benev\.nuget\packages\newtonsoft.json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.10\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
@@ -79,70 +79,70 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\TestPlatform.Universal\16.0\Redist\CommonConfiguration\x86\msdia140.dll">
       <PackagePath>msdia140.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\.nuget\packages\mstest.testadapter\2.0.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll">
+    <AppxPackagedFile Include="C:\Users\benev\.nuget\packages\mstest.testadapter\2.0.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll">
       <PackagePath>Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\.nuget\packages\mstest.testadapter\2.0.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll">
+    <AppxPackagedFile Include="C:\Users\benev\.nuget\packages\mstest.testadapter\2.0.0\build\_common\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll">
       <PackagePath>Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\.nuget\packages\mstest.testadapter\2.0.0\build\uap10.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll">
+    <AppxPackagedFile Include="C:\Users\benev\.nuget\packages\mstest.testadapter\2.0.0\build\uap10.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll">
       <PackagePath>Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\bin\x86\Debug\CovidAnalysisUnitTest.xr.xml">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\bin\x86\Debug\CovidAnalysisUnitTest.xr.xml">
       <PackagePath>CovidAnalysisUnitTest.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\Covid19Analysis.xr.xml">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\bin\x86\Debug\Covid19Analysis.xr.xml">
       <PackagePath>Covid19Analysis.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\bin\x86\Debug\UnitTestApp.xbf">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\bin\x86\Debug\UnitTestApp.xbf">
       <PackagePath>UnitTestApp.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\View\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\bin\x86\Debug\View\MainPage.xbf">
       <PackagePath>View\MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\bin\x86\Debug\View\DuplicateEntryContentDialog.xbf">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\bin\x86\Debug\View\DuplicateEntryContentDialog.xbf">
       <PackagePath>View\DuplicateEntryContentDialog.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\Covid19Analysis\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\ayoung21\Desktop\GroupGCovidAnalysis\CovidAnalysisUnitTest\bin\x86\Debug\Core\CovidAnalysisUnitTest.exe">
+    <AppxPackagedFile Include="C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\bin\x86\Debug\Core\CovidAnalysisUnitTest.exe">
       <PackagePath>CovidAnalysisUnitTest.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

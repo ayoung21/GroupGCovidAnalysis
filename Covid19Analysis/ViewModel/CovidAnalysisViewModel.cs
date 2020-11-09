@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Covid19Analysis.CovidCSV;
+using Covid19Analysis.Model;
 
 namespace Covid19Analysis.ViewModel
 {
@@ -26,6 +27,31 @@ namespace Covid19Analysis.ViewModel
         private int deathsToSave;
         private int hospitalizationsToSave;
         private DateTimeOffset dateOfCaseToSave;
+        private CovidLocationData covidLocationData;
+        private CovidLocationDataCollection covidCollection;
+
+        public CovidLocationDataCollection CovidCollection
+        {
+            get
+            {
+                return this.covidCollection;
+            }
+            set
+            {
+                this.covidCollection = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        public CovidLocationData CovidLocationData
+        {
+            get => this.covidLocationData;
+            set
+            {
+                this.covidLocationData = value;
+                this.OnPropertyChanged();
+            }
+        }
 
         public string LocationOfInterest
         {
@@ -156,6 +182,8 @@ namespace Covid19Analysis.ViewModel
             this.UpperThreshold = Default_Upper_Threshold;
             this.BinSize = Default_Bin_Size;
             this.DateOfCaseToSave = DateTimeOffset.Now;
+
+            this.covidCollection = new CovidLocationDataCollection();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

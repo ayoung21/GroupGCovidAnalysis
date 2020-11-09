@@ -8151,24 +8151,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ayoung21\\.nuget\\packages\\": {},
+    "C:\\Users\\benev\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj",
+      "projectUniqueName": "C:\\Users\\benev\\Source\\Repos\\GroupGCovidAnalysis3\\Covid19Analysis\\Covid19Analysis.csproj",
       "projectName": "Covid19Analysis",
-      "projectPath": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\Covid19Analysis.csproj",
-      "packagesPath": "C:\\Users\\ayoung21\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ayoung21\\Desktop\\GroupGCovidAnalysis\\Covid19Analysis\\obj\\",
+      "projectPath": "C:\\Users\\benev\\Source\\Repos\\GroupGCovidAnalysis3\\Covid19Analysis\\Covid19Analysis.csproj",
+      "packagesPath": "C:\\Users\\benev\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\benev\\Source\\Repos\\GroupGCovidAnalysis3\\Covid19Analysis\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\ayoung21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\benev\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
