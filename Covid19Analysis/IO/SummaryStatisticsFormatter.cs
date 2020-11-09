@@ -142,16 +142,16 @@ namespace Covid19Analysis.IO
 
         private string buildHistogramOfPositiveCases(int binSize)
         {
-            var startingPoint = 0;
+            const int StartingPoint = 0;
+            const int Offset = 1;
             var output = $"HISTOGRAM of Positive Tests{Environment.NewLine}";
-            //var highestNumberOfCases = this.LocationData.GetHighestNumberOfPositiveTests(this.location.CovidCases);
             var highestNumberOfCases = this.location.GetHighestNumberOfPositiveTests(this.location.CovidCases);
             var highestPositiveTests = highestNumberOfCases.PositiveIncrease;
 
-            for (var i = startingPoint; i < highestPositiveTests; i += binSize)
+            for (var i = StartingPoint; i < highestPositiveTests; i += binSize)
             {
-                var numberOfCases = this.location.NumberOfPositiveCasesBetween(i, i + binSize);
-                output += $"{i} - {i + binSize}: {numberOfCases} {Environment.NewLine}";
+                var numberOfCases = this.location.NumberOfPositiveCasesBetween(i + Offset, i + binSize);
+                output += $"{i + Offset} - {i + binSize}: {numberOfCases} {Environment.NewLine}";
             }
 
             return output;
