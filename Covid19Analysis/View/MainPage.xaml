@@ -43,5 +43,6 @@
         <TextBox x:Name="binSizeTextBox" Text="{Binding Path=BinSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="324,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top" BeforeTextChanging="TextBox_BeforeTextChanging" KeyDown="UpperThreshold_KeyDown" MaxLength="7" Header="Bin Size"/>
         <ComboBox Margin="13,82,0,0" Width="120" x:Name="comboboxLocationSelection" SelectedItem="{Binding LocationOfInterest, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="comboboxLocationSelection_SelectionChanged" />
         <Button Content="Update" Margin="436,398,0,0" VerticalAlignment="Top" Width="176" Height="55" Click="onUpdateSummary_Click" AutomationProperties.Name="onUpdateSummary"/>
+        <ListView ItemsSource="{Binding Path=CovidCases, Mode=TwoWay}" x:Name="locationDataListView" HorizontalAlignment="Left" Height="220" Margin="634,136,0,0" VerticalAlignment="Top" Width="403"/>
     </Grid>
 </Page>

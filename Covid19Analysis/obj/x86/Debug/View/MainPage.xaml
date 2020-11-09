@@ -23,8 +23,8 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton x:ConnectionId='18' Icon="Important" Label="Display Errors"                            />
-            <AppBarButton x:ConnectionId='19' Icon="OpenFile" Label="Load File"                       />
+            <AppBarButton x:ConnectionId='19' Icon="Important" Label="Display Errors"                            />
+            <AppBarButton x:ConnectionId='20' Icon="OpenFile" Label="Load File"                       />
         </CommandBar>
         <TextBox x:ConnectionId='2' x:Name="summaryTextBox" HorizontalAlignment="Left" Margin="12,129,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Text="Summary" Height="264" Width="600" IsReadOnly="True" AutomationProperties.Name="summaryTextBlock" RenderTransformOrigin="0.495,1.145"/>
         <TextBlock HorizontalAlignment="Left" Margin="12,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="COVID-19 Analysis"/>
@@ -43,6 +43,7 @@
         <TextBox x:ConnectionId='15' x:Name="binSizeTextBox" Text="{Binding Path=BinSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource stringToIntConverter}}" HorizontalAlignment="Left" Margin="324,398,0,0" TextWrapping="Wrap" VerticalAlignment="Top"                                                                                  MaxLength="7" Header="Bin Size"/>
         <ComboBox x:ConnectionId='16' Margin="13,82,0,0" Width="120" x:Name="comboboxLocationSelection" SelectedItem="{Binding LocationOfInterest, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"                                                               />
         <Button x:ConnectionId='17' Content="Update" Margin="436,398,0,0" VerticalAlignment="Top" Width="176" Height="55"                               AutomationProperties.Name="onUpdateSummary"/>
+        <ListView x:ConnectionId='18' ItemsSource="{Binding Path=CovidCases, Mode=TwoWay}" x:Name="locationDataListView" HorizontalAlignment="Left" Height="220" Margin="634,136,0,0" VerticalAlignment="Top" Width="403"/>
     </Grid>
 </Page>
 

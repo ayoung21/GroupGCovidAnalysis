@@ -126,6 +126,7 @@
     <Compile Include="CovidCSV\CsvWriter.cs" />
     <Compile Include="CovidXML\XmlReader.cs" />
     <Compile Include="CovidXML\XmlWriter.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="IO\SummaryStatisticsFormatter.cs" />
     <Compile Include="IO\MonthlyStatisticsFormatter.cs" />
     <Compile Include="View\MainPage.xaml.cs">

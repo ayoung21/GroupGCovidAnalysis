@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Covid19Analysis.CovidCSV;
+using Covid19Analysis.Extensions;
 using Covid19Analysis.Model;
 
 namespace Covid19Analysis.ViewModel
@@ -29,6 +31,20 @@ namespace Covid19Analysis.ViewModel
         private DateTimeOffset dateOfCaseToSave;
         private CovidLocationData covidLocationData;
         private CovidLocationDataCollection covidCollection;
+        private ObservableCollection<CovidCase> covidCases;
+
+        public ObservableCollection<CovidCase> CovidCases
+        {
+            get
+            {
+                return this.covidCases;
+            }
+            set
+            {
+                this.covidCases = value;
+                this.OnPropertyChanged();
+            }
+        }
 
         public CovidLocationDataCollection CovidCollection
         {
@@ -184,6 +200,8 @@ namespace Covid19Analysis.ViewModel
             this.DateOfCaseToSave = DateTimeOffset.Now;
 
             this.covidCollection = new CovidLocationDataCollection();
+            this.covidLocationData = new CovidLocationData("GA");
+            this.covidCases = this.covidLocationData.CovidCases.ToObservableCollection();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
