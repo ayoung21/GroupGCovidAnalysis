@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Covid19Analysis.Model;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 using Windows.Storage;
-using Covid19Analysis.Model;
 
 namespace Covid19Analysis.CovidXml
 {
@@ -17,7 +18,7 @@ namespace Covid19Analysis.CovidXml
         /// <param name="covidCollection">The covid collection to save.</param>
         public async void WriteToXml(StorageFile file, CovidLocationDataCollection covidCollection)
         {
-            var allCovidCases = this.getAllCovidCases(covidCollection);
+            var allCovidCases = getAllCovidCases(covidCollection);
 
             var outStream = await file.OpenStreamForWriteAsync();
             var serializer = new XmlSerializer(typeof(List<CovidCase>), new XmlRootAttribute("CovidCollection"));
@@ -25,19 +26,9 @@ namespace Covid19Analysis.CovidXml
             outStream.Dispose();
         }
 
-        private IList<CovidCase> getAllCovidCases(CovidLocationDataCollection covidCollection)
+        private static IList<CovidCase> getAllCovidCases(CovidLocationDataCollection covidCollection)
         {
-            var covidList = new List<CovidCase>();
-            foreach (KeyValuePair<string, CovidLocationData> currentLocation in covidCollection.CollectionOfCovidLocationData)
-            {
-                var locationData = currentLocation.Value.CovidCases;
-                foreach (var currentCovidCase in locationData)
-                {
-                    covidList.Add(currentCovidCase);
-                }
-            }
-
-            return covidList;
+            return covidCollection.CollectionOfCovidLocationData.SelectMany(currentLocation => currentLocation.Value.CovidCases).ToList();
         }
     }
 }

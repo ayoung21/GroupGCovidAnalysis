@@ -1,8 +1,8 @@
-﻿using Covid19Analysis.Model;
+﻿using System;
+using Covid19Analysis.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace CovidAnalysisUnitTest
+namespace CovidAnalysisUnitTest.CovidLocationDataTest
 {
     [TestClass]
     public class TestingGetEarliestPositiveCase
@@ -10,7 +10,7 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestGetEarliestPositiveCaseReturnNull()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             Assert.IsNull(covidLocationData.GetEarliestPositiveCase());
         }
@@ -18,7 +18,7 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestGetEarliestPositiveCase()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2016, 2, 15))
             {
@@ -33,7 +33,7 @@ namespace CovidAnalysisUnitTest
                 PositiveIncrease = 125
             });
 
-            var expected = "2/10/2016";
+            const string expected = "2/10/2016";
 
             var covidCase = covidLocationData.GetEarliestPositiveCase();
             var result = covidCase.Date.ToShortDateString();

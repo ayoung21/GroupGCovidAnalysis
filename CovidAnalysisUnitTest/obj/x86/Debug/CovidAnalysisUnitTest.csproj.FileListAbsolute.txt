@@ -304,4 +304,3 @@ C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\obj\x86\D
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\obj\x86\Debug\resources.en.resfiles.intermediate
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637112750540000000.json
-C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\CovidAnalysisUnitTest\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637112858540000000.json

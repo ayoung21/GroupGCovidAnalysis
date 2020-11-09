@@ -1,9 +1,8 @@
-﻿
+﻿using System;
 using Covid19Analysis.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace CovidAnalysisUnitTest
+namespace CovidAnalysisUnitTest.CovidLocationDataTest
 {
     [TestClass]
     public class TestingGetEventsFromMonth
@@ -11,7 +10,7 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestInvalidLowerBound()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             Assert.ThrowsException<ArgumentNullException>(() =>
                 covidLocationData.GetEventsFromMonth(0));
@@ -20,7 +19,7 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestInvalidUpperBound()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             Assert.ThrowsException<ArgumentNullException>(() =>
                 covidLocationData.GetEventsFromMonth(13));
@@ -29,17 +28,17 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestZeroEventsFromMonth()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
-            int expected = 0;
-            int result = covidLocationData.GetEventsFromMonth(1).Count;
+            const int expected = 0;
+            var result = covidLocationData.GetEventsFromMonth(1).Count;
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public void TestOneEventsFromMonth()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2015, 1, 15))
             {
@@ -51,15 +50,15 @@ namespace CovidAnalysisUnitTest
                 HospitalizedCurrently = 5
             });
 
-            int expected = 1;
-            int result = covidLocationData.GetEventsFromMonth(1).Count;
+            const int expected = 1;
+            var result = covidLocationData.GetEventsFromMonth(1).Count;
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public void TestManyEventsFromMonth()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2015, 1, 15))
             {
@@ -76,8 +75,8 @@ namespace CovidAnalysisUnitTest
                 HospitalizedCurrently = 5
             });
 
-            int expected = 3;
-            int result = covidLocationData.GetEventsFromMonth(1).Count;
+            const int expected = 3;
+            var result = covidLocationData.GetEventsFromMonth(1).Count;
             Assert.AreEqual(expected, result);
         }
     }

@@ -93,12 +93,7 @@ namespace Covid19Analysis.Model
         /// <returns>A CovidCase with the highest number of negative tests</returns>
         public CovidCase GetHighestNumberOfNegativeIncreases()
         {
-            if (this.CovidCases.Count == 0)
-            {
-                return null;
-            }
-
-            return this.CovidCases.OrderByDescending(covidCase => covidCase.NegativeIncrease).First();
+            return this.CovidCases.Count == 0 ? null : this.CovidCases.OrderByDescending(covidCase => covidCase.NegativeIncrease).First();
         }
 
         /// <summary>
@@ -153,15 +148,15 @@ namespace Covid19Analysis.Model
                 return 0.00;
             }
 
-            double totalPositiveTests = this.totalPositiveTests(covidCases);
-            double totalNegativeTests = this.totalNegativeTests(covidCases);
+            double totalPositiveTests = CovidLocationData.totalPositiveTests(covidCases);
+            double totalNegativeTests = CovidLocationData.totalNegativeTests(covidCases);
 
             var totalCount = totalPositiveTests + totalNegativeTests;
 
             return totalCount != 0 ? totalPositiveTests / (totalNegativeTests + totalPositiveTests) * 100 : 0;
         }
 
-        private int totalPositiveTests(IList<CovidCase> covidCases)
+        private static int totalPositiveTests(IList<CovidCase> covidCases)
         {
             if (covidCases == null)
             {
@@ -178,7 +173,7 @@ namespace Covid19Analysis.Model
             return totalPositiveTests;
         }
 
-        private int totalNegativeTests(IList<CovidCase> covidCases)
+        private static int totalNegativeTests(IList<CovidCase> covidCases)
         {
             if (covidCases == null)
             {
@@ -202,9 +197,9 @@ namespace Covid19Analysis.Model
         /// <returns></returns>
         public double GetAverageNumberOfPositiveTests(IList<CovidCase> covidCases)
         {
-            double positiveTestCount = 0.0;
+            var positiveTestCount = 0.0;
 
-            if (this.totalPositiveTests(covidCases) != 0)
+            if (totalPositiveTests(covidCases) != 0)
             {
                 positiveTestCount = covidCases.Where(data => data.Date >= this.GetEarliestPositiveCase().Date)
                                               .Average(data => data.PositiveIncrease);
@@ -250,12 +245,12 @@ namespace Covid19Analysis.Model
         /// <returns>The average number of all tests.</returns>
         public double GetAverageNumberOfAllTests(IList<CovidCase> covidCases)
         {
-            var average = covidCases.Average(data => this.totalDailyTests(data));
+            var average = covidCases.Average(totalDailyTests);
 
             return average;
         }
 
-        private int totalDailyTests(CovidCase theData)
+        private static int totalDailyTests(CovidCase theData)
         {
             if (theData == null)
             {
@@ -276,7 +271,7 @@ namespace Covid19Analysis.Model
             {
                 throw new ArgumentOutOfRangeException(nameof(covidCases));
             }
-            var orderedCollection = covidCases.OrderBy(this.totalDailyTests);
+            var orderedCollection = covidCases.OrderBy(totalDailyTests);
             var highestNumberOfTests = orderedCollection.Last();
 
             return highestNumberOfTests;
@@ -288,12 +283,7 @@ namespace Covid19Analysis.Model
         /// <returns>CovidCase with the highest death on a single day.</returns>
         public CovidCase GetHighestDeathsEvent()
         {
-            if (this.CovidCases.Count == 0)
-            {
-                return null;
-            }
-
-            return this.CovidCases.OrderByDescending(covidCase => covidCase.DeathIncrease).First();
+            return this.CovidCases.Count == 0 ? null : this.CovidCases.OrderByDescending(covidCase => covidCase.DeathIncrease).First();
         }
 
         /// <summary>
@@ -302,12 +292,7 @@ namespace Covid19Analysis.Model
         /// <returns>CovidCase with the highest hospitalizations</returns>
         public CovidCase GetHighestHospitalization()
         {
-            if (this.CovidCases.Count == 0)
-            {
-                return null;
-            }
-
-            return this.CovidCases.OrderByDescending(covidCase => covidCase.HospitalizedIncrease).First();
+            return this.CovidCases.Count == 0 ? null : this.CovidCases.OrderByDescending(covidCase => covidCase.HospitalizedIncrease).First();
         }
 
         /// <summary>
@@ -342,7 +327,7 @@ namespace Covid19Analysis.Model
                 throw new ArgumentOutOfRangeException(nameof(theData));
             }
 
-            double totalTests = this.totalDailyTests(theData);
+            double totalTests = totalDailyTests(theData);
             var percent = 0.0;
             if (totalTests != 0)
             {
@@ -363,7 +348,7 @@ namespace Covid19Analysis.Model
         {
             if (month < 1 || month > 12)
             {
-                throw new ArgumentNullException("Invalid Month");
+                throw new ArgumentNullException(nameof(month));
             }
 
             var covidEvents = new List<CovidCase>();
@@ -390,7 +375,7 @@ namespace Covid19Analysis.Model
                 return null;
             }
 
-            var orderedCollection = covidCases.OrderBy(this.totalDailyTests);
+            var orderedCollection = covidCases.OrderBy(totalDailyTests);
             var lowestNumberOfTests = orderedCollection.First();
 
             return lowestNumberOfTests;
@@ -403,12 +388,7 @@ namespace Covid19Analysis.Model
         /// <returns>CovidCase with the highest number of positive tests.</returns>
         public CovidCase GetHighestNumberOfPositiveTests(IList<CovidCase> covidCases)
         {
-            if (covidCases.Count == 0)
-            {
-                return null;
-            }
-
-            return covidCases.OrderByDescending(covidCase => covidCase.PositiveIncrease).First();
+            return covidCases.Count == 0 ? null : covidCases.OrderByDescending(covidCase => covidCase.PositiveIncrease).First();
         }
 
         /// <summary>
@@ -418,12 +398,7 @@ namespace Covid19Analysis.Model
         /// <returns>CovidCase with the lowest number of positive.</returns>
         public CovidCase GetLowestNumberOfPositiveTests(IList<CovidCase> covidCases)
         {
-            if (covidCases.Count == 0)
-            {
-                return null;
-            }
-
-            return this.CovidCases.OrderBy(covidCase => covidCase.PositiveIncrease).First();
+            return covidCases.Count == 0 ? null : this.CovidCases.OrderBy(covidCase => covidCase.PositiveIncrease).First();
         }
 
         /// <summary>
@@ -433,11 +408,13 @@ namespace Covid19Analysis.Model
         {
             var item = this.CovidCases.First(i => i.Date.Equals(covidCase.Date));
             var index = this.CovidCases.IndexOf(item);
-            if (index != -1)
+            if (index == -1)
             {
-                this.CovidCases.RemoveAt(index);
-                this.CovidCases.Add(covidCase);
+                return;
             }
+
+            this.CovidCases.RemoveAt(index);
+            this.CovidCases.Add(covidCase);
         }
 
         /// <summary>

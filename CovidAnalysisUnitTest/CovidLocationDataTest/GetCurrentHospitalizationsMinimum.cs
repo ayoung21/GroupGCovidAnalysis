@@ -2,7 +2,7 @@
 using Covid19Analysis.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CovidAnalysisUnitTest
+namespace CovidAnalysisUnitTest.CovidLocationDataTest
 {
     [TestClass]
     public class TestingGetCurrentHospitalizationsMinimum
@@ -10,7 +10,7 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestMinIsZero()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2015, 2, 15))
             {
@@ -27,15 +27,15 @@ namespace CovidAnalysisUnitTest
                 HospitalizedCurrently = 10
             });
 
-            int expected = 0;
-            int result = covidLocationData.GetCurrentHospitalizationsMinimum(covidLocationData.CovidCases);
+            const int expected = 0;
+            var result = covidLocationData.GetCurrentHospitalizationsMinimum(covidLocationData.CovidCases);
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public void TestMinIsFive()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2015, 2, 15))
             {
@@ -52,15 +52,15 @@ namespace CovidAnalysisUnitTest
                 HospitalizedCurrently = 15
             });
 
-            int expected = 5;
-            int result = covidLocationData.GetCurrentHospitalizationsMinimum(covidLocationData.CovidCases);
+            const int expected = 5;
+            var result = covidLocationData.GetCurrentHospitalizationsMinimum(covidLocationData.CovidCases);
             Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
         public void TestMinIsTen()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2015, 2, 15))
             {
@@ -77,8 +77,8 @@ namespace CovidAnalysisUnitTest
                 HospitalizedCurrently = 25
             });
 
-            int expected = 10;
-            int result = covidLocationData.GetCurrentHospitalizationsMinimum(covidLocationData.CovidCases);
+            const int expected = 10;
+            var result = covidLocationData.GetCurrentHospitalizationsMinimum(covidLocationData.CovidCases);
             Assert.AreEqual(expected, result);
         }
     }

@@ -1,10 +1,9 @@
-﻿
+﻿using System;
+using System.Globalization;
 using Covid19Analysis.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Globalization;
 
-namespace CovidAnalysisUnitTest
+namespace CovidAnalysisUnitTest.CovidCaseTest
 {
     [TestClass]
     public class CovidCaseTest

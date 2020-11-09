@@ -1,9 +1,8 @@
-﻿
-using Covid19Analysis.Model;
+﻿using Covid19Analysis.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace CovidAnalysisUnitTest
+namespace CovidAnalysisUnitTest.CovidLocationDataTest
 {
     [TestClass]
     public class TestingGetHighestNumberOfNegativeIncreases
@@ -21,11 +20,12 @@ namespace CovidAnalysisUnitTest
         {
             CovidLocationData covidLocationData = new CovidLocationData("GA");
 
-            covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2015, 2, 15)) {
+            covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2015, 2, 15))
+            {
                 NegativeIncrease = 0
             });
 
-            var expected = 0;
+            const int expected = 0;
             var result = covidLocationData.GetHighestNumberOfNegativeIncreases().NegativeIncrease;
 
             Assert.AreEqual(expected, result);
@@ -46,7 +46,7 @@ namespace CovidAnalysisUnitTest
                 NegativeIncrease = 5
             });
 
-            var expected = 5;
+            const int expected = 5;
             var result = covidLocationData.GetHighestNumberOfNegativeIncreases().NegativeIncrease;
 
             Assert.AreEqual(expected, result);

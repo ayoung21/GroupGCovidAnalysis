@@ -1,17 +1,18 @@
-﻿using System;
+﻿using Covid19Analysis.Model;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Covid19Analysis.Model;
 
 namespace Covid19Analysis.IO
 {
+    /// <summary>
+    /// Formats the monthly statistics to be displayed
+    /// </summary>
     public class MonthlyStatisticsFormatter
     {
 
-        private CovidLocationData location;
+        private readonly CovidLocationData location;
 
         /// <summary>Initializes a new instance of the <see cref="MonthlyStatisticsFormatter" /> class.</summary>
         /// <param name="stateData">The state data.</param>
@@ -78,7 +79,7 @@ namespace Covid19Analysis.IO
             return this.location.CovidCases.OrderBy(covidCase => covidCase.Date).Last();
         }
 
-        private string getDayWithSuffix(int day)
+        private static string getDayWithSuffix(int day)
         {
             if (day < 1 || day > 31)
             {
@@ -102,26 +103,26 @@ namespace Covid19Analysis.IO
             }
         }
 
-        private string datesOfSpecificPositiveIncrease(IEnumerable<CovidCase> dataCollection, int positiveIncrease)
+        private static string datesOfSpecificPositiveIncrease(IEnumerable<CovidCase> dataCollection, int positiveIncrease)
         {
             var dates = dataCollection.Where(data => data.PositiveIncrease == positiveIncrease).Reverse();
             var days = string.Empty;
             foreach (var data in dates)
             {
-                days += $"{this.getDayWithSuffix(data.Date.Day)}, ";
+                days += $"{getDayWithSuffix(data.Date.Day)}, ";
             }
 
             return days;
         }
 
-        private string datesOfSpecificTotalIncrease(IEnumerable<CovidCase> dataCollection, int totalIncrease)
+        private static string datesOfSpecificTotalIncrease(IEnumerable<CovidCase> dataCollection, int totalIncrease)
         {
             var dates = dataCollection
                         .Where(data => data.TotalTestCount == totalIncrease).Reverse();
             var days = string.Empty;
             foreach (var data in dates)
             {
-                days += $"{this.getDayWithSuffix(data.Date.Day)}, ";
+                days += $"{getDayWithSuffix(data.Date.Day)}, ";
             }
 
             return days;
@@ -130,7 +131,7 @@ namespace Covid19Analysis.IO
         private string formatHighestPositiveTests(IList<CovidCase> covidEvents)
         {
             var highestTestCase = this.location.GetHighestNumberOfPositiveTests(covidEvents).PositiveIncrease;
-            var dateOfHighestTest = this.datesOfSpecificPositiveIncrease(covidEvents, highestTestCase);
+            var dateOfHighestTest = datesOfSpecificPositiveIncrease(covidEvents, highestTestCase);
 
             return
                 $"Highest # of positive tests: {highestTestCase:N0} occurred on the {dateOfHighestTest} {Environment.NewLine}";
@@ -139,7 +140,7 @@ namespace Covid19Analysis.IO
         private string formatLowestPositiveTests(IList<CovidCase> covidEvents)
         {
             var lowestTestCase = this.location.GetLowestNumberOfPositiveTests(covidEvents).PositiveIncrease;
-            var dateOfLowestTest = this.datesOfSpecificPositiveIncrease(covidEvents, lowestTestCase);
+            var dateOfLowestTest = datesOfSpecificPositiveIncrease(covidEvents, lowestTestCase);
 
             return $"Lowest # of positive tests: {lowestTestCase:N0} occurred on the {dateOfLowestTest} {Environment.NewLine}";
         }
@@ -147,15 +148,15 @@ namespace Covid19Analysis.IO
         private string formatHighestTotalTests(IList<CovidCase> covidEvents)
         {
             var highestTotal = this.location.GetHighestTotalTestsData(covidEvents).TotalTestCount;
-            var dateOfHighestTotal = this.datesOfSpecificTotalIncrease(covidEvents, highestTotal);
+            var dateOfHighestTotal = datesOfSpecificTotalIncrease(covidEvents, highestTotal);
 
             return $"Highest # of total tests: {highestTotal:N0} occurred on the {dateOfHighestTotal} {Environment.NewLine}";
         }
 
         private string formatLowestTotalTests(IList<CovidCase> covidEvents)
         {
-            var lowestTotal =this.location.GetLowestNumberOfTotalTests(covidEvents).TotalTestCount;
-            var dateOfLowestTotal = this.datesOfSpecificTotalIncrease(covidEvents, lowestTotal);
+            var lowestTotal = this.location.GetLowestNumberOfTotalTests(covidEvents).TotalTestCount;
+            var dateOfLowestTotal = datesOfSpecificTotalIncrease(covidEvents, lowestTotal);
 
             return $"Lowest # of total tests: {lowestTotal:N0} occurred on the {dateOfLowestTotal} {Environment.NewLine}";
         }

@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace CovidAnalysisUnitTest
+namespace CovidAnalysisUnitTest.CovidLocationDataTest
 {
     [TestClass]
     public class TestingGetHighestHospitalizations
@@ -10,7 +10,7 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestGetHighestHospitalizationReturnNull()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             Assert.IsNull(covidLocationData.GetHighestHospitalization());
         }
@@ -18,7 +18,7 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestGetHighestHospitalizationCase()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2015, 2, 15))
             {
@@ -30,8 +30,8 @@ namespace CovidAnalysisUnitTest
                 HospitalizedIncrease = 125
             });
 
-            int expected = 125;
-            int result = covidLocationData.GetHighestHospitalization().HospitalizedIncrease;
+            const int expected = 125;
+            var result = covidLocationData.GetHighestHospitalization().HospitalizedIncrease;
 
             Assert.AreEqual(expected, result);
         }

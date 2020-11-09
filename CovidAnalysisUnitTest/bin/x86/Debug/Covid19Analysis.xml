@@ -78,6 +78,7 @@
             <summary>
                 Saves the data as CSV.
             </summary>
+            <param name="file">The file</param>
             <param name="dataToSave">The data to save.</param>
         </member>
         <member name="T:Covid19Analysis.CovidCSV.CsvReader">
@@ -112,6 +113,20 @@
               A string of all errors.
             </returns>
         </member>
+        <member name="T:Covid19Analysis.CovidXML.XmlReader">
+            <summary>
+            The xml reader
+            </summary>
+        </member>
+        <member name="M:Covid19Analysis.CovidXML.XmlReader.GetCovidData(Windows.Storage.StorageFile)">
+            <summary>
+            Gets the covid data
+            </summary>
+            <param name="file"></param>
+            <returns>
+            Deserialized covid collection
+            </returns>
+        </member>
         <member name="T:Covid19Analysis.CovidXml.XmlWriter">
             <summary>
                 Class to save Covid-19 data to a XML file
@@ -122,11 +137,41 @@
             <param name="file">The storage file to save to.</param>
             <param name="covidCollection">The covid collection to save.</param>
         </member>
+        <member name="T:Covid19Analysis.Extensions.ListExtensions">
+            <summary>
+            Extends the i enumerable interface
+            </summary>
+        </member>
+        <member name="M:Covid19Analysis.Extensions.ListExtensions.ToObservableCollection``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Converts to observablecollection.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="collection">The collection.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Covid19Analysis.IO.SummaryStatisticsFormatter">
+            <summary>
+            Formats the summary statistics to be displayed
+            </summary>
+        </member>
+        <member name="M:Covid19Analysis.IO.SummaryStatisticsFormatter.#ctor(Covid19Analysis.Model.CovidLocationData)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Covid19Analysis.IO.SummaryStatisticsFormatter"/> class.
+            </summary>
+            <param name="stateData">The state data.</param>
+            <exception cref="T:System.NullReferenceException">stateData</exception>
+        </member>
         <member name="M:Covid19Analysis.IO.SummaryStatisticsFormatter.GetLocationSummary(System.Int32,System.Int32,System.Int32)">
             <summary>
                 Gets the LocationData summary.
             </summary>
             <returns>A summary of the LocationData</returns>
+        </member>
+        <member name="T:Covid19Analysis.IO.MonthlyStatisticsFormatter">
+            <summary>
+            Formats the monthly statistics to be displayed
+            </summary>
         </member>
         <member name="M:Covid19Analysis.IO.MonthlyStatisticsFormatter.#ctor(Covid19Analysis.Model.CovidLocationData)">
             <summary>Initializes a new instance of the <see cref="T:Covid19Analysis.IO.MonthlyStatisticsFormatter" /> class.</summary>
@@ -146,43 +191,144 @@
             </summary>
             <returns>A yearly summary of the covid data for the current LocationData.</returns>
         </member>
-        <member name="T:Covid19Analysis.MainPage">
+        <member name="T:Covid19Analysis.IO.CovidOutputBuilder">
+            <summary>
+                Report class to showcase data at a given location.
+            </summary>
+        </member>
+        <member name="P:Covid19Analysis.IO.CovidOutputBuilder.LocationData">
+            <summary>
+                Gets or sets the LocationData for the report.
+            </summary>
+            <value>
+                The LocationData.
+            </value>
+            <exception cref="T:System.NullReferenceException">value cannot be null</exception>
+        </member>
+        <member name="P:Covid19Analysis.IO.CovidOutputBuilder.UpperThreshold">
+            <summary>
+                Gets or sets the upper threshold for positive cases.
+            </summary>
+            <value>The upper threshold.</value>
+        </member>
+        <member name="P:Covid19Analysis.IO.CovidOutputBuilder.LowerThreshold">
+            <summary>
+                Gets or sets the lower threshold for positive cases.
+            </summary>
+            <value>The lower threshold.</value>
+        </member>
+        <member name="P:Covid19Analysis.IO.CovidOutputBuilder.BinSize">
+            <summary>
+                Gets or sets the bin size for the histogram.
+            </summary>
+            <value>The lower threshold.</value>
+        </member>
+        <member name="M:Covid19Analysis.IO.CovidOutputBuilder.#ctor(Covid19Analysis.Model.CovidLocationData)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Covid19Analysis.IO.CovidOutputBuilder" /> class.
+            </summary>
+            <param name="stateData">The location data.</param>
+            <exception cref="T:System.NullReferenceException">stateData cannot be null</exception>
+        </member>
+        <member name="M:Covid19Analysis.IO.CovidOutputBuilder.CovidOutput">
+            <summary>
+            Gets the Covid the output.
+            </summary>
+            <returns>
+            The output to be displayed
+            </returns>
+        </member>
+        <member name="M:Covid19Analysis.IO.CovidOutputBuilder.GetLocationSummary">
+            <summary>
+                Gets the LocationData summary.
+            </summary>
+            <returns>A summary of the LocationData</returns>
+        </member>
+        <member name="T:Covid19Analysis.View.MainPage">
             <summary>
             An empty page that can be used on its own or navigated to within a Frame.
             </summary>
         </member>
-        <member name="F:Covid19Analysis.MainPage.ApplicationHeight">
+        <member name="F:Covid19Analysis.View.MainPage.ApplicationHeight">
             <summary>
                 The application height
             </summary>
         </member>
-        <member name="F:Covid19Analysis.MainPage.ApplicationWidth">
+        <member name="F:Covid19Analysis.View.MainPage.ApplicationWidth">
             <summary>
                 The application width
             </summary>
         </member>
-        <member name="P:Covid19Analysis.MainPage.CurrentFile">
+        <member name="P:Covid19Analysis.View.MainPage.CurrentFile">
             <summary>
                 Gets or sets the current data file to analyze.
             </summary>
             <value>The current data file to analyze.</value>
         </member>
-        <member name="M:Covid19Analysis.MainPage.#ctor">
+        <member name="M:Covid19Analysis.View.MainPage.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Covid19Analysis.MainPage" /> class.
+                Initializes a new instance of the <see cref="T:Covid19Analysis.View.MainPage" /> class.
             </summary>
         </member>
-        <member name="M:Covid19Analysis.MainPage.InitializeComponent">
+        <member name="M:Covid19Analysis.View.MainPage.InitializeComponent">
             <summary>
             InitializeComponent()
             </summary>
         </member>
-        <member name="M:Covid19Analysis.MainPage.Connect(System.Int32,System.Object)">
+        <member name="M:Covid19Analysis.View.MainPage.Connect(System.Int32,System.Object)">
             <summary>
             Connect()
             </summary>
         </member>
-        <member name="M:Covid19Analysis.MainPage.GetBindingConnector(System.Int32,System.Object)">
+        <member name="M:Covid19Analysis.View.MainPage.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
+            </summary>
+        </member>
+        <member name="T:Covid19Analysis.View.DuplicateEntryContentDialog">
+            <summary>
+                Class for creating a duplicate entry content dialog
+            </summary>
+        </member>
+        <member name="P:Covid19Analysis.View.DuplicateEntryContentDialog.IsChecked">
+            <summary>Gets or sets a value indicating whether this instance is checked.</summary>
+            <value>
+                <c>true</c> if this instance is checked; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Covid19Analysis.View.DuplicateEntryContentDialog.Subtitle">
+            <summary>Gets or sets the subtitle.</summary>
+            <value>The subtitle.</value>
+        </member>
+        <member name="P:Covid19Analysis.View.DuplicateEntryContentDialog.Message">
+            <summary>Gets or sets the message.</summary>
+            <value>The message.</value>
+        </member>
+        <member name="P:Covid19Analysis.View.DuplicateEntryContentDialog.LastKnownButtonPress">
+            <summary>Gets or sets the last known button press.</summary>
+            <value>The last known button press.</value>
+        </member>
+        <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.#ctor">
+            <summary>
+                Initializes a new instance of the
+                <a onclick="return false;" href="DuplicateEntryContentDialog" originaltag="see">DuplicateEntryContentDialog</a>
+                class.
+            </summary>
+        </member>
+        <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.UpdateContent">
+            <summary>Updates the content.</summary>
+        </member>
+        <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.GetBindingConnector(System.Int32,System.Object)">
             <summary>
             GetBindingConnector(int connectionId, object target)
             </summary>
@@ -678,98 +824,97 @@
                 Clears the data.
             </summary>
         </member>
-        <member name="T:Covid19Analysis.View.DuplicateEntryContentDialog">
+        <member name="T:Covid19Analysis.ViewModel.CovidAnalysisViewModel">
             <summary>
-                Class for creating a duplicate entry content dialog
+            The view model
             </summary>
         </member>
-        <member name="P:Covid19Analysis.View.DuplicateEntryContentDialog.IsChecked">
-            <summary>Gets or sets a value indicating whether this instance is checked.</summary>
-            <value>
-                <c>true</c> if this instance is checked; otherwise, <c>false</c>.
-            </value>
-        </member>
-        <member name="P:Covid19Analysis.View.DuplicateEntryContentDialog.Subtitle">
-            <summary>Gets or sets the subtitle.</summary>
-            <value>The subtitle.</value>
-        </member>
-        <member name="P:Covid19Analysis.View.DuplicateEntryContentDialog.Message">
-            <summary>Gets or sets the message.</summary>
-            <value>The message.</value>
-        </member>
-        <member name="P:Covid19Analysis.View.DuplicateEntryContentDialog.LastKnownButtonPress">
-            <summary>Gets or sets the last known button press.</summary>
-            <value>The last known button press.</value>
-        </member>
-        <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.#ctor">
+        <member name="F:Covid19Analysis.ViewModel.CovidAnalysisViewModel.DateFormat">
             <summary>
-                Initializes a new instance of the
-                <a onclick="return false;" href="DuplicateEntryContentDialog" originaltag="see">DuplicateEntryContentDialog</a>
-                class.
+            The date format
             </summary>
         </member>
-        <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.UpdateContent">
-            <summary>Updates the content.</summary>
-        </member>
-        <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.InitializeComponent">
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.CovidCases">
             <summary>
-            InitializeComponent()
+            Observable collection of covid cases
             </summary>
         </member>
-        <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.Connect(System.Int32,System.Object)">
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.CovidCollection">
             <summary>
-            Connect()
+            Covid location data collection
             </summary>
         </member>
-        <member name="M:Covid19Analysis.View.DuplicateEntryContentDialog.GetBindingConnector(System.Int32,System.Object)">
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.CovidLocationData">
             <summary>
-            GetBindingConnector(int connectionId, object target)
+            Covid location data
             </summary>
         </member>
-        <member name="T:Covid19Analysis.View.CovidOutputBuilder">
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.LocationOfInterest">
             <summary>
-                Report class to showcase data at a given location.
+            Location of interest
             </summary>
         </member>
-        <member name="P:Covid19Analysis.View.CovidOutputBuilder.LocationData">
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.LowerThreshold">
             <summary>
-                Gets or sets the LocationData for the report.
+            The lower threshold
             </summary>
-            <value>
-                The LocationData.
-            </value>
-            <exception cref="T:System.NullReferenceException">value cannot be null</exception>
         </member>
-        <member name="P:Covid19Analysis.View.CovidOutputBuilder.UpperThreshold">
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.UpperThreshold">
             <summary>
-                Gets or sets the upper threshold for positive cases.
+            The upper threshold
             </summary>
-            <value>The upper threshold.</value>
         </member>
-        <member name="P:Covid19Analysis.View.CovidOutputBuilder.LowerThreshold">
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.BinSize">
             <summary>
-                Gets or sets the lower threshold for positive cases.
+            The bin size
             </summary>
-            <value>The lower threshold.</value>
         </member>
-        <member name="P:Covid19Analysis.View.CovidOutputBuilder.BinSize">
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.StateToSave">
             <summary>
-                Gets or sets the bin size for the histogram.
+            The state with data to save
             </summary>
-            <value>The lower threshold.</value>
         </member>
-        <member name="M:Covid19Analysis.View.CovidOutputBuilder.#ctor(Covid19Analysis.Model.CovidLocationData)">
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.PositiveTestsToSave">
             <summary>
-                Initializes a new instance of the <see cref="T:Covid19Analysis.View.CovidOutputBuilder" /> class.
+            Positive tests to save
             </summary>
-            <param name="stateData">The location data.</param>
-            <exception cref="T:System.NullReferenceException">stateData cannot be null</exception>
         </member>
-        <member name="M:Covid19Analysis.View.CovidOutputBuilder.GetLocationSummary">
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.NegativeTestsToSave">
             <summary>
-                Gets the LocationData summary.
+            Negative tests to save
             </summary>
-            <returns>A summary of the LocationData</returns>
+        </member>
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.DeathsToSave">
+            <summary>
+            Deaths to save
+            </summary>
+        </member>
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.HospitalizationsToSave">
+            <summary>
+            Hospitalizations to save
+            </summary>
+        </member>
+        <member name="P:Covid19Analysis.ViewModel.CovidAnalysisViewModel.DateOfCaseToSave">
+            <summary>
+            Date of Case to Save
+            </summary>
+        </member>
+        <member name="M:Covid19Analysis.ViewModel.CovidAnalysisViewModel.#ctor">
+            <summary>
+            The view model constructor
+            </summary>
+        </member>
+        <member name="E:Covid19Analysis.ViewModel.CovidAnalysisViewModel.PropertyChanged">
+            <summary>
+            Occurs when a property value changes.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Covid19Analysis.ViewModel.CovidAnalysisViewModel.OnPropertyChanged(System.String)">
+            <summary>
+            Called when [property changed].
+            </summary>
+            <param name="propertyName">Name of the property.</param>
         </member>
         <member name="T:Covid19Analysis.Program">
             <summary>

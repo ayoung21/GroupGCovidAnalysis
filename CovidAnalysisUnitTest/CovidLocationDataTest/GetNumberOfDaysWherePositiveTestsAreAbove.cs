@@ -2,7 +2,7 @@
 using Covid19Analysis.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CovidAnalysisUnitTest
+namespace CovidAnalysisUnitTest.CovidLocationDataTest
 {
     [TestClass]
     public class TestingGetNumberOfDaysWherePositiveTestsAreAbove
@@ -29,7 +29,7 @@ namespace CovidAnalysisUnitTest
                 PositiveIncrease = 10
             });
 
-            int expected = 2;
+            const int expected = 2;
             int result   = covidLocationData.GetNumberOfDaysWherePositiveTestsAreAbove(testCount);
             Assert.AreEqual(expected, result);
         }

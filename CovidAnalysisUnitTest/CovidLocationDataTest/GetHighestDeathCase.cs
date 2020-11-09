@@ -1,9 +1,8 @@
-﻿
-using Covid19Analysis.Model;
+﻿using Covid19Analysis.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace CovidAnalysisUnitTest
+namespace CovidAnalysisUnitTest.CovidLocationDataTest
 {
     [TestClass]
     public class TestingGetHighestDeathCase
@@ -11,7 +10,7 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestGetHighestDeathCaseReturnNull()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             Assert.IsNull(covidLocationData.GetHighestDeathsEvent());
         }
@@ -19,7 +18,7 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestGetHighestDeathCase()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2015, 2, 15))
             {
@@ -31,8 +30,8 @@ namespace CovidAnalysisUnitTest
                 DeathIncrease = 125
             });
 
-            int expected = 125;
-            int result = covidLocationData.GetHighestDeathsEvent().DeathIncrease;
+            const int expected = 125;
+            var result = covidLocationData.GetHighestDeathsEvent().DeathIncrease;
 
             Assert.AreEqual(expected, result);
         }

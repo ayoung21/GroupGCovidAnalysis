@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Covid19Analysis.Extensions;
+using Covid19Analysis.Model;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Covid19Analysis.CovidCSV;
-using Covid19Analysis.Extensions;
-using Covid19Analysis.Model;
 
 namespace Covid19Analysis.ViewModel
 {
+    /// <summary>
+    /// The view model
+    /// </summary>
     public class CovidAnalysisViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// The date format
+        /// </summary>
         public const string DateFormat = "yyyyMMdd";
         private const int Default_Lower_Threshold = 0;
         private const int Default_Upper_Threshold = 2500;
@@ -33,12 +34,12 @@ namespace Covid19Analysis.ViewModel
         private CovidLocationDataCollection covidCollection;
         private ObservableCollection<CovidCase> covidCases;
 
+        /// <summary>
+        /// Observable collection of covid cases
+        /// </summary>
         public ObservableCollection<CovidCase> CovidCases
         {
-            get
-            {
-                return this.covidCases;
-            }
+            get => this.covidCases;
             set
             {
                 this.covidCases = value;
@@ -46,12 +47,12 @@ namespace Covid19Analysis.ViewModel
             }
         }
 
+        /// <summary>
+        /// Covid location data collection
+        /// </summary>
         public CovidLocationDataCollection CovidCollection
         {
-            get
-            {
-                return this.covidCollection;
-            }
+            get => this.covidCollection;
             set
             {
                 this.covidCollection = value;
@@ -59,6 +60,9 @@ namespace Covid19Analysis.ViewModel
             }
         }
 
+        /// <summary>
+        /// Covid location data
+        /// </summary>
         public CovidLocationData CovidLocationData
         {
             get => this.covidLocationData;
@@ -69,96 +73,96 @@ namespace Covid19Analysis.ViewModel
             }
         }
 
+        /// <summary>
+        /// Location of interest
+        /// </summary>
         public string LocationOfInterest
         {
-            get
-            {
-                return this.locationOfInterest;
-            }
+            get => this.locationOfInterest;
             set
             {
                 this.locationOfInterest = value;
                 this.OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// The lower threshold
+        /// </summary>
         public int LowerThreshold
         {
-            get
-            {
-                return this.lowerThreshold;
-            }
+            get => this.lowerThreshold;
             set
             {
                 this.lowerThreshold = value;
                 this.OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// The upper threshold
+        /// </summary>
         public int UpperThreshold
         {
-            get
-            {
-                return this.upperThreshold;
-            }
+            get => this.upperThreshold;
             set
             {
                 this.upperThreshold = value;
                 this.OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// The bin size
+        /// </summary>
         public int BinSize
         {
-            get
-            {
-                return this.binSize;
-            }
+            get => this.binSize;
             set
             {
                 this.binSize = value;
                 this.OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// The state with data to save
+        /// </summary>
         public string StateToSave
         {
-            get
-            {
-                return this.stateToSave;
-            }
+            get => this.stateToSave;
             set
             {
                 this.stateToSave = value;
                 this.OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// Positive tests to save
+        /// </summary>
         public int PositiveTestsToSave
         {
-            get
-            {
-                return this.positiveTestsToSave;
-            }
+            get => this.positiveTestsToSave;
             set
             {
                 this.positiveTestsToSave = value;
                 this.OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// Negative tests to save
+        /// </summary>
         public int NegativeTestsToSave
         {
-            get
-            {
-                return this.negativeTestsToSave;
-            }
+            get => this.negativeTestsToSave;
             set
             {
                 this.negativeTestsToSave = value;
                 this.OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// Deaths to save
+        /// </summary>
         public int DeathsToSave
         {
-            get
-            {
-                return this.deathsToSave;
-            }
+            get => this.deathsToSave;
             set
             {
                 this.deathsToSave = value;
@@ -166,12 +170,12 @@ namespace Covid19Analysis.ViewModel
             }
         }
 
+        /// <summary>
+        /// Hospitalizations to save
+        /// </summary>
         public int HospitalizationsToSave
         {
-            get
-            {
-                return this.hospitalizationsToSave;
-            }
+            get => this.hospitalizationsToSave;
             set
             {
                 this.hospitalizationsToSave = value;
@@ -179,12 +183,12 @@ namespace Covid19Analysis.ViewModel
             }
         }
 
+        /// <summary>
+        /// Date of Case to Save
+        /// </summary>
         public DateTimeOffset DateOfCaseToSave
         {
-            get
-            {
-                return this.dateOfCaseToSave;
-            }
+            get => this.dateOfCaseToSave;
             set
             {
                 this.dateOfCaseToSave = value;
@@ -192,6 +196,9 @@ namespace Covid19Analysis.ViewModel
             }
         }
 
+        /// <summary>
+        /// The view model constructor
+        /// </summary>
         public CovidAnalysisViewModel()
         {
             this.LowerThreshold = Default_Lower_Threshold;
@@ -204,8 +211,16 @@ namespace Covid19Analysis.ViewModel
             this.covidCases = this.covidLocationData.CovidCases.ToObservableCollection();
         }
 
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
+        /// <returns></returns>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Called when [property changed].
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

@@ -1,10 +1,8 @@
 ﻿using Covid19Analysis.Model;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using Covid19Analysis.IO;
 
-namespace Covid19Analysis.View
+namespace Covid19Analysis.IO
 {
     /// <summary>
     ///     Report class to showcase data at a given location.
@@ -15,8 +13,8 @@ namespace Covid19Analysis.View
 
         private CovidLocationData location;
 
-        private SummaryStatisticsFormatter totalStatisticsFormatter;
-        private MonthlyStatisticsFormatter monthlyStatisticsFormatter;
+        private readonly SummaryStatisticsFormatter totalStatisticsFormatter;
+        private readonly MonthlyStatisticsFormatter monthlyStatisticsFormatter;
 
         #endregion
 
@@ -73,6 +71,12 @@ namespace Covid19Analysis.View
 
         #region Methods
 
+        /// <summary>
+        /// Gets the Covid the output.
+        /// </summary>
+        /// <returns>
+        /// The output to be displayed
+        /// </returns>
         public string CovidOutput()
         {
             return this.totalStatisticsFormatter.GetLocationSummary(this.LowerThreshold, this.UpperThreshold, this.BinSize) +
@@ -265,7 +269,7 @@ namespace Covid19Analysis.View
 
         private string buildHistogramOfPositiveCases()
         {
-            var startingPoint = 0;
+            const int startingPoint = 0;
             var output = $"HISTOGRAM of Positive Tests{Environment.NewLine}";
             var highestNumberOfCases = this.LocationData.GetHighestNumberOfPositiveTests(this.location.CovidCases);
             var highestPositiveTests = highestNumberOfCases.PositiveIncrease;

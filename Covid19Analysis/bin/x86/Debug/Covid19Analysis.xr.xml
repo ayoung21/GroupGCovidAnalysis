@@ -119,7 +119,7 @@
       <RootProperty Name="Label" />
       <RootEvent Name="Click" />
     </RootType>
-    <RootType FullName="Covid19Analysis.MainPage" />
+    <RootType FullName="Covid19Analysis.View.MainPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ContentDialog">
       <RootProperty Name="Title" />
       <RootProperty Name="PrimaryButtonText" />

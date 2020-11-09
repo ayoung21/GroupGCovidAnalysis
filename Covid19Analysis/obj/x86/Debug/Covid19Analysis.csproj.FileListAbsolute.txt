@@ -616,7 +616,6 @@ C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\bin\x86\Debug\C
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\bin\x86\Debug\Covid19Analysis.build.appxrecipe
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\bin\x86\Debug\System.Runtime.dll
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
-C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\obj\x86\Debug\Covid19Analysis.csprojAssemblyReference.cache
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\obj\x86\Debug\App.g.i.cs
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\obj\x86\Debug\App.g.cs
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\obj\x86\Debug\View\MainPage.g.i.cs
@@ -653,4 +652,4 @@ C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\obj\x86\Debug\q
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885454160000000.json
-C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885562160000000.json
+C:\Users\benev\Source\Repos\GroupGCovidAnalysis3\Covid19Analysis\obj\x86\Debug\Covid19Analysis.csprojAssemblyReference.cache

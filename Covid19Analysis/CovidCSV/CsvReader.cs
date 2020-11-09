@@ -21,7 +21,7 @@ namespace Covid19Analysis.CovidCSV
         private const int HospitalizedCurrentlyColumn = 4;
         private const int HospitalizedIncreaseColumn = 5;
         private const int DeathColumn = 6;
-        
+
         private const char DefaultDelimiter = ',';
         #endregion
 
@@ -39,17 +39,14 @@ namespace Covid19Analysis.CovidCSV
             get => this.csvFile;
             set
             {
-                this.errors.Clear();
+                this.Errors.Clear();
                 this.csvFile = value ?? throw new ArgumentNullException(nameof(this.csvFile));
             }
         }
 
-        private readonly IList<string> errors;
-
-
         /// <summary>Get all lines or errors if any.</summary>
         /// <value>The errors.</value>
-        public IList<string> Errors => this.errors;
+        public IList<string> Errors { get; }
 
         #endregion
 
@@ -61,7 +58,7 @@ namespace Covid19Analysis.CovidCSV
         /// <exception cref="ArgumentNullException">csvFile cannot be null</exception>
         public CsvReader()
         {
-            this.errors = new List<string>();
+            this.Errors = new List<string>();
         }
 
         #endregion
@@ -107,8 +104,8 @@ namespace Covid19Analysis.CovidCSV
         /// </returns>
         public string GetErrorsAsString()
         {
-            string errors = "";
-            foreach (var currentError in this.errors)
+            var errors = "";
+            foreach (var currentError in this.Errors)
             {
                 errors += currentError + Environment.NewLine;
             }
@@ -116,23 +113,24 @@ namespace Covid19Analysis.CovidCSV
             return errors;
         }
 
-        private CovidCase processCovidData(int row, string[] data)
+        private CovidCase processCovidData(int row, IReadOnlyList<string> data)
         {
-            if (!isValid(data))
+            if (this.isValid(data))
             {
-                this.createErrorMessage(row, data);
-                return null;
+                return createCovidCase(data);
             }
 
-            return this.createCovidCase(data);
+            this.createErrorMessage(row, data);
+            return null;
+
         }
 
-        private void createErrorMessage(int row, string[] data)
+        private void createErrorMessage(int row, IEnumerable<string> data)
         {
-            string line = "";
+            var line = "";
             foreach (var item in data)
             {
-                if (String.IsNullOrEmpty(item))
+                if (string.IsNullOrEmpty(item))
                 {
                     line += " __ ";
                 }
@@ -141,10 +139,10 @@ namespace Covid19Analysis.CovidCSV
                     line += item + " ";
                 }
             }
-            this.errors.Add($"ERROR: Invalid Row [{row}] - {line}");
+            this.Errors.Add($"ERROR: Invalid Row [{row}] - {line}");
         }
 
-        private CovidCase createCovidCase(string[] data)
+        private static CovidCase createCovidCase(IReadOnlyList<string> data)
         {
             try
             {
@@ -173,27 +171,27 @@ namespace Covid19Analysis.CovidCSV
             }
         }
 
-        private bool isValid(string[] data)
+        private bool isValid(IReadOnlyList<string> data)
         {
             // var validFields = containsValidFields(data);
-            var validDate = containsValidDate(data[DateColumn]);
-            var validPositive = containsValidNumber(data[PositiveColumn]);
-            var validNegative = containsValidNumber(data[NegativeColumn]);
-            var validHospitalizedCurrently = containsValidNumber(data[HospitalizedCurrentlyColumn]);
-            var validHospitalizedIncrease = containsValidNumber(data[HospitalizedIncreaseColumn]);
-            var validDeath = containsValidNumber(data[DeathColumn]);
+            var validDate = this.containsValidDate(data[DateColumn]);
+            var validPositive = this.containsValidNumber(data[PositiveColumn]);
+            var validNegative = this.containsValidNumber(data[NegativeColumn]);
+            var validHospitalizedCurrently = this.containsValidNumber(data[HospitalizedCurrentlyColumn]);
+            var validHospitalizedIncrease = this.containsValidNumber(data[HospitalizedIncreaseColumn]);
+            var validDeath = this.containsValidNumber(data[DeathColumn]);
 
             var result = validDate && validPositive && validNegative && validDeath && validHospitalizedIncrease && validHospitalizedCurrently;
 
             return result;
         }
 
-        private bool containsValidFields(string[] data)
+        private bool containsValidFields(IEnumerable<string> data)
         {
             var validFields = true;
             foreach (var item in data)
             {
-                if (String.IsNullOrEmpty(item))
+                if (string.IsNullOrEmpty(item))
                 {
                     validFields = false;
                 }
@@ -204,28 +202,18 @@ namespace Covid19Analysis.CovidCSV
 
         private bool containsValidDate(string data)
         {
-            if (DateTime.TryParseExact(data, CsvConstants.DateFormat, CultureInfo.InvariantCulture,
-                DateTimeStyles.None, out _))
-            {
-                return true;
-            }
-
-            return false;
+            return DateTime.TryParseExact(data, CsvConstants.DateFormat, CultureInfo.InvariantCulture,
+                DateTimeStyles.None, out _);
         }
 
         private bool containsValidNumber(string data)
         {
-            if (String.IsNullOrEmpty(data) || int.TryParse(data, out _))
-            {
-                return true;
-            }
-
-            return false;
+            return string.IsNullOrEmpty(data) || int.TryParse(data, out _);
         }
 
-        private int getNumericValue(string data)
+        private static int getNumericValue(string data)
         {
-            return (String.IsNullOrEmpty(data) || int.Parse(data) < 0) ? 0 : int.Parse(data);
+            return string.IsNullOrEmpty(data) || int.Parse(data) < 0 ? 0 : int.Parse(data);
         }
 
         #endregion

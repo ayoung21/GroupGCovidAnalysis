@@ -1,9 +1,8 @@
-﻿
+﻿using System;
 using Covid19Analysis.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace CovidAnalysisUnitTest
+namespace CovidAnalysisUnitTest.CovidLocationDataTest
 {
     [TestClass]
     public class TestingGetLowestNumberOfTotalTests
@@ -33,7 +32,7 @@ namespace CovidAnalysisUnitTest
                 NegativeIncrease = 75
             });
 
-            var expected = 100;
+            const int expected = 100;
             var result = covidLocationData.GetLowestNumberOfTotalTests(covidLocationData.CovidCases).TotalTestCount;
 
             Assert.AreEqual(expected, result);

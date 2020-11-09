@@ -1,10 +1,8 @@
 ﻿using Covid19Analysis.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Windows.Storage;
-using Windows.Storage.Pickers;
-using Windows.Storage.Provider;
-using Windows.UI.Xaml.Controls;
 
 namespace Covid19Analysis.CovidCSV
 {
@@ -13,28 +11,24 @@ namespace Covid19Analysis.CovidCSV
     /// </summary>
     public class CsvWriter
     {
-
         /// <summary>
         ///     Saves the data as CSV.
         /// </summary>
+        /// <param name="file">The file</param>
         /// <param name="dataToSave">The data to save.</param>
         public async void SaveDataAsCsv(StorageFile file, CovidLocationDataCollection dataToSave)
         {
             var locationCollection = dataToSave.CollectionOfCovidLocationData;
-            string data = $"{CsvConstants.HeaderInformation} {Environment.NewLine}";
+            var data = $"{CsvConstants.HeaderInformation} {Environment.NewLine}";
 
-            foreach (KeyValuePair<string, CovidLocationData> currentLocation in locationCollection)
-            {
-                var locationData = currentLocation.Value.CovidCases;
-                data += this.extractDataFromLocation(locationData);
-            }
+            data = locationCollection.Select(currentLocation => currentLocation.Value.CovidCases).Aggregate(data, (current, locationData) => current + extractDataFromLocation(locationData));
 
             await FileIO.WriteTextAsync(file, data);
         }
 
-        private string extractDataFromLocation(IList<CovidCase> covidLocation)
+        private static string extractDataFromLocation(IEnumerable<CovidCase> covidLocation)
         {
-            string data = "";
+            var data = "";
 
             foreach (var currentData in covidLocation)
             {

@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml.Data;
 
 namespace Covid19Analysis.Converter
 {
-    class DateTimeConverter : IValueConverter
+    internal class DateTimeConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             try
             {
-                DateTime date = (DateTime)value;
+                var date = (DateTime)value;
                 return new DateTimeOffset(date);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return DateTimeOffset.MinValue;
             }
@@ -26,10 +22,10 @@ namespace Covid19Analysis.Converter
         {
             try
             {
-                DateTimeOffset dto = (DateTimeOffset)value;
+                var dto = (DateTimeOffset)value;
                 return dto.DateTime;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return DateTime.MinValue;
             }

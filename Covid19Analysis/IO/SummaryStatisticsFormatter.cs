@@ -1,17 +1,22 @@
-﻿using System;
+﻿using Covid19Analysis.Model;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Covid19Analysis.Model;
 
 namespace Covid19Analysis.IO
 {
+    /// <summary>
+    /// Formats the summary statistics to be displayed
+    /// </summary>
     public class SummaryStatisticsFormatter
     {
 
-        private CovidLocationData location;
+        private readonly CovidLocationData location;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SummaryStatisticsFormatter"/> class.
+        /// </summary>
+        /// <param name="stateData">The state data.</param>
+        /// <exception cref="NullReferenceException">stateData</exception>
         public SummaryStatisticsFormatter(CovidLocationData stateData)
         {
             this.location = stateData ?? throw new NullReferenceException(nameof(stateData));
@@ -142,16 +147,16 @@ namespace Covid19Analysis.IO
 
         private string buildHistogramOfPositiveCases(int binSize)
         {
-            const int StartingPoint = 0;
-            const int Offset = 1;
+            const int startingPoint = 0;
+            const int offset = 1;
             var output = $"HISTOGRAM of Positive Tests{Environment.NewLine}";
             var highestNumberOfCases = this.location.GetHighestNumberOfPositiveTests(this.location.CovidCases);
             var highestPositiveTests = highestNumberOfCases.PositiveIncrease;
 
-            for (var i = StartingPoint; i < highestPositiveTests; i += binSize)
+            for (var i = startingPoint; i < highestPositiveTests; i += binSize)
             {
-                var numberOfCases = this.location.NumberOfPositiveCasesBetween(i + Offset, i + binSize);
-                output += $"{i + Offset} - {i + binSize}: {numberOfCases} {Environment.NewLine}";
+                var numberOfCases = this.location.NumberOfPositiveCasesBetween(i + offset, i + binSize);
+                output += $"{i + offset} - {i + binSize}: {numberOfCases} {Environment.NewLine}";
             }
 
             return output;

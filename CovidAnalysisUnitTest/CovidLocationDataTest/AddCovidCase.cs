@@ -1,9 +1,8 @@
-﻿
+﻿using System;
 using Covid19Analysis.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace CovidAnalysisUnitTest
+namespace CovidAnalysisUnitTest.CovidLocationDataTest
 {
     [TestClass]
     public class CovidLocationDataTest
@@ -11,10 +10,10 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestAddCovidCase()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
             covidLocationData.AddCovidCase(new CovidCase("GA", new DateTime(2015, 1, 15)));
-            int expected = 1;
-            int result = covidLocationData.CovidCases.Count;
+            const int expected = 1;
+            var result = covidLocationData.CovidCases.Count;
 
             Assert.AreEqual(expected, result);
         }
@@ -22,7 +21,7 @@ namespace CovidAnalysisUnitTest
         [TestMethod]
         public void TestAddCovidCaseThrowsNullException()
         {
-            CovidLocationData covidLocationData = new CovidLocationData("GA");
+            var covidLocationData = new CovidLocationData("GA");
 
             Assert.ThrowsException<ArgumentNullException>(() =>
                 covidLocationData.AddCovidCase(null));
